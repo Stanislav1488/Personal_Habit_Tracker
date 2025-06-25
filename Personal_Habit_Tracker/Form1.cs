@@ -79,9 +79,24 @@ namespace Personal_Habit_Tracker
         {
             PictureBox icon = (PictureBox)sender;
 
-            switch(icon.Tag)
+            switch (icon.Tag)
             {
-                case
+                case 1:
+                    Form form_for_add = new Form2();
+                    form_for_add.ShowDialog();
+                    break;
+                case 2:
+                    Form form_for_statistics = new Form3();
+                    form_for_statistics.ShowDialog();
+                    break;
+                case 3:
+                    Form form_for_history = new Form4();
+                    form_for_history.ShowDialog();
+                    break;
+                case 4:
+                    Form5 form_for_setting = new Form5();
+                    form_for_setting.ShowDialog();
+                    break;
             }
         }
     }

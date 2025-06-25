@@ -36,7 +36,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 447);
             this.Name = "Form2";
+            this.ShowIcon = false;
             this.Text = "Добавление";
+            this.TopMost = true;
             this.ResumeLayout(false);
 
         }
