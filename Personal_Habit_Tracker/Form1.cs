@@ -23,9 +23,9 @@ namespace Personal_Habit_Tracker
             icon_history.MouseLeave += icons_MouseLeave;
             icon_setting.MouseLeave += icons_MouseLeave;
 
-            icon_statistics.MouseLeave += icons_Click;
-            icon_history.MouseLeave += icons_Click;
-            icon_setting.MouseLeave += icons_Click;
+            icon_statistics.Click += icons_Click;
+            icon_history.Click += icons_Click;
+            icon_setting.Click += icons_Click;
 
             icon_add.Tag = 1;
             icon_statistics.Tag = 2;
