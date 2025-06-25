@@ -15,21 +15,25 @@ namespace Personal_Habit_Tracker
 
         private void Tags_Icons()
         {
-            pictureBox3.MouseMove += pictureBox2_MouseMove;
-            pictureBox4.MouseMove += pictureBox2_MouseMove;
-            pictureBox5.MouseMove += pictureBox2_MouseMove;
+            icon_statistics.MouseMove += icons_MouseMove;
+            icon_history.MouseMove += icons_MouseMove;
+            icon_setting.MouseMove += icons_MouseMove;
 
-            pictureBox3.MouseLeave += pictureBox2_MouseLeave;
-            pictureBox4.MouseLeave += pictureBox2_MouseLeave;
-            pictureBox5.MouseLeave += pictureBox2_MouseLeave;
+            icon_statistics.MouseLeave += icons_MouseLeave;
+            icon_history.MouseLeave += icons_MouseLeave;
+            icon_setting.MouseLeave += icons_MouseLeave;
 
-            pictureBox2.Tag = 1;
-            pictureBox3.Tag = 2;
-            pictureBox4.Tag = 3;
-            pictureBox5.Tag = 4;
+            icon_statistics.MouseLeave += icons_Click;
+            icon_history.MouseLeave += icons_Click;
+            icon_setting.MouseLeave += icons_Click;
+
+            icon_add.Tag = 1;
+            icon_statistics.Tag = 2;
+            icon_history.Tag = 3;
+            icon_setting.Tag = 4;
         }
 
-        private void pictureBox2_MouseMove(object sender, MouseEventArgs e)
+        private void icons_MouseMove(object sender, MouseEventArgs e)
         {
             PictureBox icon = (PictureBox)sender;
 
@@ -50,7 +54,7 @@ namespace Personal_Habit_Tracker
             }
         }
 
-        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        private void icons_MouseLeave(object sender, EventArgs e)
         {
             PictureBox icon = (PictureBox)sender;
 
@@ -68,6 +72,16 @@ namespace Personal_Habit_Tracker
                 case 4:
                     icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\setting_blue.png");
                     break;
+            }
+        }
+
+        private void icons_Click(object sender, EventArgs e)
+        {
+            PictureBox icon = (PictureBox)sender;
+
+            switch(icon.Tag)
+            {
+                case
             }
         }
     }
