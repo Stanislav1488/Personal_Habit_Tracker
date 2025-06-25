@@ -14,6 +14,7 @@ namespace Personal_Habit_Tracker
     {
         public Form2()
         {
+            Application.VisualStyleState = System.Windows.Forms.VisualStyles.VisualStyleState.NonClientAreaEnabled;
             InitializeComponent();
         }
     }
