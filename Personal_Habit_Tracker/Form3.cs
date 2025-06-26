@@ -16,5 +16,10 @@ namespace Personal_Habit_Tracker
         {
             InitializeComponent();
         }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
