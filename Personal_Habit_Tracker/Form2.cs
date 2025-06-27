@@ -41,55 +41,75 @@ namespace Personal_Habit_Tracker
             label3.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(12, 333);
             label3.Size = new Size(27, 27);
-            //
+            label3.ForeColor = Color.White;
+
             //label4
             label4.Text = "M";
             label4.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(77, 333);
             label4.Size = new Size(30, 27);
-            //
+            label4.ForeColor = Color.White;
+            
             //label5
             label5.Text = "Y";
             label5.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(145, 333);
             label5.Size = new Size(26, 27);
-            //
+            label5.ForeColor = Color.White;
+
             //label6
             label6.Text = ":";
             label6.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label6.Location = new Point(292, 333);
             label6.Size = new Size(19, 27);
-            //
+            label6.ForeColor = Color.White;
+
             //label7
             label7.Text = "Повторение";
             label7.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             label7.Location = new Point(12, 400);
             label7.Size = new Size(135, 27);
-            //
+            label7.ForeColor = Color.White;
+
             //textBox2
             textBox2.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             textBox2.Location = new Point(39, 333);
             textBox2.Size = new Size(38, 34);
+            textBox2.BorderStyle = BorderStyle.FixedSingle;
+            textBox2.BackColor = Color.FromArgb(26, 28, 28);
+            textBox2.ForeColor = Color.White;
             //
             //textBox3
             textBox3.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             textBox3.Location = new Point(107, 333);
             textBox3.Size = new Size(38, 34);
+            textBox3.BorderStyle = BorderStyle.FixedSingle;
+            textBox3.BackColor = Color.FromArgb(26, 28, 28);
+            textBox3.ForeColor = Color.White;
             //
             //textBox4
             textBox4.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             textBox4.Location = new Point(171, 333);
             textBox4.Size = new Size(38, 34);
+            textBox4.BorderStyle = BorderStyle.FixedSingle;
+            textBox4.BackColor = Color.FromArgb(26, 28, 28);
+            textBox4.ForeColor = Color.White;
             //
             //textBox5
             textBox5.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             textBox5.Location = new Point(254, 333);
             textBox5.Size = new Size(38, 34);
+            textBox5.BorderStyle = BorderStyle.FixedSingle;
+            textBox5.BackColor = Color.FromArgb(26, 28, 28);
+            textBox5.ForeColor = Color.White;
             //
             //textBox6
             textBox6.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             textBox6.Location = new Point(311, 333);
             textBox6.Size = new Size(38, 34);
+            textBox6.BorderStyle = BorderStyle.FixedSingle;
+            textBox6.BackColor = Color.FromArgb(26, 28, 28);
+            textBox6.ForeColor = Color.White;
             //
             //radioButton3
             radioButton3.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
