@@ -6,6 +6,24 @@ namespace Personal_Habit_Tracker
 {
     public partial class Form2 : Form
     {
+        Panel panel = new Panel();
+        Label label3 = new Label();
+        Label label4 = new Label();
+        Label label5 = new Label();
+        Label label6 = new Label();
+        Label label7 = new Label();
+        TextBox textBox2 = new TextBox();
+        TextBox textBox3 = new TextBox();
+        TextBox textBox4 = new TextBox();
+        TextBox textBox5 = new TextBox();
+        TextBox textBox6 = new TextBox();
+        RadioButton radioButton3 = new RadioButton();
+        RadioButton radioButton4 = new RadioButton();
+        RadioButton radioButton5 = new RadioButton();
+        RadioButton radioButton6 = new RadioButton();
+        RadioButton radioButton7 = new RadioButton();
+        RadioButton radioButton8 = new RadioButton();
+
         public Form2()
         {
             InitializeComponent();
@@ -14,25 +32,6 @@ namespace Personal_Habit_Tracker
 
         private void NotificationTime_and_Repeat()
         {
-            Panel panel = new Panel();
-            Label label3 = new Label();
-            Label label4 = new Label();
-            Label label5 = new Label();
-            Label label6 = new Label();
-            Label label7 = new Label();
-            TextBox textBox2 = new TextBox();
-            TextBox textBox3 = new TextBox();
-            TextBox textBox4 = new TextBox();
-            TextBox textBox5 = new TextBox();
-            TextBox textBox6 = new TextBox();
-            RadioButton radioButton3 = new RadioButton();
-            RadioButton radioButton4 = new RadioButton();
-            RadioButton radioButton5 = new RadioButton();
-            RadioButton radioButton6 = new RadioButton();
-            RadioButton radioButton7 = new RadioButton();
-            RadioButton radioButton8 = new RadioButton();
-
-
             //panel
             panel.Location = new Point(17, 430);
             panel.Size = new Size(332, 242);
@@ -136,15 +135,61 @@ namespace Personal_Habit_Tracker
             
         }
 
+        private void babashka_razebashka(bool hyi)
+        {
+            if(hyi == true)
+            {
+                this.Controls.Add(panel);
+                this.Controls.Add(label3);
+                this.Controls.Add(label4);
+                this.Controls.Add(label5);
+                this.Controls.Add(label6);
+                this.Controls.Add(label7);
+                this.Controls.Add(textBox2);
+                this.Controls.Add(textBox3);
+                this.Controls.Add(textBox4);
+                this.Controls.Add(textBox5);
+                this.Controls.Add(textBox6);
+                this.panel.Controls.Add(this.radioButton3);
+                this.panel.Controls.Add(this.radioButton4);
+                this.panel.Controls.Add(this.radioButton5);
+                this.panel.Controls.Add(this.radioButton6);
+                this.panel.Controls.Add(this.radioButton7);
+                this.panel.Controls.Add(this.radioButton8);
+            }
+            else
+            {
+                this.Controls.Remove(panel);
+                this.Controls.Remove(label3);
+                this.Controls.Remove(label4);
+                this.Controls.Remove(label5);
+                this.Controls.Remove(label6);
+                this.Controls.Remove(label7);
+                this.Controls.Remove(textBox2);
+                this.Controls.Remove(textBox3);
+                this.Controls.Remove(textBox4);
+                this.Controls.Remove(textBox5);
+                this.Controls.Remove(textBox6);
+                this.panel.Controls.Remove(this.radioButton3);
+                this.panel.Controls.Remove(this.radioButton4);
+                this.panel.Controls.Remove(this.radioButton5);
+                this.panel.Controls.Remove(this.radioButton6);
+                this.panel.Controls.Remove(this.radioButton7);
+                this.panel.Controls.Remove(this.radioButton8);
+            }
+        }
+
         private void add_time_CheckedChanged(object sender, System.EventArgs e)
         {
             if (add_time.Checked)
             {
                 this.Size = new Size(520, 723);
+                babashka_razebashka(true);
             }
             else
             {
                 this.Size = new Size(520, 332);
+                babashka_razebashka(false);
             }
         }
     }
