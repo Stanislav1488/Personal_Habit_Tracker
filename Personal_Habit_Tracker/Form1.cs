@@ -10,10 +10,10 @@ namespace Personal_Habit_Tracker
         public Form1()
         {
             InitializeComponent();
-            Tags_Icons();
+            InitializeIconEventsAndTags();
         }
 
-        private void Tags_Icons()
+        private void InitializeIconEventsAndTags()
         {
             icon_statistics.MouseMove += icons_MouseMove;
             icon_history.MouseMove += icons_MouseMove;

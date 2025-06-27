@@ -27,10 +27,10 @@ namespace Personal_Habit_Tracker
         public Form2()
         {
             InitializeComponent();
-            NotificationTime_and_Repeat();
+            Setting_NotificationTime_and_Repeat();
         }
 
-        private void NotificationTime_and_Repeat()
+        private void Setting_NotificationTime_and_Repeat()
         {
             //panel
             panel.Location = new Point(17, 430);
@@ -135,9 +135,9 @@ namespace Personal_Habit_Tracker
             
         }
 
-        private void babashka_razebashka(bool hyi)
+        private void ToggleNotificationSettingsUI(bool isNotificationSettingsVisible)
         {
-            if(hyi == true)
+            if(isNotificationSettingsVisible == true)
             {
                 this.Controls.Add(panel);
                 this.Controls.Add(label3);
@@ -184,12 +184,12 @@ namespace Personal_Habit_Tracker
             if (add_time.Checked)
             {
                 this.Size = new Size(520, 723);
-                babashka_razebashka(true);
+                ToggleNotificationSettingsUI(true);
             }
             else
             {
                 this.Size = new Size(520, 332);
-                babashka_razebashka(false);
+                ToggleNotificationSettingsUI(false);
             }
         }
     }
