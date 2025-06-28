@@ -1,7 +1,6 @@
 ﻿using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace Personal_Habit_Tracker
 {
@@ -52,7 +51,7 @@ namespace Personal_Habit_Tracker
             label4.Location = new Point(77, 333);
             label4.Size = new Size(30, 27);
             label4.ForeColor = Color.White;
-            
+
             //label5
             label5.Text = "Y";
             label5.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -120,14 +119,14 @@ namespace Personal_Habit_Tracker
             radioButton3.Location = new Point(3, 3);
             radioButton3.Size = new Size(172, 31);
             radioButton3.Text = "Не повторять";
-            
+
             //radioButton4
             radioButton4.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radioButton4.ForeColor = Color.White;
             radioButton4.Location = new Point(3, 40);
             radioButton4.Size = new Size(194, 31);
             radioButton4.Text = "Каждую минуту";
-            
+
             //radioButton5
             radioButton5.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radioButton5.ForeColor = Color.White;
@@ -155,12 +154,12 @@ namespace Personal_Habit_Tracker
             radioButton8.Location = new Point(4, 188);
             radioButton8.Size = new Size(132, 31);
             radioButton8.Text = "Ежегодно";
-            
+
         }
 
         private void ToggleNotificationSettingsUI(bool isNotificationSettingsVisible)
         {
-            if(isNotificationSettingsVisible == true)
+            if (isNotificationSettingsVisible == true)
             {
                 this.Controls.Add(panel);
                 this.Controls.Add(label3);
@@ -208,6 +207,7 @@ namespace Personal_Habit_Tracker
             {
                 this.Size = new Size(520, 723);
                 ToggleNotificationSettingsUI(true);
+                radioButton3.Checked = true;
             }
             else
             {
@@ -222,14 +222,44 @@ namespace Personal_Habit_Tracker
             {
                 return false;
             }
-                return true;
+            return true;
         }
 
         private bool check_categories(RadioButton radioButton)
         {
-            if(!radioButton.Checked)
+            if (!radioButton.Checked)
             {
                 return false;
+            }
+            return true;
+        }
+
+        private bool check_NotificationTime()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox && control != text_name)
+                {
+                    if (!check_text((TextBox)control))
+                    {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+
+        private bool check_Repeat()
+        {
+            foreach (Control control in this.Controls)
+            {
+                if (control is RadioButton && (control != radioButton1 && control != radioButton2))
+                {
+                    if (!check_categories((RadioButton)control))
+                    {
+                        return false;
+                    }
+                }
             }
             return true;
         }
@@ -238,7 +268,21 @@ namespace Personal_Habit_Tracker
         {
             if ((check_categories(radioButton1) || check_categories(radioButton2)) && check_text(text_name))
             {
-                add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_white.png");
+                if (add_time.Checked)
+                {
+                    if (check_NotificationTime() && check_Repeat())
+                    {
+                        add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_white.png");
+                    }
+                    else
+                    {
+                        add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_graphite_black.png");
+                    }
+                }
+                else
+                {
+                    add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_white.png");
+                }
             }
             else
             {
@@ -255,5 +299,6 @@ namespace Personal_Habit_Tracker
         {
             check_Categories_and_Text();
         }
+
     }
 }
