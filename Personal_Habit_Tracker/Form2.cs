@@ -234,7 +234,7 @@ namespace Personal_Habit_Tracker
             return true;
         }
 
-        private bool check_NotificationTime()
+        private bool check_NotificationTime_Repeat()
         {
             foreach (Control control in this.Controls)
             {
@@ -245,15 +245,7 @@ namespace Personal_Habit_Tracker
                         return false;
                     }
                 }
-            }
-            return true;
-        }
-
-        private bool check_Repeat()
-        {
-            foreach (Control control in this.Controls)
-            {
-                if (control is RadioButton && (control != radioButton1 && control != radioButton2))
+                else if(control is RadioButton && (control != radioButton1 && control != radioButton2))
                 {
                     if (!check_categories((RadioButton)control))
                     {
@@ -270,7 +262,7 @@ namespace Personal_Habit_Tracker
             {
                 if (add_time.Checked)
                 {
-                    if (check_NotificationTime() && check_Repeat())
+                    if (check_NotificationTime_Repeat())
                     {
                         add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_white.png");
                     }
