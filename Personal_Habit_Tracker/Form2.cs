@@ -225,6 +225,20 @@ namespace Personal_Habit_Tracker
                 return true;
         }
 
+        private bool check_categories(RadioButton radioButton)
+        {
+            if(!radioButton.Checked)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private void check_Categories_and_Text()
+        {
+            RadioButton categories
+        }
+
         private void categories_CheckedChanged(object sender, System.EventArgs e)
         {
             RadioButton category = (RadioButton)sender;
@@ -241,7 +255,14 @@ namespace Personal_Habit_Tracker
 
         private void text_name_TextChanged(object sender, System.EventArgs e)
         {
-
+            if((check_categories(radioButton1) || check_categories(radioButton2)) && check_text(text_name))
+            {
+                add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_white.png");
+            }
+            else
+            {
+                add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_graphite_black.png");
+            }
         }
     }
 }
