@@ -236,33 +236,24 @@ namespace Personal_Habit_Tracker
 
         private void check_Categories_and_Text()
         {
-            RadioButton categories
+            if ((check_categories(radioButton1) || check_categories(radioButton2)) && check_text(text_name))
+            {
+                add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_white.png");
+            }
+            else
+            {
+                add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_graphite_black.png");
+            }
         }
 
         private void categories_CheckedChanged(object sender, System.EventArgs e)
         {
-            RadioButton category = (RadioButton)sender;
-
-            if(category.Checked && check_text(text_name))
-            {
-                add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_white.png");
-            }
-            else
-            {
-                add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_graphite_black.png");
-            }
+            check_Categories_and_Text();
         }
 
         private void text_name_TextChanged(object sender, System.EventArgs e)
         {
-            if((check_categories(radioButton1) || check_categories(radioButton2)) && check_text(text_name))
-            {
-                add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_white.png");
-            }
-            else
-            {
-                add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_graphite_black.png");
-            }
+            check_Categories_and_Text();
         }
     }
 }
