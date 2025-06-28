@@ -1,4 +1,5 @@
 ﻿using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
@@ -28,6 +29,8 @@ namespace Personal_Habit_Tracker
         {
             InitializeComponent();
             Setting_NotificationTime_and_Repeat();
+
+            radioButton2.CheckedChanged += categories_CheckedChanged;
         }
 
         private void Setting_NotificationTime_and_Repeat()
@@ -211,6 +214,34 @@ namespace Personal_Habit_Tracker
                 this.Size = new Size(520, 332);
                 ToggleNotificationSettingsUI(false);
             }
+        }
+
+        private bool check_text(TextBox textBox)
+        {
+            if (textBox.Text.Equals(string.Empty))
+            {
+                return false;
+            }
+                return true;
+        }
+
+        private void categories_CheckedChanged(object sender, System.EventArgs e)
+        {
+            RadioButton category = (RadioButton)sender;
+
+            if(category.Checked && check_text(text_name))
+            {
+                add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_white.png");
+            }
+            else
+            {
+                add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_graphite_black.png");
+            }
+        }
+
+        private void text_name_TextChanged(object sender, System.EventArgs e)
+        {
+
         }
     }
 }
