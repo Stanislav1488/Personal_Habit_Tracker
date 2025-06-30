@@ -234,9 +234,8 @@ namespace Personal_Habit_Tracker
             return true;
         }
 
-        private bool ValidateHabitInputs()
+        private bool Validate_Text_Fields()
         {
-            RadioButton[] repeatRadios = { radioButton3, radioButton4, radioButton5, radioButton6, radioButton7, radioButton8 };
             TextBox[] notificationTimeBoxes = { textBox2, textBox3, textBox4, textBox5, textBox6 };
 
             if (!add_time.Checked)
@@ -262,6 +261,14 @@ namespace Personal_Habit_Tracker
                 }
             }
 
+            return true;
+        }
+
+        private bool Validate_Repeat_And_Category()
+        {
+            RadioButton[] repeatRadioButtons = { radioButton3, radioButton4, radioButton5, radioButton6, radioButton7, radioButton8 };
+
+
             if (!add_time.Checked)
             {
                 if (!radioButton1.Checked && !radioButton2.Checked)
@@ -272,9 +279,9 @@ namespace Personal_Habit_Tracker
             else
             {
                 bool anyRepeatSelected = false;
-                foreach (RadioButton radio in repeatRadios)
+                foreach (RadioButton radioButton in repeatRadioButtons)
                 {
-                    if (radio.Checked)
+                    if (radioButton.Checked)
                     {
                         anyRepeatSelected = true;
                         break;
@@ -290,9 +297,9 @@ namespace Personal_Habit_Tracker
             return true;
         }
 
-        private void check_Categories_and_Text()
+        private void Update_status_add_case()
         {
-            if (ValidateHabitInputs())
+            if (Validate_Text_Fields() && Validate_Repeat_And_Category())
             {
                 add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_white.png");
             }
@@ -304,12 +311,12 @@ namespace Personal_Habit_Tracker
 
         private void categories_CheckedChanged(object sender, System.EventArgs e)
         {
-            check_Categories_and_Text();
+            Update_status_add_case();
         }
 
         private void text_name_TextChanged(object sender, System.EventArgs e)
         {
-            check_Categories_and_Text();
+            Update_status_add_case();
         }
 
     }
