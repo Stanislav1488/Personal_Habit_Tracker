@@ -55,7 +55,7 @@
             this.text_name.Name = "text_name";
             this.text_name.Size = new System.Drawing.Size(327, 34);
             this.text_name.TabIndex = 0;
-            this.text_name.TextChanged += new System.EventHandler(this.text_name_TextChanged);
+            this.text_name.TextChanged += new System.EventHandler(this.AllTextBoxes_TextChanged);
             // 
             // pictureBox1
             // 
@@ -110,7 +110,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Привычки";
             this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.categories_CheckedChanged);
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.categories_and_repeats_CheckedChanged);
             // 
             // radioButton2
             // 

@@ -28,8 +28,25 @@ namespace Personal_Habit_Tracker
         {
             InitializeComponent();
             Setting_NotificationTime_and_Repeat();
+            AllTextBosex_And_RadioButtons_Events();
+           
+        }
 
-            radioButton2.CheckedChanged += categories_CheckedChanged;
+        private void AllTextBosex_And_RadioButtons_Events()
+        {
+            radioButton2.CheckedChanged += categories_and_repeats_CheckedChanged;
+            radioButton3.CheckedChanged += categories_and_repeats_CheckedChanged;
+            radioButton4.CheckedChanged += categories_and_repeats_CheckedChanged;
+            radioButton5.CheckedChanged += categories_and_repeats_CheckedChanged;
+            radioButton6.CheckedChanged += categories_and_repeats_CheckedChanged;
+            radioButton7.CheckedChanged += categories_and_repeats_CheckedChanged;
+            radioButton8.CheckedChanged += categories_and_repeats_CheckedChanged;
+
+            textBox2.TextChanged += AllTextBoxes_TextChanged;
+            textBox3.TextChanged += AllTextBoxes_TextChanged;
+            textBox4.TextChanged += AllTextBoxes_TextChanged;
+            textBox5.TextChanged += AllTextBoxes_TextChanged;
+            textBox6.TextChanged += AllTextBoxes_TextChanged;
         }
 
         private void Setting_NotificationTime_and_Repeat()
@@ -207,13 +224,14 @@ namespace Personal_Habit_Tracker
             {
                 this.Size = new Size(520, 723);
                 ToggleNotificationSettingsUI(true);
-                radioButton3.Checked = true;
             }
             else
             {
                 this.Size = new Size(520, 332);
                 ToggleNotificationSettingsUI(false);
             }
+
+            Update_status_add_case();
         }
 
         private bool check_text(TextBox textBox)
@@ -225,14 +243,6 @@ namespace Personal_Habit_Tracker
             return true;
         }
 
-        private bool check_checked(RadioButton radioButton)
-        {
-            if (!radioButton.Checked)
-            {
-                return false;
-            }
-            return true;
-        }
 
         private bool Validate_Text_Fields()
         {
@@ -309,15 +319,16 @@ namespace Personal_Habit_Tracker
             }
         }
 
-        private void categories_CheckedChanged(object sender, System.EventArgs e)
+        private void categories_and_repeats_CheckedChanged(object sender, System.EventArgs e)
         {
             Update_status_add_case();
         }
 
-        private void text_name_TextChanged(object sender, System.EventArgs e)
+        private void AllTextBoxes_TextChanged(object sender, System.EventArgs e)
         {
             Update_status_add_case();
         }
+
 
     }
 }
