@@ -225,7 +225,7 @@ namespace Personal_Habit_Tracker
             return true;
         }
 
-        private bool check_categories(RadioButton radioButton)
+        private bool check_checked(RadioButton radioButton)
         {
             if (!radioButton.Checked)
             {
@@ -234,47 +234,67 @@ namespace Personal_Habit_Tracker
             return true;
         }
 
-        private bool check_NotificationTime_Repeat()
+        private bool ValidateHabitInputs()
         {
-            foreach (Control control in this.Controls)
+            RadioButton[] repeatRadios = { radioButton3, radioButton4, radioButton5, radioButton6, radioButton7, radioButton8 };
+            TextBox[] notificationTimeBoxes = { textBox2, textBox3, textBox4, textBox5, textBox6 };
+
+            if (!add_time.Checked)
             {
-                if (control is TextBox && control != text_name)
+                if (!check_text(text_name))
                 {
-                    if (!check_text((TextBox)control))
-                    {
-                        return false;
-                    }
-                }
-                else if(control is RadioButton && (control != radioButton1 && control != radioButton2))
-                {
-                    if (!check_categories((RadioButton)control))
-                    {
-                        return false;
-                    }
+                    return false;
                 }
             }
+            else
+            {
+                foreach (TextBox textBox in notificationTimeBoxes)
+                {
+                    if (!check_text(textBox))
+                    {
+                        return false;
+                    }
+                }
+
+                if (!check_text(text_name))
+                {
+                    return false;
+                }
+            }
+
+            if (!add_time.Checked)
+            {
+                if (!radioButton1.Checked && !radioButton2.Checked)
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                bool anyRepeatSelected = false;
+                foreach (RadioButton radio in repeatRadios)
+                {
+                    if (radio.Checked)
+                    {
+                        anyRepeatSelected = true;
+                        break;
+                    }
+                }
+
+                if (!anyRepeatSelected && !radioButton1.Checked && !radioButton2.Checked)
+                {
+                    return false;
+                }
+            }
+
             return true;
         }
 
         private void check_Categories_and_Text()
         {
-            if ((check_categories(radioButton1) || check_categories(radioButton2)) && check_text(text_name))
+            if (ValidateHabitInputs())
             {
-                if (add_time.Checked)
-                {
-                    if (check_NotificationTime_Repeat())
-                    {
-                        add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_white.png");
-                    }
-                    else
-                    {
-                        add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_graphite_black.png");
-                    }
-                }
-                else
-                {
-                    add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_white.png");
-                }
+                add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_white.png");
             }
             else
             {
