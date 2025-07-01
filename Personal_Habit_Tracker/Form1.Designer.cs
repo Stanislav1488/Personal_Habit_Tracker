@@ -37,7 +37,6 @@
             this.icon_statistics = new System.Windows.Forms.PictureBox();
             this.icon_history = new System.Windows.Forms.PictureBox();
             this.icon_setting = new System.Windows.Forms.PictureBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
@@ -112,12 +111,6 @@
             this.icon_setting.Name = "icon_setting";
             this.icon_setting.TabStop = false;
             // 
-            // checkBox1
-            // 
-            resources.ApplyResources(this.checkBox1, "checkBox1");
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // checkBox2
             // 
             resources.ApplyResources(this.checkBox2, "checkBox2");
@@ -179,7 +172,6 @@
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.icon_setting);
             this.Controls.Add(this.icon_history);
             this.Controls.Add(this.icon_statistics);
@@ -210,7 +202,6 @@
         private System.Windows.Forms.PictureBox icon_statistics;
         private System.Windows.Forms.PictureBox icon_history;
         private System.Windows.Forms.PictureBox icon_setting;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;

@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -6,6 +7,9 @@ namespace Personal_Habit_Tracker
 {
     public partial class Form2 : Form
     {
+        static public string text_nameCase;
+        static public bool habitCategory, objectiveCategory;
+
         Panel panel = new Panel();
         Label label3 = new Label();
         Label label4 = new Label();
@@ -31,7 +35,7 @@ namespace Personal_Habit_Tracker
             AllTextBosex_And_RadioButtons_Events();
            
         }
-
+        //События
         private void AllTextBosex_And_RadioButtons_Events()
         {
             radioButton2.CheckedChanged += categories_and_repeats_CheckedChanged;
@@ -49,6 +53,7 @@ namespace Personal_Habit_Tracker
             textBox6.TextChanged += AllTextBoxes_TextChanged;
         }
 
+        //Настройки для частоты и времени уведомлений
         private void Setting_NotificationTime_and_Repeat()
         {
             //panel
@@ -174,6 +179,7 @@ namespace Personal_Habit_Tracker
 
         }
 
+        //Переключатель появления частоты и времени уведомлений
         private void ToggleNotificationSettingsUI(bool isNotificationSettingsVisible)
         {
             if (isNotificationSettingsVisible == true)
@@ -218,6 +224,7 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        //Действия при изменение checked у add_time
         private void add_time_CheckedChanged(object sender, System.EventArgs e)
         {
             if (add_time.Checked)
@@ -234,6 +241,7 @@ namespace Personal_Habit_Tracker
             Update_status_add_case();
         }
 
+        //Проверка на заполнение TextBoxes и RadioButtons
         private bool check_text(TextBox textBox)
         {
             if (textBox.Text.Equals(string.Empty))
@@ -242,7 +250,6 @@ namespace Personal_Habit_Tracker
             }
             return true;
         }
-
 
         private bool Validate_Text_Fields()
         {
@@ -307,28 +314,41 @@ namespace Personal_Habit_Tracker
             return true;
         }
 
+        //Обновление изображения add_case
         private void Update_status_add_case()
         {
             if (Validate_Text_Fields() && Validate_Repeat_And_Category())
             {
                 add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_white.png");
+                add_case.Enabled = true;
             }
             else
             {
                 add_case.Image = Image.FromFile(Directory.GetCurrentDirectory() + "//icons//add_graphite_black.png");
+                add_case.Enabled = false;
             }
         }
-
+        
+        //Проверка статуса изображения add_case при событии checkedchanged
         private void categories_and_repeats_CheckedChanged(object sender, System.EventArgs e)
         {
             Update_status_add_case();
         }
 
+        //Проверка статуса изображения add_case при событие textchenges
         private void AllTextBoxes_TextChanged(object sender, System.EventArgs e)
         {
             Update_status_add_case();
         }
 
+        private void add_case_Click(object sender, System.EventArgs e)
+        {
+            text_nameCase = Convert.ToString(text_name.Text);
+            habitCategory = Convert.ToBoolean(radioButton1.Checked);
+            objectiveCategory = Convert.ToBoolean(radioButton2.Checked);
+
+            this.Close();
+        }
 
     }
 }

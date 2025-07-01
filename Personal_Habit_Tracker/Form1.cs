@@ -7,6 +7,8 @@ namespace Personal_Habit_Tracker
 {
     public partial class Form1 : Form
     {
+        int caseCount = 0, offsetУ = 40;
+
         public Form1()
         {
             InitializeComponent();
@@ -84,6 +86,7 @@ namespace Personal_Habit_Tracker
                 case 1:
                     Form form_for_add = new Form2();
                     form_for_add.ShowDialog();
+                    AddNewCase();
                     break;
                 case 2:
                     Form form_for_statistics = new Form3();
@@ -98,6 +101,19 @@ namespace Personal_Habit_Tracker
                     form_for_setting.ShowDialog();
                     break;
             }
+        }
+
+        private void AddNewCase()
+        {
+            CheckBox newCase = new CheckBox();
+            newCase.Name = "Test" + Convert.ToString(caseCount);
+            newCase.Text = Convert.ToString(Form2.text_nameCase);
+            newCase.ForeColor = Color.White;
+            newCase.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            newCase.Location = new Point(140, 100);
+            newCase.AutoSize = true;
+
+            this.Controls.Add(newCase);
         }
     }
 }

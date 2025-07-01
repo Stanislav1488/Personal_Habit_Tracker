@@ -86,6 +86,7 @@
             this.add_case.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.add_case.TabIndex = 5;
             this.add_case.TabStop = false;
+            this.add_case.Click += new System.EventHandler(this.add_case_Click);
             // 
             // label1
             // 
