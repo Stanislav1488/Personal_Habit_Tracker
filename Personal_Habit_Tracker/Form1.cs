@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -7,12 +9,22 @@ namespace Personal_Habit_Tracker
 {
     public partial class Form1 : Form
     {
-        int caseCount = 0, pointX = 0, hadit_pointY = 100, objectiveCategory_pointY = 100;
+        int caseCount = 0, hadit_pointY = 100, objectiveCategory_pointY = 100;
 
         public Form1()
         {
             InitializeComponent();
+            LoadCheckBoxes();
             IconEventsAndTags();
+        }
+
+        public class SavedCheckBox
+        {
+            public string Name { get; set; }
+            public string Text { get; set; }
+            public int LocationX { get; set; }
+            public int LocationY { get; set; }
+            public bool IsHaditCategory { get; set; }
         }
 
         private void IconEventsAndTags()
@@ -114,19 +126,78 @@ namespace Personal_Habit_Tracker
 
             if (Form2.habitCategory == true)
             {
-                pointX = 140;
-                newCase.Location = new Point(pointX, hadit_pointY);
+                newCase.Location = new Point(140, hadit_pointY);
                 hadit_pointY += 40;
             }
             else if (Form2.objectiveCategory == true)
             {
-                pointX = 530;
-                newCase.Location = new Point(pointX, objectiveCategory_pointY);
+                newCase.Location = new Point(530, objectiveCategory_pointY);
                 objectiveCategory_pointY += 40;
             }
 
             this.Controls.Add(newCase);
             caseCount++;
+
+            SaveCheckBoxes();
+        }
+
+        //Сохранение
+        private void SaveCheckBoxes()
+        {
+            List<SavedCheckBox> checkBoxes = new List<SavedCheckBox>();
+
+            foreach (Control control in this.Controls)
+            {
+                if (control is CheckBox chk)
+                {
+                    checkBoxes.Add(new SavedCheckBox
+                    {
+                        Name = chk.Name,
+                        Text = chk.Text,
+                        LocationX = chk.Location.X,
+                        LocationY = chk.Location.Y,
+                        IsHaditCategory = chk.Location.X == 140
+
+
+                    });
+                }
+            }
+
+            string json = JsonConvert.SerializeObject(checkBoxes);
+            File.WriteAllText("checkboxes.json", json);
+        }
+
+        //Загрузка
+        private void LoadCheckBoxes()
+        {
+            if (File.Exists("checkboxes.json"))
+            {
+                string json = File.ReadAllText("checkboxes.json");
+                List<SavedCheckBox> savedBoxes = JsonConvert.DeserializeObject<List<SavedCheckBox>>(json);
+
+                foreach (var saved in savedBoxes)
+                {
+                    CheckBox chk = new CheckBox
+                    {
+                        Name = saved.Name,
+                        Text = saved.Text,
+                        Location = new Point(saved.LocationX, saved.LocationY),
+                        ForeColor = Color.White,
+                        Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold),
+                        AutoSize = true
+                    };
+
+                    this.Controls.Add(chk);
+
+                    // Обновляем счетчики позиций
+                    if (saved.IsHaditCategory)
+                        hadit_pointY = saved.LocationY + 40;
+                    else
+                        objectiveCategory_pointY = saved.LocationY + 40;
+                }
+
+                caseCount = savedBoxes.Count;
+            }
         }
     }
 }
