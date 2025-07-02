@@ -7,7 +7,7 @@ namespace Personal_Habit_Tracker
 {
     public partial class Form1 : Form
     {
-        int caseCount = 0, offsetУ = 40;
+        int caseCount = 0, pointX = 0, hadit_pointY = 100, objectiveCategory_pointY = 100;
 
         public Form1()
         {
@@ -110,10 +110,23 @@ namespace Personal_Habit_Tracker
             newCase.Text = Convert.ToString(Form2.text_nameCase);
             newCase.ForeColor = Color.White;
             newCase.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            newCase.Location = new Point(140, 100);
             newCase.AutoSize = true;
 
+            if (Form2.habitCategory == true)
+            {
+                pointX = 140;
+                newCase.Location = new Point(pointX, hadit_pointY);
+                hadit_pointY += 40;
+            }
+            else if (Form2.objectiveCategory == true)
+            {
+                pointX = 530;
+                newCase.Location = new Point(pointX, objectiveCategory_pointY);
+                objectiveCategory_pointY += 40;
+            }
+
             this.Controls.Add(newCase);
+            caseCount++;
         }
     }
 }
