@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
+using Personal_Habit_Tracker.Properties;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Personal_Habit_Tracker
@@ -10,12 +12,19 @@ namespace Personal_Habit_Tracker
     public partial class Form1 : Form
     {
         int caseCount = 0, hadit_pointY = 100, objectiveCategory_pointY = 100;
+        bool switchDeleteCases = true;
+
+        PictureBox windowForDelete = new PictureBox();
+        PictureBox icon_okey = new PictureBox();
+        CheckBox deleteAllCases = new CheckBox();
 
         public Form1()
         {
             InitializeComponent();
             LoadCheckBoxes();
             IconEventsAndTags();
+            ObjectsForDeleteCases();
+
         }
 
         public class SavedCheckBox
@@ -26,16 +35,18 @@ namespace Personal_Habit_Tracker
             public int LocationY { get; set; }
             public bool IsHaditCategory { get; set; }
         }
-
+        
         private void IconEventsAndTags()
         {
             icon_statistics.MouseMove += icons_MouseMove;
             icon_history.MouseMove += icons_MouseMove;
             icon_setting.MouseMove += icons_MouseMove;
+            icon_delete.MouseMove += icons_MouseMove;
 
             icon_statistics.MouseLeave += icons_MouseLeave;
             icon_history.MouseLeave += icons_MouseLeave;
             icon_setting.MouseLeave += icons_MouseLeave;
+            icon_delete.MouseLeave += icons_MouseLeave;
 
             icon_statistics.Click += icons_Click;
             icon_history.Click += icons_Click;
@@ -45,6 +56,32 @@ namespace Personal_Habit_Tracker
             icon_statistics.Tag = 2;
             icon_history.Tag = 3;
             icon_setting.Tag = 4;
+            icon_delete.Tag = 5;
+        }
+
+        private void ObjectsForDeleteCases()
+        {
+            //windowForDelete
+            windowForDelete.BackColor = Color.FromArgb(26, 28, 26);
+            windowForDelete.Location = new Point(60, 0);
+            windowForDelete.Size = new System.Drawing.Size(1306, 50);
+
+            //icon_okey
+            deleteAllCases.BackColor = Color.FromArgb(26,28,26);
+            deleteAllCases.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            deleteAllCases.ForeColor = Color.White;
+            deleteAllCases.Location = new Point(69, 6);
+            deleteAllCases.Size = new Size(160, 31);
+            deleteAllCases.Text = "Выбрать всё";
+
+            //deleteAllCases
+            icon_okey.BackColor = Color.FromArgb(26, 28, 28);
+            icon_okey.Location = new Point(238, 0);
+            icon_okey.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\okey_graphite_black.png");
+            icon_okey.Size = new Size(50, 50);
+            icon_okey.SizeMode = PictureBoxSizeMode.Normal;
+            
+
         }
 
         private void icons_MouseMove(object sender, MouseEventArgs e)
@@ -64,6 +101,9 @@ namespace Personal_Habit_Tracker
                     break;
                 case 4:
                     icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\setting_white.png");
+                    break;
+                case 5:
+                    icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_white.png");
                     break;
             }
         }
@@ -85,6 +125,9 @@ namespace Personal_Habit_Tracker
                     break;
                 case 4:
                     icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\setting_blue.png");
+                    break;
+                case 5:
+                    icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_blue.png");
                     break;
             }
         }
@@ -115,6 +158,31 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        private void icon_delete_Click(object sender, EventArgs e)
+        {
+            
+            if (switchDeleteCases == true)
+            {
+                icon_delete.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_white.png");
+                icon_delete.MouseLeave -= icons_MouseLeave;
+                this.Controls.Add(deleteAllCases);
+                this.Controls.Add(icon_okey);
+                this.Controls.Add(windowForDelete);
+                DeleteCases();
+                switchDeleteCases = false;
+            }
+            else
+            {
+                icon_delete.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_blue.png");
+                icon_delete.MouseLeave += icons_MouseLeave;
+                this.Controls.Remove(windowForDelete);
+                this.Controls.Remove(deleteAllCases);
+                this.Controls.Remove(icon_okey);
+                switchDeleteCases = true;
+            }
+        }
+
+        //Добавление
         private void AddNewCase()
         {
             CheckBox newCase = new CheckBox();
@@ -139,6 +207,15 @@ namespace Personal_Habit_Tracker
             caseCount++;
 
             SaveCheckBoxes();
+        }
+
+        private void DeleteCases()
+        {
+            foreach (CheckBox control in this.Controls.OfType<CheckBox>().ToList()) 
+            {
+                control.Checked = false;
+
+            }
         }
 
         //Сохранение

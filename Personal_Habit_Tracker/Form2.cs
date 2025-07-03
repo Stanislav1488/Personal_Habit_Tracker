@@ -31,8 +31,8 @@ namespace Personal_Habit_Tracker
         public Form2()
         {
             InitializeComponent();
-            Setting_NotificationTime_and_Repeat();
             AllTextBosex_And_RadioButtons_Events();
+            Setting_NotificationTime_and_Repeat();
            
         }
         //События

@@ -147,7 +147,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -177,7 +177,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -207,7 +207,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
@@ -232,7 +232,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="icon_add.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -283,7 +283,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;icon_add.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="icon_statistics.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -328,7 +328,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;icon_statistics.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="icon_history.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -376,7 +376,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;icon_history.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="icon_setting.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -406,6 +406,9 @@
         YYDWguFtgLw3+4cB+Zu3WVmU3A9Ltp+pu/fp06d3/AfQc41FBIhONwAAAABJRU5ErkJggg==
 </value>
   </data>
+  <data name="icon_setting.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="icon_setting.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 192</value>
   </data>
@@ -414,9 +417,6 @@
   </data>
   <data name="icon_setting.Size" type="System.Drawing.Size, System.Drawing">
     <value>50, 50</value>
-  </data>
-  <data name="icon_setting.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
   </data>
   <data name="icon_setting.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -431,6 +431,48 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;icon_setting.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="icon_delete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        EQAACxEBf2RfkQAAAh9JREFUaEPtmEsuREEYhcuELWDAXjyWYCSqOqYYYQkMJKZiDcaiCgtoEyzBYwVe
+        CZJOyK2u/3Z3Nb+Tv++vm9wvqXRyz+lz6nG7B2VMTU1NtSwdjRsb1o3zF8b5lzhsaBrn16I20qyeTRvr
+        r40LH9+Mq+gZSTZOJuIE+yfdO2y4HM2TiK9NOck348KmWfZTcdiwlZ6lhfi1/OvDJ77z5U5v5rJxfrtr
+        gc1cHj7OP3cWcDyZy/FZZwFPuVw9Luwa61/73uHfHu057OTT+4GPsd4dHfbwz/kMf6ZY9d89gS/oDtVC
+        tUM1PKHaoRqeUO1QDU+odqiGJ1Q7kHAX9uO/hg17ucRqBNIhBgl34T153nOJ1QikQwwSznk4jUA8YpBw
+        zsNpBOIRg4RzHk4jEI8YJJzzcBqBeMQg4ZyH0wjEIwYJ5zycRiAeMUg45+E0AvGIQcI5D6cRiEcMEs55
+        OI1APGKQcM7DaQTiEYOEcx5OIxCPGCSc83AagXjEIOGch9MIxCMGCec8nEYgHjFION1iFJ85nEYgHWKQ
+        8OL6o32f1H8NwmkE0iFGNTyh2qEanlDtcKFVhmvc7xeZnQW0cnlwrL8vCxqnc7k8MCt+ocy34TaXB8eF
+        w66Cm1hYxUkUGY2wGDPLE/AHuW1wVo9njQuPPe+pxrD+waycz+T11dA+Zr1FFJN3J/N5bbUUu1McsfN3
+        PT9s+Wi1s/yB3s7X1PxfPgE+mC2jmbIV8QAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="icon_delete.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="icon_delete.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 254</value>
+  </data>
+  <data name="icon_delete.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 6, 6, 6</value>
+  </data>
+  <data name="icon_delete.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 50</value>
+  </data>
+  <data name="icon_delete.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;icon_delete.Name" xml:space="preserve">
+    <value>icon_delete</value>
+  </data>
+  <data name="&gt;&gt;icon_delete.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;icon_delete.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;icon_delete.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

@@ -37,11 +37,13 @@
             this.icon_statistics = new System.Windows.Forms.PictureBox();
             this.icon_history = new System.Windows.Forms.PictureBox();
             this.icon_setting = new System.Windows.Forms.PictureBox();
+            this.icon_delete = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_add)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_statistics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_history)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_setting)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_delete)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -103,11 +105,20 @@
             this.icon_setting.Name = "icon_setting";
             this.icon_setting.TabStop = false;
             // 
+            // icon_delete
+            // 
+            this.icon_delete.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            resources.ApplyResources(this.icon_delete, "icon_delete");
+            this.icon_delete.Name = "icon_delete";
+            this.icon_delete.TabStop = false;
+            this.icon_delete.Click += new System.EventHandler(this.icon_delete_Click);
+            // 
             // Form1
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(26)))));
+            this.Controls.Add(this.icon_delete);
             this.Controls.Add(this.icon_setting);
             this.Controls.Add(this.icon_history);
             this.Controls.Add(this.icon_statistics);
@@ -124,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.icon_statistics)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_history)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_setting)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.icon_delete)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -138,6 +150,7 @@
         private System.Windows.Forms.PictureBox icon_statistics;
         private System.Windows.Forms.PictureBox icon_history;
         private System.Windows.Forms.PictureBox icon_setting;
+        private System.Windows.Forms.PictureBox icon_delete;
     }
 }
 
