@@ -33,6 +33,8 @@ namespace Personal_Habit_Tracker
             InitializeComponent();
             AllTextBosex_And_RadioButtons_Events();
             Setting_NotificationTime_and_Repeat();
+
+
            
         }
         //События

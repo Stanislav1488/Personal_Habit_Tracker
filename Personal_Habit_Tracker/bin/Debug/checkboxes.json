@@ -1,1 +1,9 @@
-[{"Name":"Test0","Text":"111","LocationX":140,"LocationY":100,"IsHaditCategory":true},{"Name":"Test1","Text":"123233","LocationX":530,"LocationY":100,"IsHaditCategory":false},{"Name":"Test2","Text":"13131131","LocationX":530,"LocationY":140,"IsHaditCategory":false},{"Name":"Test3","Text":"3131313131","LocationX":140,"LocationY":140,"IsHaditCategory":true},{"Name":"Test4","Text":"","LocationX":0,"LocationY":0,"IsHaditCategory":false},{"Name":"Test5","Text":"","LocationX":0,"LocationY":0,"IsHaditCategory":false},{"Name":"Test6","Text":"","LocationX":0,"LocationY":0,"IsHaditCategory":false},{"Name":"Test7","Text":"11","LocationX":140,"LocationY":180,"IsHaditCategory":true}]
+[
+  {
+    "Name": "Test0",
+    "Text": "",
+    "LocationX": 0,
+    "LocationY": 0,
+    "IsHaditCategory": false
+  }
+]
