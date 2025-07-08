@@ -33,9 +33,8 @@ namespace Personal_Habit_Tracker
             InitializeComponent();
             AllTextBosex_And_RadioButtons_Events();
             Setting_NotificationTime_and_Repeat();
+            Update_status_add_case();
 
-
-           
         }
         //События
         private void AllTextBosex_And_RadioButtons_Events()
@@ -330,7 +329,7 @@ namespace Personal_Habit_Tracker
                 add_case.Enabled = false;
             }
         }
-        
+
         //Проверка статуса изображения add_case при событии checkedchanged
         private void categories_and_repeats_CheckedChanged(object sender, System.EventArgs e)
         {
