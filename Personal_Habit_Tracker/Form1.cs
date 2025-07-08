@@ -195,28 +195,33 @@ namespace Personal_Habit_Tracker
         //Добавление
         private void AddNewCase()
         {
-            CheckBox newCase = new CheckBox();
-            newCase.Name = "Test" + Convert.ToString(caseCount);
-            newCase.Text = Convert.ToString(Form2.text_nameCase);
-            newCase.ForeColor = Color.White;
-            newCase.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            newCase.AutoSize = true;
-
-            if (Form2.habitCategory == true)
+            if (Form2.ClosedByAddCase == true)
             {
-                newCase.Location = new Point(140, hadit_pointY);
-                hadit_pointY += 40;
-            }
-            else if (Form2.objectiveCategory == true)
-            {
-                newCase.Location = new Point(530, objectiveCategory_pointY);
-                objectiveCategory_pointY += 40;
-            }
+                CheckBox newCase = new CheckBox();
+                newCase.Name = "Test" + Convert.ToString(caseCount);
+                newCase.Text = Convert.ToString(Form2.text_nameCase);
+                newCase.ForeColor = Color.White;
+                newCase.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+                newCase.AutoSize = true;
 
-            this.Controls.Add(newCase);
-            caseCount++;
+                if (Form2.habitCategory == true)
+                {
+                    newCase.Location = new Point(140, hadit_pointY);
+                    hadit_pointY += 40;
+                }
+                else if (Form2.objectiveCategory == true)
+                {
+                    newCase.Location = new Point(530, objectiveCategory_pointY);
+                    objectiveCategory_pointY += 40;
+                }
 
-            SaveCheckBoxes();
+                this.Controls.Add(newCase);
+                Form2.ClosedByAddCase = false;
+                caseCount++;
+
+
+                SaveCheckBoxes();
+            }
         }
 
         //Очистка свойства checkBoxes для удаления
@@ -342,9 +347,13 @@ namespace Personal_Habit_Tracker
 
                     // Обновляем счетчики позиций
                     if (saved.IsHaditCategory)
+                    {
                         hadit_pointY = saved.LocationY + 40;
+                    }
                     else
+                    {
                         objectiveCategory_pointY = saved.LocationY + 40;
+                    }
                 }
 
                 caseCount = savedBoxes.Count;

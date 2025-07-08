@@ -8,7 +8,7 @@ namespace Personal_Habit_Tracker
     public partial class Form2 : Form
     {
         static public string text_nameCase;
-        static public bool habitCategory, objectiveCategory;
+        static public bool habitCategory, objectiveCategory, ClosedByAddCase = false; 
 
         Panel panel = new Panel();
         Label label3 = new Label();
@@ -345,12 +345,15 @@ namespace Personal_Habit_Tracker
 
         private void add_case_Click(object sender, System.EventArgs e)
         {
+
             text_nameCase = Convert.ToString(text_name.Text);
             habitCategory = Convert.ToBoolean(radioButton1.Checked);
             objectiveCategory = Convert.ToBoolean(radioButton2.Checked);
+            ClosedByAddCase = true;
 
             this.Close();
         }
+
 
     }
 }
