@@ -24,6 +24,7 @@ namespace Personal_Habit_Tracker
             IconEventsAndTags();
             ObjectsForDeleteCases();
 
+
             icon_okey.Click += new EventHandler(DeleteCheckBoxes_Click);
         }
 
@@ -64,7 +65,7 @@ namespace Personal_Habit_Tracker
             //windowForDelete
             windowForDelete.BackColor = Color.FromArgb(26, 28, 26);
             windowForDelete.Location = new Point(60, 0);
-            windowForDelete.Size = new System.Drawing.Size(1306, 50);
+            windowForDelete.Size = new Size(1306, 50);
 
             //icon_okey
             deleteAllCases.BackColor = Color.FromArgb(26, 28, 26);
@@ -77,9 +78,9 @@ namespace Personal_Habit_Tracker
             //deleteAllCases
             icon_okey.BackColor = Color.FromArgb(26, 28, 28);
             icon_okey.Location = new Point(238, 0);
-            icon_okey.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\okey_graphite_black.png");
             icon_okey.Size = new Size(50, 50);
             icon_okey.SizeMode = PictureBoxSizeMode.Normal;
+            icon_okey.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\okey_white.png");
 
         }
 
@@ -171,6 +172,7 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        //Открывается окно для удаления и закрывается при повторном щелчке
         private void icon_delete_Click(object sender, EventArgs e)
         {
 
@@ -190,7 +192,6 @@ namespace Personal_Habit_Tracker
                 switchDeleteCases = true;
             }
         }
-
 
         //Добавление
         private void AddNewCase()
@@ -224,7 +225,7 @@ namespace Personal_Habit_Tracker
             }
         }
 
-        //Очистка свойства checkBoxes для удаления
+        //Очистка Checked у cheakBoxes
         private void ClearCheckboxes()
         {
             foreach (CheckBox control in this.Controls.OfType<CheckBox>().ToList())
@@ -261,6 +262,7 @@ namespace Personal_Habit_Tracker
 
                 DeleleWindowForDeleteCases();
                 SaveCheckBoxesData(checkBoxData);
+                icon_delete.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_blue.png");
             }
         }
 
