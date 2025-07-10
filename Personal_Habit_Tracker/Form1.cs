@@ -26,6 +26,7 @@ namespace Personal_Habit_Tracker
 
 
             icon_okey.Click += new EventHandler(DeleteCheckBoxes_Click);
+            deleteAllCases.CheckedChanged += new EventHandler(DeleteAllCases_CheckedChanged);
         }
 
         public class CheckBoxData
@@ -231,6 +232,18 @@ namespace Personal_Habit_Tracker
             foreach (CheckBox control in this.Controls.OfType<CheckBox>().ToList())
             {
                 control.Checked = false;
+            }
+        }
+
+        //Выбор всех checkBoxes для удаления
+        private void DeleteAllCases_CheckedChanged(object sender, EventArgs e)
+        {
+            if(deleteAllCases.Checked == true)
+            {
+                foreach (CheckBox control in this.Controls.OfType<CheckBox>().ToList())
+                {
+                    control.Checked = true;
+                }
             }
         }
 
