@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.finished_icon = new System.Windows.Forms.PictureBox();
+            this.task_with_notice_icon = new System.Windows.Forms.PictureBox();
+            this.habit_icon = new System.Windows.Forms.PictureBox();
+            this.task_icon = new System.Windows.Forms.PictureBox();
+            this.delete_icon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finished_icon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.task_with_notice_icon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.habit_icon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.task_icon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.delete_icon)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -54,55 +54,57 @@
             this.pictureBox1.TabIndex = 27;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
+            // finished_icon
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 6);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox2.TabIndex = 28;
-            this.pictureBox2.TabStop = false;
+            this.finished_icon.Image = ((System.Drawing.Image)(resources.GetObject("finished_icon.Image")));
+            this.finished_icon.Location = new System.Drawing.Point(6, 6);
+            this.finished_icon.Margin = new System.Windows.Forms.Padding(6);
+            this.finished_icon.Name = "finished_icon";
+            this.finished_icon.Size = new System.Drawing.Size(50, 50);
+            this.finished_icon.TabIndex = 28;
+            this.finished_icon.TabStop = false;
+            this.finished_icon.MouseLeave += new System.EventHandler(this.icons_MouseLeave);
+            this.finished_icon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.icons_MouseMove);
             // 
-            // pictureBox3
+            // task_with_notice_icon
             // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(6, 68);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(6);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox3.TabIndex = 29;
-            this.pictureBox3.TabStop = false;
+            this.task_with_notice_icon.Image = ((System.Drawing.Image)(resources.GetObject("task_with_notice_icon.Image")));
+            this.task_with_notice_icon.Location = new System.Drawing.Point(6, 68);
+            this.task_with_notice_icon.Margin = new System.Windows.Forms.Padding(6);
+            this.task_with_notice_icon.Name = "task_with_notice_icon";
+            this.task_with_notice_icon.Size = new System.Drawing.Size(50, 50);
+            this.task_with_notice_icon.TabIndex = 29;
+            this.task_with_notice_icon.TabStop = false;
             // 
-            // pictureBox4
+            // habit_icon
             // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(6, 130);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(6);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox4.TabIndex = 30;
-            this.pictureBox4.TabStop = false;
+            this.habit_icon.Image = ((System.Drawing.Image)(resources.GetObject("habit_icon.Image")));
+            this.habit_icon.Location = new System.Drawing.Point(6, 130);
+            this.habit_icon.Margin = new System.Windows.Forms.Padding(6);
+            this.habit_icon.Name = "habit_icon";
+            this.habit_icon.Size = new System.Drawing.Size(50, 50);
+            this.habit_icon.TabIndex = 30;
+            this.habit_icon.TabStop = false;
             // 
-            // pictureBox5
+            // task_icon
             // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(6, 192);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(6);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox5.TabIndex = 31;
-            this.pictureBox5.TabStop = false;
+            this.task_icon.Image = ((System.Drawing.Image)(resources.GetObject("task_icon.Image")));
+            this.task_icon.Location = new System.Drawing.Point(6, 192);
+            this.task_icon.Margin = new System.Windows.Forms.Padding(6);
+            this.task_icon.Name = "task_icon";
+            this.task_icon.Size = new System.Drawing.Size(50, 50);
+            this.task_icon.TabIndex = 31;
+            this.task_icon.TabStop = false;
             // 
-            // pictureBox6
+            // delete_icon
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.Location = new System.Drawing.Point(6, 254);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(6);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox6.TabIndex = 32;
-            this.pictureBox6.TabStop = false;
+            this.delete_icon.Image = ((System.Drawing.Image)(resources.GetObject("delete_icon.Image")));
+            this.delete_icon.Location = new System.Drawing.Point(6, 254);
+            this.delete_icon.Margin = new System.Windows.Forms.Padding(6);
+            this.delete_icon.Name = "delete_icon";
+            this.delete_icon.Size = new System.Drawing.Size(50, 50);
+            this.delete_icon.TabIndex = 32;
+            this.delete_icon.TabStop = false;
             // 
             // Form4
             // 
@@ -110,21 +112,21 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(534, 661);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.delete_icon);
+            this.Controls.Add(this.task_icon);
+            this.Controls.Add(this.habit_icon);
+            this.Controls.Add(this.task_with_notice_icon);
+            this.Controls.Add(this.finished_icon);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form4";
             this.ShowIcon = false;
             this.Text = "Просмотр дел";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.finished_icon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.task_with_notice_icon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.habit_icon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.task_icon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.delete_icon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -132,10 +134,10 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox finished_icon;
+        private System.Windows.Forms.PictureBox task_with_notice_icon;
+        private System.Windows.Forms.PictureBox habit_icon;
+        private System.Windows.Forms.PictureBox task_icon;
+        private System.Windows.Forms.PictureBox delete_icon;
     }
 }
