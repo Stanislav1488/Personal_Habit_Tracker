@@ -49,11 +49,11 @@
             // 
             this.text_name.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.text_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.text_name.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.text_name.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.text_name.ForeColor = System.Drawing.Color.White;
             this.text_name.Location = new System.Drawing.Point(88, 20);
             this.text_name.Name = "text_name";
-            this.text_name.Size = new System.Drawing.Size(327, 34);
+            this.text_name.Size = new System.Drawing.Size(327, 35);
             this.text_name.TabIndex = 0;
             this.text_name.TextChanged += new System.EventHandler(this.AllTextBoxes_TextChanged);
             // 
@@ -91,22 +91,22 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(83, 120);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 27);
+            this.label1.Size = new System.Drawing.Size(119, 30);
             this.label1.TabIndex = 6;
             this.label1.Text = "Категория";
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(242, 126);
+            this.radioButton1.Location = new System.Drawing.Point(228, 120);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(130, 31);
+            this.radioButton1.Size = new System.Drawing.Size(140, 34);
             this.radioButton1.TabIndex = 7;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Привычки";
@@ -116,11 +116,11 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.radioButton2.ForeColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(380, 126);
+            this.radioButton2.Location = new System.Drawing.Point(380, 120);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(103, 31);
+            this.radioButton2.Size = new System.Drawing.Size(104, 34);
             this.radioButton2.TabIndex = 9;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Задачи";
@@ -139,22 +139,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(83, 219);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 27);
+            this.label2.Size = new System.Drawing.Size(78, 30);
             this.label2.TabIndex = 11;
             this.label2.Text = "Время";
             // 
             // add_time
             // 
             this.add_time.AutoSize = true;
-            this.add_time.Font = new System.Drawing.Font("Segoe MDL2 Assets", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.add_time.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
             this.add_time.ForeColor = System.Drawing.Color.White;
             this.add_time.Location = new System.Drawing.Point(242, 218);
             this.add_time.Name = "add_time";
-            this.add_time.Size = new System.Drawing.Size(204, 31);
+            this.add_time.Size = new System.Drawing.Size(202, 34);
             this.add_time.TabIndex = 12;
             this.add_time.Text = "Добавить время";
             this.add_time.UseVisualStyleBackColor = true;

@@ -70,7 +70,7 @@ namespace Personal_Habit_Tracker
 
             //icon_okey
             deleteAllCases.BackColor = Color.FromArgb(26, 28, 26);
-            deleteAllCases.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            deleteAllCases.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
             deleteAllCases.ForeColor = Color.White;
             deleteAllCases.Location = new Point(69, 6);
             deleteAllCases.Size = new Size(160, 31);
@@ -203,7 +203,7 @@ namespace Personal_Habit_Tracker
                 newCase.Name = "Test" + Convert.ToString(caseCount);
                 newCase.Text = Convert.ToString(Form2.text_nameCase);
                 newCase.ForeColor = Color.White;
-                newCase.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+                newCase.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
                 newCase.AutoSize = true;
 
                 if (Form2.habitCategory == true)
