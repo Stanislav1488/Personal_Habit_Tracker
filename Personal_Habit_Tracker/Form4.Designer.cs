@@ -56,6 +56,7 @@
             // 
             // finished_icon
             // 
+            this.finished_icon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.finished_icon.Image = ((System.Drawing.Image)(resources.GetObject("finished_icon.Image")));
             this.finished_icon.Location = new System.Drawing.Point(6, 6);
             this.finished_icon.Margin = new System.Windows.Forms.Padding(6);
@@ -68,6 +69,7 @@
             // 
             // task_with_notice_icon
             // 
+            this.task_with_notice_icon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.task_with_notice_icon.Image = ((System.Drawing.Image)(resources.GetObject("task_with_notice_icon.Image")));
             this.task_with_notice_icon.Location = new System.Drawing.Point(6, 68);
             this.task_with_notice_icon.Margin = new System.Windows.Forms.Padding(6);
@@ -78,6 +80,7 @@
             // 
             // habit_icon
             // 
+            this.habit_icon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.habit_icon.Image = ((System.Drawing.Image)(resources.GetObject("habit_icon.Image")));
             this.habit_icon.Location = new System.Drawing.Point(6, 130);
             this.habit_icon.Margin = new System.Windows.Forms.Padding(6);
@@ -88,6 +91,7 @@
             // 
             // task_icon
             // 
+            this.task_icon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.task_icon.Image = ((System.Drawing.Image)(resources.GetObject("task_icon.Image")));
             this.task_icon.Location = new System.Drawing.Point(6, 192);
             this.task_icon.Margin = new System.Windows.Forms.Padding(6);
@@ -98,6 +102,7 @@
             // 
             // delete_icon
             // 
+            this.delete_icon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.delete_icon.Image = ((System.Drawing.Image)(resources.GetObject("delete_icon.Image")));
             this.delete_icon.Location = new System.Drawing.Point(6, 254);
             this.delete_icon.Margin = new System.Windows.Forms.Padding(6);
