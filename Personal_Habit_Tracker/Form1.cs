@@ -173,6 +173,24 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        private void ToggleControlPanelState()
+        {
+            foreach (Control iconPanels in this.Controls)
+            {
+                if (iconPanels is PictureBox && iconPanels != icon_delete)
+                {
+                    if (switchDeleteCases == true)
+                    {
+                        iconPanels.Enabled = false;
+                    }
+                    else
+                    {
+                        iconPanels.Enabled = true;
+                    }
+                }
+            }
+        }
+
         //Открывается окно для удаления и закрывается при повторном щелчке
         private void icon_delete_Click(object sender, EventArgs e)
         {
@@ -181,6 +199,7 @@ namespace Personal_Habit_Tracker
             {
                 icon_delete.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_white.png");
                 icon_delete.MouseLeave -= icons_MouseLeave;
+                ToggleControlPanelState();
                 AddWindowForDeleteCases();
                 ClearCheckboxes();
                 switchDeleteCases = false;
@@ -189,6 +208,7 @@ namespace Personal_Habit_Tracker
             {
                 icon_delete.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_blue.png");
                 icon_delete.MouseLeave += icons_MouseLeave;
+                ToggleControlPanelState();
                 DeleleWindowForDeleteCases();
                 switchDeleteCases = true;
             }
@@ -238,7 +258,7 @@ namespace Personal_Habit_Tracker
         //Выбор всех checkBoxes для удаления
         private void DeleteAllCases_CheckedChanged(object sender, EventArgs e)
         {
-            if(deleteAllCases.Checked == true)
+            if (deleteAllCases.Checked == true)
             {
                 foreach (CheckBox control in this.Controls.OfType<CheckBox>().ToList())
                 {
@@ -273,6 +293,7 @@ namespace Personal_Habit_Tracker
                     caseCount--;
                 }
 
+                ToggleControlPanelState();
                 DeleleWindowForDeleteCases();
                 SaveCheckBoxesData(checkBoxData);
                 icon_delete.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_blue.png");
