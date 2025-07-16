@@ -38,7 +38,7 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.add_time = new System.Windows.Forms.CheckBox();
+            this.planned_activities = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.add_case)).BeginInit();
@@ -147,18 +147,18 @@
             this.label2.TabIndex = 11;
             this.label2.Text = "Время";
             // 
-            // add_time
+            // planned_activities
             // 
-            this.add_time.AutoSize = true;
-            this.add_time.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.add_time.ForeColor = System.Drawing.Color.White;
-            this.add_time.Location = new System.Drawing.Point(242, 218);
-            this.add_time.Name = "add_time";
-            this.add_time.Size = new System.Drawing.Size(202, 34);
-            this.add_time.TabIndex = 12;
-            this.add_time.Text = "Добавить время";
-            this.add_time.UseVisualStyleBackColor = true;
-            this.add_time.CheckedChanged += new System.EventHandler(this.add_time_CheckedChanged);
+            this.planned_activities.AutoSize = true;
+            this.planned_activities.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.planned_activities.ForeColor = System.Drawing.Color.White;
+            this.planned_activities.Location = new System.Drawing.Point(218, 217);
+            this.planned_activities.Name = "planned_activities";
+            this.planned_activities.Size = new System.Drawing.Size(274, 34);
+            this.planned_activities.TabIndex = 13;
+            this.planned_activities.TabStop = true;
+            this.planned_activities.Text = "Запланированные дела";
+            this.planned_activities.UseVisualStyleBackColor = true;
             // 
             // Form2
             // 
@@ -166,7 +166,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(26)))));
             this.ClientSize = new System.Drawing.Size(504, 293);
-            this.Controls.Add(this.add_time);
+            this.Controls.Add(this.planned_activities);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.radioButton2);
@@ -200,6 +200,6 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox add_time;
+        private System.Windows.Forms.RadioButton planned_activities;
     }
 }

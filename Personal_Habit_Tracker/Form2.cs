@@ -40,6 +40,7 @@ namespace Personal_Habit_Tracker
         private void AllTextBosex_And_RadioButtons_Events()
         {
             radioButton2.CheckedChanged += categories_and_repeats_CheckedChanged;
+            planned_activities.CheckedChanged += categories_and_repeats_CheckedChanged;
             radioButton3.CheckedChanged += categories_and_repeats_CheckedChanged;
             radioButton4.CheckedChanged += categories_and_repeats_CheckedChanged;
             radioButton5.CheckedChanged += categories_and_repeats_CheckedChanged;
@@ -225,10 +226,11 @@ namespace Personal_Habit_Tracker
             }
         }
 
-        //Действия при изменение checked у add_time
-        private void add_time_CheckedChanged(object sender, System.EventArgs e)
+        //Действия при изменение checked у planned_activities
+
+        private void planned_activities_Checked()
         {
-            if (add_time.Checked)
+            if (planned_activities.Checked)
             {
                 this.Size = new Size(520, 723);
                 ToggleNotificationSettingsUI(true);
@@ -238,8 +240,6 @@ namespace Personal_Habit_Tracker
                 this.Size = new Size(520, 332);
                 ToggleNotificationSettingsUI(false);
             }
-
-            Update_status_add_case();
         }
 
         //Проверка на заполнение TextBoxes и RadioButtons
@@ -256,7 +256,7 @@ namespace Personal_Habit_Tracker
         {
             TextBox[] notificationTimeBoxes = { textBox2, textBox3, textBox4, textBox5, textBox6 };
 
-            if (!add_time.Checked)
+            if (!planned_activities.Checked)
             {
                 if (!check_text(text_name))
                 {
@@ -287,7 +287,7 @@ namespace Personal_Habit_Tracker
             RadioButton[] repeatRadioButtons = { radioButton3, radioButton4, radioButton5, radioButton6, radioButton7, radioButton8 };
 
 
-            if (!add_time.Checked)
+            if (!planned_activities.Checked)
             {
                 if (!radioButton1.Checked && !radioButton2.Checked)
                 {
@@ -333,8 +333,10 @@ namespace Personal_Habit_Tracker
         //Проверка статуса изображения add_case при событии checkedchanged
         private void categories_and_repeats_CheckedChanged(object sender, System.EventArgs e)
         {
+            planned_activities_Checked();
             Update_status_add_case();
         }
+
 
         //Проверка статуса изображения add_case при событие textchenges
         private void AllTextBoxes_TextChanged(object sender, System.EventArgs e)
@@ -343,8 +345,7 @@ namespace Personal_Habit_Tracker
         }
 
         private void add_case_Click(object sender, System.EventArgs e)
-        {
-
+        {   
             text_nameCase = Convert.ToString(text_name.Text);
             habitCategory = Convert.ToBoolean(radioButton1.Checked);
             objectiveCategory = Convert.ToBoolean(radioButton2.Checked);
