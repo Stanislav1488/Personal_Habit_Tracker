@@ -21,9 +21,9 @@ namespace Personal_Habit_Tracker
         {
             InitializeComponent();
             LoadCheckBoxes();
+            Finish_task();
             IconEventsAndTags();
             ObjectsForDeleteCases();
-
 
             icon_okey.Click += new EventHandler(DeleteCheckBoxes_Click);
             deleteAllCases.CheckedChanged += new EventHandler(DeleteAllCases_CheckedChanged);
@@ -36,6 +36,7 @@ namespace Personal_Habit_Tracker
             public int LocationX { get; set; }
             public int LocationY { get; set; }
             public bool IsHaditCategory { get; set; }
+            public bool Checked { get; set; }
         }
 
         private void IconEventsAndTags()
@@ -241,9 +242,19 @@ namespace Personal_Habit_Tracker
                 Form2.ClosedByAddCase = false;
                 caseCount++;
 
-
                 SaveCheckBoxes();
             }
+        }
+
+        //Завершение_задачи
+        private void Finish_task()
+        {
+            DeleteCheakBoxes();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            SaveCheckBoxes();
         }
 
         //Очистка Checked у cheakBoxes
@@ -268,7 +279,7 @@ namespace Personal_Habit_Tracker
         }
 
         //Удаление выбраных checkBoxes
-        private void DeleteCheckBoxes_Click(object sender, EventArgs e)
+        private void DeleteCheakBoxes()
         {
             List<CheckBoxData> checkBoxData = LoadCheckBoxesData();
 
@@ -293,11 +304,15 @@ namespace Personal_Habit_Tracker
                     caseCount--;
                 }
 
-                ToggleControlPanelState();
-                DeleleWindowForDeleteCases();
                 SaveCheckBoxesData(checkBoxData);
-                icon_delete.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_blue.png");
             }
+        }
+
+        private void DeleteCheckBoxes_Click(object sender, EventArgs e)
+        {
+            DeleteCheakBoxes();
+            DeleleWindowForDeleteCases();
+            icon_delete.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_blue.png");
         }
 
         // Загрузка данных из JSON
@@ -335,6 +350,7 @@ namespace Personal_Habit_Tracker
             }
         }
 
+
         //Сохранение
         private void SaveCheckBoxes()
         {
@@ -350,7 +366,8 @@ namespace Personal_Habit_Tracker
                         Text = chk.Text,
                         LocationX = chk.Location.X,
                         LocationY = chk.Location.Y,
-                        IsHaditCategory = chk.Location.X == 140
+                        IsHaditCategory = chk.Location.X == 140,
+                        Checked = chk.Checked
                     });
                 }
             }
@@ -374,6 +391,7 @@ namespace Personal_Habit_Tracker
                         Name = saved.Name,
                         Text = saved.Text,
                         Location = new Point(saved.LocationX, saved.LocationY),
+                        Checked = saved.Checked,
                         ForeColor = Color.White,
                         Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold),
                         AutoSize = true
