@@ -305,6 +305,7 @@ namespace Personal_Habit_Tracker
                 }
 
                 SaveCheckBoxesData(checkBoxData);
+
             }
         }
 
@@ -313,6 +314,7 @@ namespace Personal_Habit_Tracker
             DeleteCheakBoxes();
             DeleleWindowForDeleteCases();
             icon_delete.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_blue.png");
+            icon_delete.MouseLeave += icons_MouseLeave;
         }
 
         // Загрузка данных из JSON
