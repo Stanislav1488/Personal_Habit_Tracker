@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -7,10 +8,21 @@ namespace Personal_Habit_Tracker
 {
     public partial class Form4 : Form
     {
+        public static int task_point = 100;
+
         public Form4()
         {
             InitializeComponent();
             IconEventsAndTags();
+        }
+
+        public class CheckBox_for_watching_Data
+        {
+            public string Name { get; set; }
+            public string Text { get; set; }
+            public int LocationX {get; set;}
+            public int LocationY {get; set;}
+            public bool Checked {  get; set; }
         }
 
         private void IconEventsAndTags()
@@ -81,5 +93,6 @@ namespace Personal_Habit_Tracker
 
             }
         }
+
     }
 }

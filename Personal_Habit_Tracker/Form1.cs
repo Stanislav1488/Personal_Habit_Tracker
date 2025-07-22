@@ -17,6 +17,8 @@ namespace Personal_Habit_Tracker
         PictureBox icon_okey = new PictureBox();
         CheckBox deleteAllCases = new CheckBox();
 
+        Form form_for_history = new Form4();
+
         public Form1()
         {
             InitializeComponent();
@@ -164,11 +166,10 @@ namespace Personal_Habit_Tracker
                     form_for_statistics.ShowDialog();
                     break;
                 case 3:
-                    Form form_for_history = new Form4();
                     form_for_history.ShowDialog();
                     break;
                 case 4:
-                    Form5 form_for_setting = new Form5();
+                    Form form_for_setting = new Form5();
                     form_for_setting.ShowDialog();
                     break;
             }
@@ -247,9 +248,32 @@ namespace Personal_Habit_Tracker
         }
 
         //Завершение_задачи
-        private void Finish_task()
+        public void Finish_task()
         {
+            Send_to_Window_for_watching();
             DeleteCheakBoxes();
+        }
+
+        public void Send_to_Window_for_watching()
+        {
+            foreach (CheckBox control in this.Controls.OfType<CheckBox>().ToList())
+            {
+                if (control.Checked == true)
+                {
+                    CheckBox chk = new CheckBox();
+                    chk.Name = control.Name;
+                    chk.Text = control.Text;
+                    chk.ForeColor = Color.White;
+                    chk.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
+                    chk.AutoSize = true;
+                    chk.Location = new Point(140, Form4.task_point);
+                    chk.Checked = true;
+                    Form4.task_point += 40;
+                    form_for_history.Controls.Add(chk);
+
+
+                }
+            }
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
