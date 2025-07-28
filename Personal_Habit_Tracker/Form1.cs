@@ -392,7 +392,7 @@ namespace Personal_Habit_Tracker
                             Text = saved.Text,
                             Location = new Point(saved.LocationX, saved.LocationY),
                             ForeColor = Color.White,
-                            Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold),
+                            Font = new Font("Segoe UI", 15.75F, FontStyle.Bold),
                             AutoSize = true,
                             Checked = false
                         };
