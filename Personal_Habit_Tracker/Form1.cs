@@ -17,13 +17,11 @@ namespace Personal_Habit_Tracker
         PictureBox icon_okey = new PictureBox();
         CheckBox deleteAllCases = new CheckBox();
 
-        Form form_for_history = new Form4();
 
         public Form1()
         {
             InitializeComponent();
             LoadCheckBoxes();
-            Finish_task();
             IconEventsAndTags();
             ObjectsForDeleteCases();
 
@@ -38,7 +36,7 @@ namespace Personal_Habit_Tracker
             public int LocationX { get; set; }
             public int LocationY { get; set; }
             public bool IsHaditCategory { get; set; }
-            public bool Checked { get; set; }
+            public bool Finish_Task { get; set; }
         }
 
         private void IconEventsAndTags()
@@ -166,6 +164,7 @@ namespace Personal_Habit_Tracker
                     form_for_statistics.ShowDialog();
                     break;
                 case 3:
+                    Form form_for_history = new Form4();
                     form_for_history.ShowDialog();
                     break;
                 case 4:
@@ -247,35 +246,6 @@ namespace Personal_Habit_Tracker
             }
         }
 
-        //Завершение_задачи
-        public void Finish_task()
-        {
-            Send_to_Window_for_watching();
-            DeleteCheakBoxes();
-        }
-
-        public void Send_to_Window_for_watching()
-        {
-            foreach (CheckBox control in this.Controls.OfType<CheckBox>().ToList())
-            {
-                if (control.Checked == true)
-                {
-                    CheckBox chk = new CheckBox();
-                    chk.Name = control.Name;
-                    chk.Text = control.Text;
-                    chk.ForeColor = Color.White;
-                    chk.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
-                    chk.AutoSize = true;
-                    chk.Location = new Point(140, Form4.task_point);
-                    chk.Checked = true;
-                    Form4.task_point += 40;
-                    form_for_history.Controls.Add(chk);
-
-
-                }
-            }
-        }
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             SaveCheckBoxes();
@@ -309,27 +279,27 @@ namespace Personal_Habit_Tracker
 
             foreach (CheckBox control in this.Controls.OfType<CheckBox>().ToList())
             {
-                if (control.Checked && control != deleteAllCases)
+                if (control.Checked == true && control != deleteAllCases)
                 {
-                    this.Controls.Remove(control);
-                    checkBoxData.RemoveAll(x => x.Name == control.Name);
-                    control.Dispose();
-
-
-                    if (control.Location.X == 140)
+                    if(checkBoxData.Any(x => x.Name == control.Name && !x.Finish_Task))
                     {
-                        hadit_pointY -= 40;
-                    }
-                    else if (control.Location.X == 530)
-                    {
-                        objectiveCategory_pointY -= 40;
-                    }
+                        this.Controls.Remove(control);
+                        checkBoxData.RemoveAll(x => x.Name == control.Name);
+                        control.Dispose();
 
-                    caseCount--;
+                        if (control.Location.X == 140)
+                        {
+                            hadit_pointY -= 40;
+                        }
+                        else if (control.Location.X == 530)
+                        {
+                            objectiveCategory_pointY -= 40;
+                        }
+
+                        caseCount--;
+                    }
                 }
-
                 SaveCheckBoxesData(checkBoxData);
-
             }
         }
 
@@ -381,6 +351,8 @@ namespace Personal_Habit_Tracker
         private void SaveCheckBoxes()
         {
             List<CheckBoxData> checkBoxes = new List<CheckBoxData>();
+            var existingData = LoadCheckBoxesData();
+            checkBoxes.AddRange(existingData.Where(x => x.Finish_Task));
 
             foreach (Control control in this.Controls)
             {
@@ -393,7 +365,7 @@ namespace Personal_Habit_Tracker
                         LocationX = chk.Location.X,
                         LocationY = chk.Location.Y,
                         IsHaditCategory = chk.Location.X == 140,
-                        Checked = chk.Checked
+                        Finish_Task = chk.Checked == true,
                     });
                 }
             }
@@ -412,18 +384,21 @@ namespace Personal_Habit_Tracker
 
                 foreach (var saved in savedBoxes)
                 {
-                    CheckBox chk = new CheckBox
+                    if (!saved.Finish_Task)
                     {
-                        Name = saved.Name,
-                        Text = saved.Text,
-                        Location = new Point(saved.LocationX, saved.LocationY),
-                        Checked = saved.Checked,
-                        ForeColor = Color.White,
-                        Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold),
-                        AutoSize = true
-                    };
+                        CheckBox chk = new CheckBox
+                        {
+                            Name = saved.Name,
+                            Text = saved.Text,
+                            Location = new Point(saved.LocationX, saved.LocationY),
+                            ForeColor = Color.White,
+                            Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold),
+                            AutoSize = true,
+                            Checked = false
+                        };
 
-                    this.Controls.Add(chk);
+                        this.Controls.Add(chk);
+                    }
 
                     // Обновляем счетчики позиций
                     if (saved.IsHaditCategory)
