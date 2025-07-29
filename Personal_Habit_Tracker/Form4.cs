@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -16,14 +17,14 @@ namespace Personal_Habit_Tracker
             IconEventsAndTags();
         }
 
-        public class CheckBox_for_watching_Data
-        {
-            public string Name { get; set; }
-            public string Text { get; set; }
-            public int LocationX {get; set;}
-            public int LocationY {get; set;}
-            public bool Checked {  get; set; }
-        }
+        //public class CheckBox_for_watching_Data
+        //{
+        //    public string Name { get; set; }
+        //    public string Text { get; set; }
+        //    public int LocationX { get; set; }
+        //    public int LocationY { get; set; }
+        //    public bool Checked { get; set; }
+        //}
 
         private void IconEventsAndTags()
         {
@@ -94,5 +95,41 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        private void LoadFinishedCheakBoxes()
+        {
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "checkboxes.json");
+
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                List<Form1.CheckBoxData> savedBoxes = JsonConvert.DeserializeObject<List<Form1.CheckBoxData>>(json);
+
+                foreach (var saved in savedBoxes)
+                {
+                    if (saved.Finish_Task == true)
+                    {
+                        CheckBox chk = new CheckBox
+                        {
+                            Name = saved.Name,
+                            Text = saved.Text,
+                            Location = new Point(140, task_point),
+                            ForeColor = Color.White,
+                            Font = new Font("Segoe UI", 15.75F, FontStyle.Bold),
+                            AutoSize = true,
+                            Checked = false
+                        };
+
+                        this.Controls.Add(chk);
+
+                        task_point += 40;
+                    }
+                }
+            }
+        }
+
+        private void finished_icon_Click(object sender, EventArgs e)
+        {
+            LoadFinishedCheakBoxes();
+        }
     }
 }
