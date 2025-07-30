@@ -10,7 +10,7 @@ namespace Personal_Habit_Tracker
 {
     public partial class Form1 : Form
     {
-        int caseCount = 0, hadit_pointY = 100, objectiveCategory_pointY = 100;
+        int caseCount = 0, habit_pointY = 100, objectiveCategory_pointY = 100;
         bool switchDeleteCases = true;
 
         PictureBox windowForDelete = new PictureBox();
@@ -35,7 +35,8 @@ namespace Personal_Habit_Tracker
             public string Text { get; set; }
             public int LocationX { get; set; }
             public int LocationY { get; set; }
-            public bool IsHaditCategory { get; set; }
+            public bool HaditCategory { get; set; }
+            public bool ObjectiveCategory { get; set; }
             public bool Finish_Task { get; set; }
         }
 
@@ -229,8 +230,8 @@ namespace Personal_Habit_Tracker
 
                 if (Form2.habitCategory == true)
                 {
-                    newCase.Location = new Point(140, hadit_pointY);
-                    hadit_pointY += 40;
+                    newCase.Location = new Point(140, habit_pointY);
+                    habit_pointY += 40;
                 }
                 else if (Form2.objectiveCategory == true)
                 {
@@ -281,7 +282,7 @@ namespace Personal_Habit_Tracker
             {
                 if (control.Checked == true && control != deleteAllCases)
                 {
-                    if(checkBoxData.Any(x => x.Name == control.Name && !x.Finish_Task))
+                    if (checkBoxData.Any(x => x.Name == control.Name && !x.Finish_Task))
                     {
                         this.Controls.Remove(control);
                         checkBoxData.RemoveAll(x => x.Name == control.Name);
@@ -289,7 +290,7 @@ namespace Personal_Habit_Tracker
 
                         if (control.Location.X == 140)
                         {
-                            hadit_pointY -= 40;
+                            habit_pointY -= 40;
                         }
                         else if (control.Location.X == 530)
                         {
@@ -362,9 +363,8 @@ namespace Personal_Habit_Tracker
                     {
                         Name = chk.Name,
                         Text = chk.Text,
-                        LocationX = chk.Location.X,
-                        LocationY = chk.Location.Y,
-                        IsHaditCategory = chk.Location.X == 140,
+                        HaditCategory = chk.Location.X == 140,
+                        ObjectiveCategory = chk.Location.X == 530,
                         Finish_Task = chk.Checked == true,
                     });
                 }
@@ -390,25 +390,35 @@ namespace Personal_Habit_Tracker
                         {
                             Name = saved.Name,
                             Text = saved.Text,
-                            Location = new Point(saved.LocationX, saved.LocationY),
                             ForeColor = Color.White,
                             Font = new Font("Segoe UI", 15.75F, FontStyle.Bold),
                             AutoSize = true,
                             Checked = false
                         };
 
+                        if (saved.HaditCategory)
+                        {
+                            chk.Location = new Point(140, habit_pointY);
+                            habit_pointY += 40;
+                        }
+                        if (saved.ObjectiveCategory)
+                        {
+                            chk.Location = new Point(530, objectiveCategory_pointY);
+                            objectiveCategory_pointY += 40;
+                        }
+
                         this.Controls.Add(chk);
                     }
 
                     // Обновляем счетчики позиций
-                    if (saved.IsHaditCategory)
-                    {
-                        hadit_pointY = saved.LocationY + 40;
-                    }
-                    else
-                    {
-                        objectiveCategory_pointY = saved.LocationY + 40;
-                    }
+                    //if (saved.HaditCategory)
+                    //{
+                    //    habit_pointY = saved.LocationY + 40;
+                    //}
+                    //else
+                    //{
+                    //    objectiveCategory_pointY = saved.LocationY + 40;
+                    //}
                 }
 
                 caseCount = savedBoxes.Count;
