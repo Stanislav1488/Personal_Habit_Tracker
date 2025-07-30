@@ -97,6 +97,8 @@ namespace Personal_Habit_Tracker
 
         private void LoadFinishedCheakBoxes()
         {
+            task_point = 100;
+
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "checkboxes.json");
 
             if (File.Exists(filePath))
