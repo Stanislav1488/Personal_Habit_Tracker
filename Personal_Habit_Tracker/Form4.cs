@@ -18,15 +18,6 @@ namespace Personal_Habit_Tracker
             IconEventsAndTags();
         }
 
-        //public class CheckBox_for_watching_Data
-        //{
-        //    public string Name { get; set; }
-        //    public string Text { get; set; }
-        //    public int LocationX { get; set; }
-        //    public int LocationY { get; set; }
-        //    public bool Checked { get; set; }
-        //}
-
         private void IconEventsAndTags()
         {
             task_with_notice_icon.MouseMove += icons_MouseMove;
@@ -38,6 +29,11 @@ namespace Personal_Habit_Tracker
             habit_icon.MouseLeave += icons_MouseLeave; ;
             task_icon.MouseLeave += icons_MouseLeave;
             delete_icon.MouseLeave += icons_MouseLeave;
+
+            task_with_notice_icon.Click += icons_Click;
+            habit_icon.Click += icons_Click;
+            task_icon.Click += icons_Click;
+            delete_icon.Click += icons_Click;
 
             finished_icon.Tag = 1;
             task_with_notice_icon.Tag = 2;
@@ -96,8 +92,39 @@ namespace Personal_Habit_Tracker
             }
         }
 
-        private void LoadFinishedCheakBoxes(Func<Form1.CheckBoxData, bool> filterCondition)
+        private void icons_Click(object sender, EventArgs e)
         {
+            PictureBox icon = (PictureBox)sender;
+
+            switch (icon.Tag)
+            {
+                case 1:
+                    LoadFilteredTasks(x => x.Finish_Task == true);
+                    break;
+                case 2:
+                    //НУжно будет разобраться с такими задачими
+                    break;
+                case 3:
+                    LoadFilteredTasks(x => x.Finish_Task == false && x.HaditCategory == true);
+                    break;
+                case 4:
+                    LoadFilteredTasks(x => x.Finish_Task == false && x.ObjectiveCategory == true);
+                    break;
+            }
+        }
+
+        private void DeleteFromFormAllObject()
+        {
+            foreach (Control control in this.Controls.OfType<CheckBox>().ToList())
+            {
+                this.Controls.Remove(control);
+                control.Dispose();
+            }
+        }
+
+        private void LoadFilteredTasks(Func<Form1.CheckBoxData, bool> filterCondition)
+        {
+            DeleteFromFormAllObject();
             task_point = 100;
 
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "checkboxes.json");
@@ -109,27 +136,23 @@ namespace Personal_Habit_Tracker
 
                 foreach (var saved in savedBoxes.Where(filterCondition))
                 {
-                        CheckBox chk = new CheckBox
-                        {
-                            Name = saved.Name,
-                            Text = saved.Text,
-                            Location = new Point(140, task_point),
-                            ForeColor = Color.White,
-                            Font = new Font("Segoe UI", 15.75F, FontStyle.Bold),
-                            AutoSize = true,
-                            Checked = false
-                        };
+                    CheckBox chk = new CheckBox
+                    {
+                        Name = saved.Name,
+                        Text = saved.Text,
+                        Location = new Point(140, task_point),
+                        ForeColor = Color.White,
+                        Font = new Font("Segoe UI", 15.75F, FontStyle.Bold),
+                        AutoSize = true,
+                        Checked = false
+                    };
 
-                        this.Controls.Add(chk);
+                    this.Controls.Add(chk);
 
-                        task_point += 40;
+                    task_point += 40;
                 }
             }
         }
 
-        private void finished_icon_Click(object sender, EventArgs e)
-        {
-            LoadFinishedCheakBoxes(x => x.Finish_Task == true);
-        }
     }
 }

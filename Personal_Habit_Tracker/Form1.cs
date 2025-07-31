@@ -33,8 +33,6 @@ namespace Personal_Habit_Tracker
         {
             public string Name { get; set; }
             public string Text { get; set; }
-            public int LocationX { get; set; }
-            public int LocationY { get; set; }
             public bool HaditCategory { get; set; }
             public bool ObjectiveCategory { get; set; }
             public bool Finish_Task { get; set; }

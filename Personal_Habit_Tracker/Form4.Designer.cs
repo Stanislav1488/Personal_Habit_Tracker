@@ -64,7 +64,7 @@
             this.finished_icon.Size = new System.Drawing.Size(50, 50);
             this.finished_icon.TabIndex = 28;
             this.finished_icon.TabStop = false;
-            this.finished_icon.Click += new System.EventHandler(this.finished_icon_Click);
+            this.finished_icon.Click += new System.EventHandler(this.icons_Click);
             this.finished_icon.MouseLeave += new System.EventHandler(this.icons_MouseLeave);
             this.finished_icon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.icons_MouseMove);
             // 
