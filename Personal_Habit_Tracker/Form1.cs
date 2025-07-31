@@ -409,16 +409,6 @@ namespace Personal_Habit_Tracker
 
                         this.Controls.Add(chk);
                     }
-
-                    // Обновляем счетчики позиций
-                    //if (saved.HaditCategory)
-                    //{
-                    //    habit_pointY = saved.LocationY + 40;
-                    //}
-                    //else
-                    //{
-                    //    objectiveCategory_pointY = saved.LocationY + 40;
-                    //}
                 }
 
                 caseCount = savedBoxes.Count;

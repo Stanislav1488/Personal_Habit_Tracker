@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Personal_Habit_Tracker
@@ -95,7 +96,7 @@ namespace Personal_Habit_Tracker
             }
         }
 
-        private void LoadFinishedCheakBoxes()
+        private void LoadFinishedCheakBoxes(Func<Form1.CheckBoxData, bool> filterCondition)
         {
             task_point = 100;
 
@@ -106,10 +107,8 @@ namespace Personal_Habit_Tracker
                 string json = File.ReadAllText(filePath);
                 List<Form1.CheckBoxData> savedBoxes = JsonConvert.DeserializeObject<List<Form1.CheckBoxData>>(json);
 
-                foreach (var saved in savedBoxes)
+                foreach (var saved in savedBoxes.Where(filterCondition))
                 {
-                    if (saved.Finish_Task == true)
-                    {
                         CheckBox chk = new CheckBox
                         {
                             Name = saved.Name,
@@ -124,14 +123,13 @@ namespace Personal_Habit_Tracker
                         this.Controls.Add(chk);
 
                         task_point += 40;
-                    }
                 }
             }
         }
 
         private void finished_icon_Click(object sender, EventArgs e)
         {
-            LoadFinishedCheakBoxes();
+            LoadFinishedCheakBoxes(x => x.Finish_Task == true);
         }
     }
 }
