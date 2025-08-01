@@ -111,6 +111,7 @@
             this.delete_icon.Size = new System.Drawing.Size(50, 50);
             this.delete_icon.TabIndex = 32;
             this.delete_icon.TabStop = false;
+            this.delete_icon.Click += new System.EventHandler(this.delete_icon_Click);
             // 
             // Form4
             // 

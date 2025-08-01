@@ -12,10 +12,15 @@ namespace Personal_Habit_Tracker
     {
         public static int task_point = 100;
 
+        PictureBox windowForDelete = new PictureBox();
+        PictureBox icon_okey = new PictureBox();
+        CheckBox deleteAllCases = new CheckBox();
+
         public Form4()
         {
             InitializeComponent();
             IconEventsAndTags();
+            ObjectsForDeleteCases();
         }
 
         private void IconEventsAndTags()
@@ -40,6 +45,44 @@ namespace Personal_Habit_Tracker
             habit_icon.Tag = 3;
             task_icon.Tag = 4;
             delete_icon.Tag = 5;
+        }
+
+        private void ObjectsForDeleteCases()
+        {
+            //windowForDelete
+            windowForDelete.BackColor = Color.FromArgb(26, 28, 26);
+            windowForDelete.Location = new Point(60, 0);
+            windowForDelete.Size = new Size(490, 50);
+
+            //icon_okey
+            deleteAllCases.BackColor = Color.FromArgb(26, 28, 26);
+            deleteAllCases.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
+            deleteAllCases.ForeColor = Color.White;
+            deleteAllCases.Location = new Point(69, 6);
+            deleteAllCases.Size = new Size(160, 31);
+            deleteAllCases.Text = "Выбрать всё";
+
+            //deleteAllCases
+            icon_okey.BackColor = Color.FromArgb(26, 28, 28);
+            icon_okey.Location = new Point(238, 0);
+            icon_okey.Size = new Size(50, 50);
+            icon_okey.SizeMode = PictureBoxSizeMode.Normal;
+            icon_okey.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\okey_white.png");
+
+        }
+
+        private void AddWindowForDeleteCases()
+        {
+            this.Controls.Add(deleteAllCases);
+            this.Controls.Add(icon_okey);
+            this.Controls.Add(windowForDelete);
+        }
+
+        private void DeleleWindowForDeleteCases()
+        {
+            this.Controls.Remove(windowForDelete);
+            this.Controls.Remove(deleteAllCases);
+            this.Controls.Remove(icon_okey);
         }
 
         private void icons_MouseMove(object sender, MouseEventArgs e)
@@ -113,6 +156,11 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        private void delete_icon_Click(object sender, EventArgs e)
+        {
+            AddWindowForDeleteCases();
+        }
+
         private void DeleteFromFormAllObject()
         {
             foreach (Control control in this.Controls.OfType<CheckBox>().ToList())
@@ -121,7 +169,6 @@ namespace Personal_Habit_Tracker
                 control.Dispose();
             }
         }
-
         private void LoadFilteredTasks(Func<Form1.CheckBoxData, bool> filterCondition)
         {
             DeleteFromFormAllObject();
