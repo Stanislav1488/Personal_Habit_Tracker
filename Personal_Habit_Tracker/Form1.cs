@@ -282,23 +282,12 @@ namespace Personal_Habit_Tracker
                 {
                     if (checkBoxData.Any(x => x.Name == control.Name && !x.Finish_Task))
                     {
-                        this.Controls.Remove(control);
                         checkBoxData.RemoveAll(x => x.Name == control.Name);
-                        control.Dispose();
-
-                        if (control.Location.X == 140)
-                        {
-                            habit_pointY -= 40;
-                        }
-                        else if (control.Location.X == 530)
-                        {
-                            objectiveCategory_pointY -= 40;
-                        }
-
                         caseCount--;
                     }
                 }
                 SaveCheckBoxesData(checkBoxData);
+                LoadCheckBoxes();
             }
         }
 
@@ -372,9 +361,22 @@ namespace Personal_Habit_Tracker
             File.WriteAllText("checkboxes.json", json);
         }
 
+        private void DeleteFromFormAllObject()
+        {
+            foreach (Control control in this.Controls.OfType<CheckBox>().ToList())
+            {
+                this.Controls.Remove(control);
+                control.Dispose();
+            }
+        }
+
         //Загрузка
         private void LoadCheckBoxes()
         {
+            DeleteFromFormAllObject();
+            objectiveCategory_pointY = 100;
+            habit_pointY = 100;
+
             if (File.Exists("checkboxes.json"))
             {
                 string json = File.ReadAllText("checkboxes.json");
