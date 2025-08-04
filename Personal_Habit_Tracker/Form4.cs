@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using static Personal_Habit_Tracker.Form1;
 
 namespace Personal_Habit_Tracker
 {
@@ -21,6 +22,8 @@ namespace Personal_Habit_Tracker
             InitializeComponent();
             IconEventsAndTags();
             ObjectsForDeleteCases();
+
+            icon_okey.Click += new EventHandler(DeleteCheckBoxes_Click);
         }
 
         private void IconEventsAndTags()
@@ -156,11 +159,39 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        //Иконка, котороя добавляет окно для удаления CheakBox
         private void delete_icon_Click(object sender, EventArgs e)
         {
             AddWindowForDeleteCases();
         }
 
+        //Нажатие на icon_okey, для подверждения удаления
+        private void DeleteCheckBoxes_Click(object sender, EventArgs e)
+        {
+            DeleteCheckBoxes();
+            DeleleWindowForDeleteCases();
+            
+        }
+
+        private void DeleteCheckBoxes()
+        {
+            List<CheckBoxData> checkBoxData = LoadCheckBoxesData();
+
+            foreach (CheckBox control in this.Controls.OfType<CheckBox>().ToList())
+            {
+                if (control.Checked == true && control != deleteAllCases)
+                {
+                    if (checkBoxData.Any(x => x.Name == control.Name))
+                    {
+                        checkBoxData.RemoveAll(x => x.Name == control.Name);
+                    }
+                }
+                SaveCheckBoxesData(checkBoxData);
+                DeleteFromFormAllObject();
+            }
+        }
+
+        //Удаляет все checkBox с формы
         private void DeleteFromFormAllObject()
         {
             foreach (Control control in this.Controls.OfType<CheckBox>().ToList())
@@ -169,7 +200,44 @@ namespace Personal_Habit_Tracker
                 control.Dispose();
             }
         }
-        private void LoadFilteredTasks(Func<Form1.CheckBoxData, bool> filterCondition)
+
+        // Загрузка данных из JSON
+        private List<CheckBoxData> LoadCheckBoxesData()
+        {
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "checkboxes.json");
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    string json = File.ReadAllText(filePath);
+                    return JsonConvert.DeserializeObject<List<CheckBoxData>>(json)
+                           ?? new List<CheckBoxData>();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка загрузки данных: {ex.Message}");
+            }
+            return new List<CheckBoxData>();
+        }
+
+        // Сохранение данных в JSON
+        private void SaveCheckBoxesData(List<CheckBoxData> data)
+        {
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "checkboxes.json");
+            try
+            {
+                string json = JsonConvert.SerializeObject(data, Formatting.Indented);
+                File.WriteAllText(filePath, json);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка сохранения: {ex.Message}");
+            }
+        }
+
+        //Загрузка и фильтрация checkBox
+        private void LoadFilteredTasks(Func<CheckBoxData, bool> filterCondition)
         {
             DeleteFromFormAllObject();
             task_point = 100;
@@ -179,7 +247,7 @@ namespace Personal_Habit_Tracker
             if (File.Exists(filePath))
             {
                 string json = File.ReadAllText(filePath);
-                List<Form1.CheckBoxData> savedBoxes = JsonConvert.DeserializeObject<List<Form1.CheckBoxData>>(json);
+                List<CheckBoxData> savedBoxes = JsonConvert.DeserializeObject<List<CheckBoxData>>(json);
 
                 foreach (var saved in savedBoxes.Where(filterCondition))
                 {
