@@ -350,7 +350,7 @@ namespace Personal_Habit_Tracker
 
             foreach (Control control in this.Controls)
             {
-                if (control is CheckBox chk)
+                if (control is CheckBox chk && control != deleteAllCases)
                 {
                     checkBoxes.Add(new CheckBoxData
                     {
