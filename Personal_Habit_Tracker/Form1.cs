@@ -365,8 +365,11 @@ namespace Personal_Habit_Tracker
         {
             foreach (Control control in this.Controls.OfType<CheckBox>().ToList())
             {
-                this.Controls.Remove(control);
-                control.Dispose();
+                if (control != deleteAllCases)
+                {
+                    this.Controls.Remove(control);
+                    control.Dispose();
+                }
             }
         }
 

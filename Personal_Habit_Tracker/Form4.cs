@@ -171,13 +171,13 @@ namespace Personal_Habit_Tracker
         {
             DeleteCheckBoxes();
             DeleleWindowForDeleteCases();
-            
+
         }
 
         //Выбор всех CheckBoxes для удаления
         private void DeleteAllcases_CheckedChanged(object sender, EventArgs e)
         {
-            if(deleteAllCases.Checked == true)
+            if (deleteAllCases.Checked == true)
             {
                 foreach (CheckBox control in this.Controls.OfType<CheckBox>().ToList())
                 {
@@ -209,8 +209,11 @@ namespace Personal_Habit_Tracker
         {
             foreach (Control control in this.Controls.OfType<CheckBox>().ToList())
             {
-                this.Controls.Remove(control);
-                control.Dispose();
+                if (control != deleteAllCases)
+                {
+                    this.Controls.Remove(control);
+                    control.Dispose();
+                }
             }
         }
 
