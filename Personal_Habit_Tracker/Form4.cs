@@ -11,6 +11,7 @@ namespace Personal_Habit_Tracker
 {
     public partial class Form4 : Form
     {
+        public event Action FormClosedWithUpdate;
         public static int task_point = 100;
 
         PictureBox windowForDelete = new PictureBox();
@@ -285,5 +286,9 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        private void Form4_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormClosedWithUpdate?.Invoke();
+        }
     }
 }

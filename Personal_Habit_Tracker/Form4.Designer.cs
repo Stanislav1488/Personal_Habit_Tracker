@@ -128,6 +128,7 @@
             this.Name = "Form4";
             this.ShowIcon = false;
             this.Text = "Просмотр дел";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form4_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.finished_icon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.task_with_notice_icon)).EndInit();

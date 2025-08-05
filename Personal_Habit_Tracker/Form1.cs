@@ -163,7 +163,8 @@ namespace Personal_Habit_Tracker
                     form_for_statistics.ShowDialog();
                     break;
                 case 3:
-                    Form form_for_history = new Form4();
+                    Form4 form_for_history = new Form4();
+                    form_for_history.FormClosedWithUpdate += () => LoadCheckBoxes();
                     form_for_history.ShowDialog();
                     break;
                 case 4:
