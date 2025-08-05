@@ -191,10 +191,8 @@ namespace Personal_Habit_Tracker
             }
         }
 
-        //Открывается окно для удаления и закрывается при повторном щелчке
-        private void icon_delete_Click(object sender, EventArgs e)
+        private void ToggleDeleteMode()
         {
-
             if (switchDeleteCases == true)
             {
                 icon_delete.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_white.png");
@@ -212,6 +210,12 @@ namespace Personal_Habit_Tracker
                 DeleleWindowForDeleteCases();
                 switchDeleteCases = true;
             }
+        }
+
+        //Открывается окно для удаления и закрывается при повторном щелчке
+        private void icon_delete_Click(object sender, EventArgs e)
+        {
+            ToggleDeleteMode();
         }
 
         //Добавление
@@ -297,6 +301,7 @@ namespace Personal_Habit_Tracker
             DeleleWindowForDeleteCases();
             icon_delete.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_blue.png");
             icon_delete.MouseLeave += icons_MouseLeave;
+            ToggleDeleteMode();
         }
 
         // Загрузка данных из JSON
