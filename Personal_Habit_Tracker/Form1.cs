@@ -252,6 +252,10 @@ namespace Personal_Habit_Tracker
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
+            if(switchDeleteCases == false)
+            {
+                ClearCheckboxes();
+            }
             SaveCheckBoxes();
         }
 
