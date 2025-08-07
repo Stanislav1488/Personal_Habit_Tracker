@@ -143,7 +143,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -152,6 +151,7 @@
         private System.Windows.Forms.PictureBox icon_history;
         private System.Windows.Forms.PictureBox icon_setting;
         private System.Windows.Forms.PictureBox icon_delete;
+        private System.Windows.Forms.Label label2;
     }
 }
 

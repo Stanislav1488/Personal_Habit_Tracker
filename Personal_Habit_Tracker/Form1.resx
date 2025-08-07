@@ -436,7 +436,7 @@
   <data name="icon_delete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAA8pJREFUaEPtmUuMTEEUhs+EELHxiCA22GHlMeKxINgIEQmzGXPr9JjYmY3XwjuC
+        DQAACw0B7QfALAAAA8pJREFUaEPtmUuMTEEUhs+EELHxiCA22GHlMeKxINgIEQmzGXPr9JjYmY3XwjuC
         WGCFRDxCMh4zhAXuqTaYHSMRdth5bDwSIcQjjIyc6u661We6TedWNb3oLzlJp/9zz6lTj1v31gWoU6fO
         v6c9Hg5KK0C6DEi9eePfETR1DZPutQnSYkB6Baj7S5rSLyGKF8nLagvUq0HRzwGNl8Y+ilbJy2uDluwU
         QPpS3Fh9GpAyxhSdAaRfzsh8BqTJMsz/B+mcU8QnwOxs6QLR7Tk5rTA6dFa6/F94caP+ZhuY0euli4W1
@@ -495,7 +495,7 @@
     <value>1366, 768</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>1366, 768</value>
+    <value>894, 468</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Personal Habit Trecker</value>

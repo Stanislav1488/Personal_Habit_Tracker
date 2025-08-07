@@ -234,7 +234,7 @@ namespace Personal_Habit_Tracker
                 if (Form2.habitCategory == true)
                 {
                     newCase.Location = new Point(140, habit_pointY);
-                    habit_pointY += 40;
+                    habit_pointY += 60;
                 }
                 else if (Form2.objectiveCategory == true)
                 {
@@ -412,7 +412,7 @@ namespace Personal_Habit_Tracker
                         if (saved.HaditCategory)
                         {
                             chk.Location = new Point(140, habit_pointY);
-                            habit_pointY += 40;
+                            habit_pointY += 60;
                         }
                         if (saved.ObjectiveCategory)
                         {

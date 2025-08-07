@@ -16,11 +16,13 @@ namespace Personal_Habit_Tracker
         Label label5 = new Label();
         Label label6 = new Label();
         Label label7 = new Label();
+        Label label8 = new Label();
         TextBox textBox2 = new TextBox();
         TextBox textBox3 = new TextBox();
         TextBox textBox4 = new TextBox();
         TextBox textBox5 = new TextBox();
         TextBox textBox6 = new TextBox();
+        TextBox text_for_counter = new TextBox();
         RadioButton radioButton3 = new RadioButton();
         RadioButton radioButton4 = new RadioButton();
         RadioButton radioButton5 = new RadioButton();
@@ -33,6 +35,7 @@ namespace Personal_Habit_Tracker
             InitializeComponent();
             AllTextBosex_And_RadioButtons_Events();
             Setting_NotificationTime_and_Repeat();
+            Setting_Add_TheCounter_For_Habits();
             Update_status_add_case();
 
         }
@@ -181,6 +184,24 @@ namespace Personal_Habit_Tracker
 
         }
 
+        private void Setting_Add_TheCounter_For_Habits()
+        {
+            //label8
+            label8.Text = "Цель выполнения за день:";
+            label8.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.ForeColor = Color.White;
+            label8.Location = new Point(12, 333);
+            label8.Size = new Size(288, 27);
+
+            //text_for_Counter
+            text_for_counter.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            text_for_counter.Location = new Point(341, 333);
+            text_for_counter.Size = new Size(100, 34);
+            text_for_counter.BorderStyle = BorderStyle.FixedSingle;
+            text_for_counter.BackColor = Color.FromArgb(26, 28, 28);
+            text_for_counter.ForeColor = Color.White;
+        }
+
         //Переключатель появления частоты и времени уведомлений
         private void ToggleNotificationSettingsUI(bool isNotificationSettingsVisible)
         {
@@ -226,9 +247,21 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        private void Add_TheCounter_On_TheForm()
+        {
+            this.Controls.Add(label8);
+            this.Controls.Add(text_for_counter);
+        }
+
+        private void Delete_TheCounter_From_theForm()
+        {
+            this.Controls.Remove(label8);
+            this.Controls.Remove(text_for_counter);
+        }
+
         //Действия при изменение checked у planned_activities
 
-        private void planned_activities_Checked()
+        private void Planned_activities_Checked()
         {
             if (planned_activities.Checked)
             {
@@ -239,6 +272,20 @@ namespace Personal_Habit_Tracker
             {
                 this.Size = new Size(520, 332);
                 ToggleNotificationSettingsUI(false);
+            }
+        }
+
+        private void Hadits_Checked()
+        {
+            if(radioButton1.Checked)
+            {
+                this.Size = new Size(520, 431);
+                Add_TheCounter_On_TheForm();
+            }
+            else
+            {
+                this.Size = new Size(520, 332);
+                Delete_TheCounter_From_theForm();
             }
         }
 
@@ -333,7 +380,8 @@ namespace Personal_Habit_Tracker
         //Проверка статуса изображения add_case при событии checkedchanged
         private void categories_and_repeats_CheckedChanged(object sender, System.EventArgs e)
         {
-            planned_activities_Checked();
+            Planned_activities_Checked();
+            Hadits_Checked();
             Update_status_add_case();
         }
 
