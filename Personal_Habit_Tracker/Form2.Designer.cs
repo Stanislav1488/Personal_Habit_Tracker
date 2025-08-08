@@ -34,8 +34,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.add_case = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.habits = new System.Windows.Forms.RadioButton();
+            this.objectives = new System.Windows.Forms.RadioButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.planned_activities = new System.Windows.Forms.RadioButton();
@@ -101,30 +101,30 @@
             // 
             // radioButton1
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.radioButton1.ForeColor = System.Drawing.Color.White;
-            this.radioButton1.Location = new System.Drawing.Point(228, 120);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(140, 34);
-            this.radioButton1.TabIndex = 7;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Привычки";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.categories_and_repeats_CheckedChanged);
+            this.habits.AutoSize = true;
+            this.habits.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.habits.ForeColor = System.Drawing.Color.White;
+            this.habits.Location = new System.Drawing.Point(228, 120);
+            this.habits.Name = "habits";
+            this.habits.Size = new System.Drawing.Size(140, 34);
+            this.habits.TabIndex = 7;
+            this.habits.TabStop = true;
+            this.habits.Text = "Привычки";
+            this.habits.UseVisualStyleBackColor = true;
+            this.habits.CheckedChanged += new System.EventHandler(this.categories_and_repeats_CheckedChanged);
             // 
             // radioButton2
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
-            this.radioButton2.ForeColor = System.Drawing.Color.White;
-            this.radioButton2.Location = new System.Drawing.Point(380, 120);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(104, 34);
-            this.radioButton2.TabIndex = 9;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Задачи";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.objectives.AutoSize = true;
+            this.objectives.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
+            this.objectives.ForeColor = System.Drawing.Color.White;
+            this.objectives.Location = new System.Drawing.Point(380, 120);
+            this.objectives.Name = "objectives";
+            this.objectives.Size = new System.Drawing.Size(104, 34);
+            this.objectives.TabIndex = 9;
+            this.objectives.TabStop = true;
+            this.objectives.Text = "Задачи";
+            this.objectives.UseVisualStyleBackColor = true;
             // 
             // pictureBox4
             // 
@@ -169,8 +169,8 @@
             this.Controls.Add(this.planned_activities);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.objectives);
+            this.Controls.Add(this.habits);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.add_case);
             this.Controls.Add(this.pictureBox2);
@@ -196,8 +196,8 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox add_case;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton habits;
+        private System.Windows.Forms.RadioButton objectives;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RadioButton planned_activities;

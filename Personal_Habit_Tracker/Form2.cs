@@ -42,7 +42,7 @@ namespace Personal_Habit_Tracker
         //События
         private void AllTextBosex_And_RadioButtons_Events()
         {
-            radioButton2.CheckedChanged += categories_and_repeats_CheckedChanged;
+            objectives.CheckedChanged += categories_and_repeats_CheckedChanged;
             planned_activities.CheckedChanged += categories_and_repeats_CheckedChanged;
             radioButton3.CheckedChanged += categories_and_repeats_CheckedChanged;
             radioButton4.CheckedChanged += categories_and_repeats_CheckedChanged;
@@ -259,32 +259,32 @@ namespace Personal_Habit_Tracker
             this.Controls.Remove(text_for_counter);
         }
 
-        //Действия при изменение checked у planned_activities
-
-        private void Planned_activities_Checked()
+        private void Categories_CheckedTrue()
         {
             if (planned_activities.Checked)
             {
                 this.Size = new Size(520, 723);
                 ToggleNotificationSettingsUI(true);
             }
-            else
-            {
-                this.Size = new Size(520, 332);
-                ToggleNotificationSettingsUI(false);
-            }
-        }
-
-        private void Hadits_Checked()
-        {
-            if(radioButton1.Checked)
+            else if (habits.Checked)
             {
                 this.Size = new Size(520, 431);
                 Add_TheCounter_On_TheForm();
             }
-            else
+            else if (objectives.Checked)
             {
                 this.Size = new Size(520, 332);
+            }
+        }
+
+        private void Categories_CheckedFalse()
+        {
+            if (!planned_activities.Checked)
+            {
+                ToggleNotificationSettingsUI(false);
+            }
+            else if(!habits.Checked)
+            {
                 Delete_TheCounter_From_theForm();
             }
         }
@@ -336,7 +336,7 @@ namespace Personal_Habit_Tracker
 
             if (!planned_activities.Checked)
             {
-                if (!radioButton1.Checked && !radioButton2.Checked)
+                if (!habits.Checked && !objectives.Checked)
                 {
                     return false;
                 }
@@ -353,7 +353,7 @@ namespace Personal_Habit_Tracker
                     }
                 }
 
-                if (!anyRepeatSelected && !radioButton1.Checked && !radioButton2.Checked)
+                if (!anyRepeatSelected && !habits.Checked && !objectives.Checked)
                 {
                     return false;
                 }
@@ -380,8 +380,8 @@ namespace Personal_Habit_Tracker
         //Проверка статуса изображения add_case при событии checkedchanged
         private void categories_and_repeats_CheckedChanged(object sender, System.EventArgs e)
         {
-            Planned_activities_Checked();
-            Hadits_Checked();
+            Categories_CheckedTrue();
+            Categories_CheckedFalse();
             Update_status_add_case();
         }
 
@@ -395,8 +395,8 @@ namespace Personal_Habit_Tracker
         private void add_case_Click(object sender, System.EventArgs e)
         {   
             text_nameCase = Convert.ToString(text_name.Text);
-            habitCategory = Convert.ToBoolean(radioButton1.Checked);
-            objectiveCategory = Convert.ToBoolean(radioButton2.Checked);
+            habitCategory = Convert.ToBoolean(habits.Checked);
+            objectiveCategory = Convert.ToBoolean(objectives.Checked);
             ClosedByAddCase = true;
 
             this.Close();
