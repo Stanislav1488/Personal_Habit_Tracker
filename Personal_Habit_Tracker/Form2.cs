@@ -56,6 +56,7 @@ namespace Personal_Habit_Tracker
             textBox4.TextChanged += AllTextBoxes_TextChanged;
             textBox5.TextChanged += AllTextBoxes_TextChanged;
             textBox6.TextChanged += AllTextBoxes_TextChanged;
+            text_for_counter.TextChanged += AllTextBoxes_TextChanged;
         }
 
         //Настройки для частоты и времени уведомлений
@@ -303,14 +304,14 @@ namespace Personal_Habit_Tracker
         {
             TextBox[] notificationTimeBoxes = { textBox2, textBox3, textBox4, textBox5, textBox6 };
 
-            if (!planned_activities.Checked)
+            if (!planned_activities.Checked && !habits.Checked)
             {
                 if (!check_text(text_name))
                 {
                     return false;
                 }
             }
-            else
+            else if(planned_activities.Checked)
             {
                 foreach (TextBox textBox in notificationTimeBoxes)
                 {
@@ -325,8 +326,20 @@ namespace Personal_Habit_Tracker
                     return false;
                 }
             }
+            else if (habits.Checked)
+            {
+                if(!check_text(text_for_counter))
+                {
+                    return false;
+                }
 
-            return true;
+                if(!check_text(text_name))
+                {
+                    return false;
+                }
+            }
+
+                return true;
         }
 
         private bool Validate_Repeat_And_Category()
@@ -341,7 +354,7 @@ namespace Personal_Habit_Tracker
                     return false;
                 }
             }
-            else
+            else if(planned_activities.Checked)
             {
                 bool anyRepeatSelected = false;
                 foreach (RadioButton radioButton in repeatRadioButtons)
@@ -353,13 +366,13 @@ namespace Personal_Habit_Tracker
                     }
                 }
 
-                if (!anyRepeatSelected && !habits.Checked && !objectives.Checked)
+                if (!anyRepeatSelected)
                 {
                     return false;
                 }
             }
 
-            return true;
+                return true;
         }
 
         //Обновление изображения add_case
