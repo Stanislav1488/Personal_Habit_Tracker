@@ -11,6 +11,7 @@ namespace Personal_Habit_Tracker
     public partial class Form1 : Form
     {
         int caseCount = 0, habit_pointY = 100, objectiveCategory_pointY = 100;
+        int haditcounterCount = 0;
         bool switchDeleteCases = true;
 
         PictureBox windowForDelete = new PictureBox();
@@ -220,7 +221,7 @@ namespace Personal_Habit_Tracker
         }
 
         //Добавление
-        private void AddNewCase()
+        public void AddNewCase()
         {
             if (Form2.ClosedByAddCase == true)
             {
@@ -234,6 +235,7 @@ namespace Personal_Habit_Tracker
                 if (Form2.habitCategory == true)
                 {
                     newCase.Location = new Point(140, habit_pointY);
+                    AddCounter(newCase.Name, habit_pointY);
                     habit_pointY += 60;
                 }
                 else if (Form2.objectiveCategory == true)
@@ -249,6 +251,21 @@ namespace Personal_Habit_Tracker
                 SaveCheckBoxes();
             }
         }
+
+        public void AddCounter(string habitID, int LocationY)
+        {
+            Label counterForHabits = new Label();
+            counterForHabits.Name = "counter_" + habitID;
+            counterForHabits.Text = "Сегодня: " + "0/" + Convert.ToString(Form2.counter_text);
+            counterForHabits.ForeColor = Color.White;
+            counterForHabits.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular);
+            counterForHabits.AutoSize = true;
+            counterForHabits.Location = new Point(140, LocationY + 30);
+            counterForHabits.Tag = habitID;
+
+            this.Controls.Add(counterForHabits);
+        }
+
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {

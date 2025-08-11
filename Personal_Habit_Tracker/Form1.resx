@@ -126,7 +126,11 @@
     <value>Segoe UI, 15.75pt, style=Bold</value>
   </data>
   <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>193, 50</value>
+    <value>354, 92</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="label2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 0, 6, 0</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
     <value>122, 30</value>
@@ -156,7 +160,10 @@
     <value>Segoe UI, 15.75pt, style=Bold</value>
   </data>
   <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>590, 50</value>
+    <value>1082, 92</value>
+  </data>
+  <data name="label3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 0, 6, 0</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>127, 30</value>
@@ -186,7 +193,10 @@
     <value>Segoe UI, 15.75pt, style=Bold</value>
   </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>1054, 50</value>
+    <value>1932, 92</value>
+  </data>
+  <data name="label4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 0, 6, 0</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 30</value>
@@ -212,12 +222,11 @@
   <data name="pictureBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="pictureBox1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
+    <value>11, 11, 11, 11</value>
   </data>
   <data name="pictureBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 737</value>
+    <value>110, 1361</value>
   </data>
   <data name="pictureBox1.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -259,13 +268,13 @@
 </value>
   </data>
   <data name="icon_add.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 6</value>
+    <value>11, 11</value>
   </data>
   <data name="icon_add.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
+    <value>11, 11, 11, 11</value>
   </data>
   <data name="icon_add.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 50</value>
+    <value>92, 92</value>
   </data>
   <data name="icon_add.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -304,13 +313,13 @@
 </value>
   </data>
   <data name="icon_statistics.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 68</value>
+    <value>11, 126</value>
   </data>
   <data name="icon_statistics.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
+    <value>11, 11, 11, 11</value>
   </data>
   <data name="icon_statistics.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 50</value>
+    <value>92, 92</value>
   </data>
   <data name="icon_statistics.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -352,13 +361,13 @@
     <value />
   </data>
   <data name="icon_history.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 130</value>
+    <value>11, 240</value>
   </data>
   <data name="icon_history.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
+    <value>11, 11, 11, 11</value>
   </data>
   <data name="icon_history.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 50</value>
+    <value>92, 92</value>
   </data>
   <data name="icon_history.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -410,13 +419,13 @@
     <value>NoControl</value>
   </data>
   <data name="icon_setting.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 192</value>
+    <value>11, 354</value>
   </data>
   <data name="icon_setting.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
+    <value>11, 11, 11, 11</value>
   </data>
   <data name="icon_setting.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 50</value>
+    <value>92, 92</value>
   </data>
   <data name="icon_setting.TabIndex" type="System.Int32, mscorlib">
     <value>30</value>
@@ -436,7 +445,7 @@
   <data name="icon_delete.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAAA8pJREFUaEPtmUuMTEEUhs+EELHxiCA22GHlMeKxINgIEQmzGXPr9JjYmY3XwjuC
+        DAAACwwBP0AiyAAAA8pJREFUaEPtmUuMTEEUhs+EELHxiCA22GHlMeKxINgIEQmzGXPr9JjYmY3XwjuC
         WGCFRDxCMh4zhAXuqTaYHSMRdth5bDwSIcQjjIyc6u661We6TedWNb3oLzlJp/9zz6lTj1v31gWoU6fO
         v6c9Hg5KK0C6DEi9eePfETR1DZPutQnSYkB6Baj7S5rSLyGKF8nLagvUq0HRzwGNl8Y+ilbJy2uDluwU
         QPpS3Fh9GpAyxhSdAaRfzsh8BqTJMsz/B+mcU8QnwOxs6QLR7Tk5rTA6dFa6/F94caP+ZhuY0euli4W1
@@ -459,13 +468,13 @@
     <value>NoControl</value>
   </data>
   <data name="icon_delete.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 254</value>
+    <value>11, 469</value>
   </data>
   <data name="icon_delete.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>6, 6, 6, 6</value>
+    <value>11, 11, 11, 11</value>
   </data>
   <data name="icon_delete.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 50</value>
+    <value>92, 92</value>
   </data>
   <data name="icon_delete.TabIndex" type="System.Int32, mscorlib">
     <value>31</value>
@@ -486,16 +495,22 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+    <value>11, 24</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>1350, 729</value>
+    <value>2475, 1346</value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>6, 6, 6, 6</value>
   </data>
   <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
-    <value>1366, 768</value>
+    <value>2491, 1385</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>894, 468</value>
+    <value>1626, 831</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Personal Habit Trecker</value>
