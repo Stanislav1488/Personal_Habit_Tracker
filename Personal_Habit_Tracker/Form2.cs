@@ -7,7 +7,8 @@ namespace Personal_Habit_Tracker
 {
     public partial class Form2 : Form
     {
-        static public string text_nameCase, counter_text;
+        static public string text_nameCase;
+        static public int counter_text;
         static public bool habitCategory, objectiveCategory, ClosedByAddCase = false; 
 
         Panel panel = new Panel();
@@ -408,7 +409,7 @@ namespace Personal_Habit_Tracker
         private void add_case_Click(object sender, EventArgs e)
         {   
             text_nameCase = Convert.ToString(text_name.Text);
-            counter_text = Convert.ToString(text_for_counter.Text);
+            counter_text = Convert.ToInt32(text_for_counter.Text);
             habitCategory = Convert.ToBoolean(habits.Checked);
             objectiveCategory = Convert.ToBoolean(objectives.Checked);
             ClosedByAddCase = true;

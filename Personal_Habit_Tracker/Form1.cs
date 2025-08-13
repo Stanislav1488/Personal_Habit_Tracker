@@ -11,7 +11,7 @@ namespace Personal_Habit_Tracker
     public partial class Form1 : Form
     {
         int caseCount = 0, habit_pointY = 100, objectiveCategory_pointY = 100;
-        int haditcounterCount = 0;
+        int currentCount = 0;
         bool switchDeleteCases = true;
 
         PictureBox windowForDelete = new PictureBox();
@@ -37,6 +37,8 @@ namespace Personal_Habit_Tracker
             public bool HaditCategory { get; set; }
             public bool ObjectiveCategory { get; set; }
             public bool Finish_Task { get; set; }
+            public int CurrentCount { get; set; }
+            public int TargetCount { get; set; }
         }
 
         private void IconEventsAndTags()
@@ -235,7 +237,7 @@ namespace Personal_Habit_Tracker
                 if (Form2.habitCategory == true)
                 {
                     newCase.Location = new Point(140, habit_pointY);
-                    AddCounter(newCase.Name, habit_pointY);
+                    AddCounter(newCase.Name, habit_pointY, Form2.counter_text);
                     habit_pointY += 60;
                 }
                 else if (Form2.objectiveCategory == true)
@@ -252,11 +254,11 @@ namespace Personal_Habit_Tracker
             }
         }
 
-        public void AddCounter(string habitID, int LocationY)
+        public void AddCounter(string habitID, int LocationY, int targetCount)
         {
             Label counterForHabits = new Label();
             counterForHabits.Name = "counter_" + habitID;
-            counterForHabits.Text = "Сегодня: " + "0/" + Convert.ToString(Form2.counter_text);
+            counterForHabits.Text = "Сегодня: " + "0/" + targetCount;
             counterForHabits.ForeColor = Color.White;
             counterForHabits.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular);
             counterForHabits.AutoSize = true;
@@ -266,10 +268,9 @@ namespace Personal_Habit_Tracker
             this.Controls.Add(counterForHabits);
         }
 
-
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(switchDeleteCases == false)
+            if (switchDeleteCases == false)
             {
                 ClearCheckboxes();
             }
@@ -373,19 +374,33 @@ namespace Personal_Habit_Tracker
             {
                 if (control is CheckBox chk && control != deleteAllCases)
                 {
-                    checkBoxes.Add(new CheckBoxData
+                    var existing = existingData.FirstOrDefault(x => x.Name == chk.Name);
+
+                    var data = new CheckBoxData
                     {
                         Name = chk.Name,
                         Text = chk.Text,
                         HaditCategory = chk.Location.X == 140,
                         ObjectiveCategory = chk.Location.X == 530,
                         Finish_Task = chk.Checked == true,
-                    });
+                    };
+
+                    if (existing != null && existing.HaditCategory)
+                    {
+                        data.CurrentCount = existing.CurrentCount;
+                        data.TargetCount = existing.TargetCount;
+                    }
+                    else if (chk.Location.X == 140 && Form2.habitCategory)
+                    {
+                        data.CurrentCount = currentCount;
+                        data.TargetCount = Form2.counter_text;
+                    }
+
+                    checkBoxes.Add(data);
                 }
             }
 
-            string json = JsonConvert.SerializeObject(checkBoxes);
-            File.WriteAllText("checkboxes.json", json);
+            SaveCheckBoxesData(checkBoxes);
         }
 
         private void DeleteFromFormAllObject()
