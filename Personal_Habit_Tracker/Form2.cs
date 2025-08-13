@@ -9,7 +9,7 @@ namespace Personal_Habit_Tracker
     {
         static public string text_nameCase;
         static public int counter_text;
-        static public bool habitCategory, objectiveCategory, ClosedByAddCase = false; 
+        static public bool habitCategory, objectiveCategory, ClosedByAddCase = false;
 
         Panel panel = new Panel();
         Label label3 = new Label();
@@ -285,7 +285,7 @@ namespace Personal_Habit_Tracker
             {
                 ToggleNotificationSettingsUI(false);
             }
-            else if(!habits.Checked)
+            else if (!habits.Checked)
             {
                 Delete_TheCounter_From_theForm();
             }
@@ -312,7 +312,7 @@ namespace Personal_Habit_Tracker
                     return false;
                 }
             }
-            else if(planned_activities.Checked)
+            else if (planned_activities.Checked)
             {
                 foreach (TextBox textBox in notificationTimeBoxes)
                 {
@@ -329,18 +329,18 @@ namespace Personal_Habit_Tracker
             }
             else if (habits.Checked)
             {
-                if(!check_text(text_for_counter))
+                if (!check_text(text_for_counter))
                 {
                     return false;
                 }
 
-                if(!check_text(text_name))
+                if (!check_text(text_name))
                 {
                     return false;
                 }
             }
 
-                return true;
+            return true;
         }
 
         private bool Validate_Repeat_And_Category()
@@ -355,7 +355,7 @@ namespace Personal_Habit_Tracker
                     return false;
                 }
             }
-            else if(planned_activities.Checked)
+            else if (planned_activities.Checked)
             {
                 bool anyRepeatSelected = false;
                 foreach (RadioButton radioButton in repeatRadioButtons)
@@ -373,7 +373,7 @@ namespace Personal_Habit_Tracker
                 }
             }
 
-                return true;
+            return true;
         }
 
         //Обновление изображения add_case
@@ -407,12 +407,15 @@ namespace Personal_Habit_Tracker
         }
 
         private void add_case_Click(object sender, EventArgs e)
-        {   
+        {
             text_nameCase = Convert.ToString(text_name.Text);
-            counter_text = Convert.ToInt32(text_for_counter.Text);
             habitCategory = Convert.ToBoolean(habits.Checked);
             objectiveCategory = Convert.ToBoolean(objectives.Checked);
             ClosedByAddCase = true;
+            if (habitCategory)
+            {
+                counter_text = Convert.ToInt32(text_for_counter.Text);
+            }
 
             this.Close();
         }
