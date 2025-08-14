@@ -236,6 +236,7 @@ namespace Personal_Habit_Tracker
 
                 if (Form2.habitCategory == true)
                 {
+                    newCase.CheckedChanged += new EventHandler(habits_CheckedChanged);
                     newCase.Location = new Point(140, habit_pointY);
                     AddCounter(newCase.Name, habit_pointY, Form2.counter_text);
                     habit_pointY += 60;
@@ -266,6 +267,29 @@ namespace Personal_Habit_Tracker
             counterForHabits.Tag = habitID;
 
             this.Controls.Add(counterForHabits);
+        }
+
+        private void habits_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox checkBox = (CheckBox)sender;
+
+            if (checkBox.Checked)
+            {
+                UpdateHabitCounter(checkBox.Name);
+                checkBox.Checked = false;
+            }    
+        }
+
+        private void UpdateHabitCounter(string habitName)
+        {
+            List<CheckBoxData> habits = LoadCheckBoxesData();
+            var habit = habits.FirstOrDefault(x => x.Name == habitName);
+            var counter = this.Controls.OfType<Label>().FirstOrDefault(x => x.Name == "counter_" + habitName);
+
+            habit.CurrentCount++;
+            counter.Text = "Сегодня:" + habit.CurrentCount + "/" + habit.TargetCount;
+
+            SaveCheckBoxesData(habits);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
