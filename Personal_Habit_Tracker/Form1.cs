@@ -238,8 +238,6 @@ namespace Personal_Habit_Tracker
                 {
                     newCase.CheckedChanged += new EventHandler(habits_CheckedChanged);
                     newCase.Location = new Point(140, habit_pointY);
-                    AddCounter(newCase.Name, habit_pointY, Form2.counter_text);
-                    habit_pointY += 60;
                 }
                 else if (Form2.objectiveCategory == true)
                 {
@@ -252,14 +250,23 @@ namespace Personal_Habit_Tracker
                 caseCount++;
 
                 SaveCheckBoxes();
+
+                if (Form2.habitCategory == true)
+                {
+                    AddCounter(newCase.Name, habit_pointY);
+                    habit_pointY += 60;
+                }
             }
         }
 
-        public void AddCounter(string habitID, int LocationY, int targetCount)
+        public void AddCounter(string habitID, int LocationY)
         {
+            List<CheckBoxData> habits = LoadCheckBoxesData();
+            var habit = habits.FirstOrDefault(x => x.Name == habitID);
+
             Label counterForHabits = new Label();
             counterForHabits.Name = "counter_" + habitID;
-            counterForHabits.Text = "Сегодня: " + "0/" + targetCount;
+            counterForHabits.Text = "Сегодня:" + habit.CurrentCount + "/" + habit.TargetCount;
             counterForHabits.ForeColor = Color.White;
             counterForHabits.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular);
             counterForHabits.AutoSize = true;
@@ -277,7 +284,7 @@ namespace Personal_Habit_Tracker
             {
                 UpdateHabitCounter(checkBox.Name);
                 checkBox.Checked = false;
-            }    
+            }
         }
 
         private void UpdateHabitCounter(string habitName)
@@ -467,7 +474,9 @@ namespace Personal_Habit_Tracker
 
                         if (saved.HaditCategory)
                         {
+                            chk.CheckedChanged += new EventHandler(habits_CheckedChanged);
                             chk.Location = new Point(140, habit_pointY);
+                            AddCounter(chk.Name, habit_pointY);
                             habit_pointY += 60;
                         }
                         if (saved.ObjectiveCategory)
