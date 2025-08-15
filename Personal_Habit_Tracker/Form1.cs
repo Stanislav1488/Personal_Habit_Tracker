@@ -263,11 +263,13 @@ namespace Personal_Habit_Tracker
         private void AddMinus(string habitName, int LocationY)
         {
             PictureBox minus_for_countrer = new PictureBox();
+            minus_for_countrer.Click += new EventHandler(DecrementHabitCounter_Click);
             minus_for_countrer.Name = "minus_" + habitName;
             minus_for_countrer.Location = new Point(230, LocationY + 30);
             minus_for_countrer.Size = new Size(20, 20);
             minus_for_countrer.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\minus.png");
             minus_for_countrer.SizeMode = PictureBoxSizeMode.StretchImage;
+            minus_for_countrer.Tag = habitName;
 
             this.Controls.Add(minus_for_countrer);
         }
@@ -284,7 +286,6 @@ namespace Personal_Habit_Tracker
             counterForHabits.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular);
             counterForHabits.AutoSize = true;
             counterForHabits.Location = new Point(140, LocationY + 30);
-            counterForHabits.Tag = habitID;
 
             this.Controls.Add(counterForHabits);
         }
@@ -298,6 +299,27 @@ namespace Personal_Habit_Tracker
                 UpdateHabitCounter(checkBox.Name);
                 checkBox.Checked = false;
             }
+        }
+
+        private void DecrementHabitCounter_Click(object sender, EventArgs e)
+        {
+            PictureBox minus = (PictureBox)sender;
+            List<CheckBoxData> habits = LoadCheckBoxesData();
+            CheckBoxData habit = habits.FirstOrDefault(x => x.Name == (string)minus.Tag);
+            
+            DecrementHabitCounter(habit.Name);
+        }
+
+        private void DecrementHabitCounter(string habitName)
+        {
+            List<CheckBoxData> habits = LoadCheckBoxesData();
+            var habit = habits.FirstOrDefault(x => x.Name == habitName);
+            var counter = this.Controls.OfType<Label>().FirstOrDefault(x => x.Name == "counter_" + habitName);
+
+            habit.CurrentCount--;
+            counter.Text = "Сегодня:" + habit.CurrentCount + "/" + habit.TargetCount;
+
+            SaveCheckBoxesData(habits);
         }
 
         private void UpdateHabitCounter(string habitName)
