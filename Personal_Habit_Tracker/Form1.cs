@@ -254,12 +254,25 @@ namespace Personal_Habit_Tracker
                 if (Form2.habitCategory == true)
                 {
                     AddCounter(newCase.Name, habit_pointY);
+                    AddMinus(newCase.Name, habit_pointY);
                     habit_pointY += 60;
                 }
             }
         }
 
-        public void AddCounter(string habitID, int LocationY)
+        private void AddMinus(string habitName, int LocationY)
+        {
+            PictureBox minus_for_countrer = new PictureBox();
+            minus_for_countrer.Name = "minus_" + habitName;
+            minus_for_countrer.Location = new Point(230, LocationY + 30);
+            minus_for_countrer.Size = new Size(20, 20);
+            minus_for_countrer.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\minus.png");
+            minus_for_countrer.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            this.Controls.Add(minus_for_countrer);
+        }
+
+        private void AddCounter(string habitID, int LocationY)
         {
             List<CheckBoxData> habits = LoadCheckBoxesData();
             var habit = habits.FirstOrDefault(x => x.Name == habitID);
@@ -477,6 +490,7 @@ namespace Personal_Habit_Tracker
                             chk.CheckedChanged += new EventHandler(habits_CheckedChanged);
                             chk.Location = new Point(140, habit_pointY);
                             AddCounter(chk.Name, habit_pointY);
+                            AddMinus(chk.Name, habit_pointY);
                             habit_pointY += 60;
                         }
                         if (saved.ObjectiveCategory)

@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "Name": "Test0",
+    "Text": "Выпить воды",
+    "HaditCategory": true,
+    "ObjectiveCategory": false,
+    "Finish_Task": false,
+    "CurrentCount": 4,
+    "TargetCount": 7
+  }
+]
