@@ -286,6 +286,7 @@ namespace Personal_Habit_Tracker
             counterForHabits.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular);
             counterForHabits.AutoSize = true;
             counterForHabits.Location = new Point(140, LocationY + 30);
+            counterForHabits.Tag = "counter";
 
             this.Controls.Add(counterForHabits);
         }
@@ -294,10 +295,13 @@ namespace Personal_Habit_Tracker
         {
             CheckBox checkBox = (CheckBox)sender;
 
-            if (checkBox.Checked)
+            if(switchDeleteCases == true)
             {
-                UpdateHabitCounter(checkBox.Name);
-                checkBox.Checked = false;
+                if (checkBox.Checked)
+                {
+                    UpdateHabitCounter(checkBox.Name);
+                    checkBox.Checked = false;
+                }
             }
         }
 
@@ -469,7 +473,7 @@ namespace Personal_Habit_Tracker
             SaveCheckBoxesData(checkBoxes);
         }
 
-        private void DeleteFromFormAllObject()
+        private void DeleteFromFormAllCheckBoxes()
         {
             foreach (Control control in this.Controls.OfType<CheckBox>().ToList())
             {
@@ -481,10 +485,23 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        private void DeleteFromFormAllLabel()
+        {
+            foreach(Control control in this.Controls.OfType<Control>().ToList())
+            {
+                if(control.Tag != null && control.Tag.ToString() == "counter")
+                {
+                    this.Controls.Remove(control);
+                    control.Dispose();
+                }
+            }
+        }
+
         //Загрузка
         private void LoadCheckBoxes()
         {
-            DeleteFromFormAllObject();
+            DeleteFromFormAllCheckBoxes();
+            DeleteFromFormAllLabel();
             objectiveCategory_pointY = 100;
             habit_pointY = 100;
 
