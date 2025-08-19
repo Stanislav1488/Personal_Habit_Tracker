@@ -10,11 +10,11 @@
   },
   {
     "Name": "Test1",
-    "Text": "Выпить воды",
+    "Text": "выпить воды",
     "HaditCategory": true,
     "ObjectiveCategory": false,
     "Finish_Task": false,
     "CurrentCount": 7,
-    "TargetCount": 8
+    "TargetCount": 7
   }
 ]

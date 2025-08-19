@@ -324,8 +324,16 @@ namespace Personal_Habit_Tracker
             var habit = habits.FirstOrDefault(x => x.Name == habitName);
             var counter = this.Controls.OfType<Label>().FirstOrDefault(x => x.Name == "counter_" + habitName);
 
-            habit.CurrentCount--;
-            counter.Text = "Сегодня:" + habit.CurrentCount + "/" + habit.TargetCount;
+            if (habit.CurrentCount > 0)
+            {
+                habit.CurrentCount--;
+                counter.Text = "Сегодня:" + habit.CurrentCount + "/" + habit.TargetCount;
+            }
+
+            if (habit.CurrentCount == habit.CurrentCount)
+            {
+                counter.ForeColor = Color.White;
+            }
 
             SaveCheckBoxesData(habits);
         }
@@ -337,7 +345,7 @@ namespace Personal_Habit_Tracker
             var habit = habits.FirstOrDefault(x => x.Name == habitName);
             var counter = this.Controls.OfType<Label>().FirstOrDefault(x => x.Name == "counter_" + habitName);
 
-            if (habit.CurrentCount < habit.TargetCount - 1)
+            if (habit.CurrentCount < habit.TargetCount)
             {
                 habit.CurrentCount++;
                 counter.Text = "Сегодня:" + habit.CurrentCount + "/" + habit.TargetCount;
@@ -348,7 +356,7 @@ namespace Personal_Habit_Tracker
                 counter.ForeColor = Color.LightGreen;
             }
 
-                SaveCheckBoxesData(habits);
+            SaveCheckBoxesData(habits);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
