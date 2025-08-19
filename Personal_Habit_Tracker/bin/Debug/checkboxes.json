@@ -1,1 +1,11 @@
-[]
+[
+  {
+    "Name": "Test0",
+    "Text": "аааа",
+    "HaditCategory": false,
+    "ObjectiveCategory": true,
+    "Finish_Task": true,
+    "CurrentCount": 0,
+    "TargetCount": 0
+  }
+]

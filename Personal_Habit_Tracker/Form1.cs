@@ -260,6 +260,7 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        //добавление минуса
         private void AddMinus(string habitName, int LocationY)
         {
             PictureBox minus_for_countrer = new PictureBox();
@@ -274,6 +275,7 @@ namespace Personal_Habit_Tracker
             this.Controls.Add(minus_for_countrer);
         }
 
+        //добавление счетчика
         private void AddCounter(string habitID, int LocationY)
         {
             List<CheckBoxData> habits = LoadCheckBoxesData();
@@ -295,7 +297,7 @@ namespace Personal_Habit_Tracker
         {
             CheckBox checkBox = (CheckBox)sender;
 
-            if(switchDeleteCases == true)
+            if (switchDeleteCases == true)
             {
                 if (checkBox.Checked)
                 {
@@ -305,15 +307,17 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        //клик по минусу
         private void DecrementHabitCounter_Click(object sender, EventArgs e)
         {
             PictureBox minus = (PictureBox)sender;
             List<CheckBoxData> habits = LoadCheckBoxesData();
             CheckBoxData habit = habits.FirstOrDefault(x => x.Name == (string)minus.Tag);
-            
+
             DecrementHabitCounter(habit.Name);
         }
 
+        //Обновление счётчика на клик минус
         private void DecrementHabitCounter(string habitName)
         {
             List<CheckBoxData> habits = LoadCheckBoxesData();
@@ -326,6 +330,7 @@ namespace Personal_Habit_Tracker
             SaveCheckBoxesData(habits);
         }
 
+        //Обновление счётчика на клик checkBox
         private void UpdateHabitCounter(string habitName)
         {
             List<CheckBoxData> habits = LoadCheckBoxesData();
@@ -473,6 +478,7 @@ namespace Personal_Habit_Tracker
             SaveCheckBoxesData(checkBoxes);
         }
 
+        //Удаление всех checkBoxes с формы
         private void DeleteFromFormAllCheckBoxes()
         {
             foreach (Control control in this.Controls.OfType<CheckBox>().ToList())
@@ -485,11 +491,25 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        //Удаление всех label с формы
         private void DeleteFromFormAllLabel()
         {
-            foreach(Control control in this.Controls.OfType<Control>().ToList())
+            foreach (Control control in this.Controls.OfType<Control>().ToList())
             {
-                if(control.Tag != null && control.Tag.ToString() == "counter")
+                if (control.Tag != null && control.Tag.ToString() == "counter")
+                {
+                    this.Controls.Remove(control);
+                    control.Dispose();
+                }
+            }
+        }
+
+        //Удаление всех минусов с формы
+        private void DeleteFromFormAllMinus()
+        {
+            foreach(Control control in this.Controls)
+            {
+                if(control.Location.X == 230)
                 {
                     this.Controls.Remove(control);
                     control.Dispose();
@@ -502,6 +522,8 @@ namespace Personal_Habit_Tracker
         {
             DeleteFromFormAllCheckBoxes();
             DeleteFromFormAllLabel();
+            DeleteFromFormAllMinus();
+
             objectiveCategory_pointY = 100;
             habit_pointY = 100;
 
