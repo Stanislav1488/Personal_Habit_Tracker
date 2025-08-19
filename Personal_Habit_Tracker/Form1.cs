@@ -337,10 +337,18 @@ namespace Personal_Habit_Tracker
             var habit = habits.FirstOrDefault(x => x.Name == habitName);
             var counter = this.Controls.OfType<Label>().FirstOrDefault(x => x.Name == "counter_" + habitName);
 
-            habit.CurrentCount++;
-            counter.Text = "Сегодня:" + habit.CurrentCount + "/" + habit.TargetCount;
+            if (habit.CurrentCount < habit.TargetCount - 1)
+            {
+                habit.CurrentCount++;
+                counter.Text = "Сегодня:" + habit.CurrentCount + "/" + habit.TargetCount;
+            }
+            else
+            {
+                counter.Text = "Завершено";
+                counter.ForeColor = Color.LightGreen;
+            }
 
-            SaveCheckBoxesData(habits);
+                SaveCheckBoxesData(habits);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -507,9 +515,9 @@ namespace Personal_Habit_Tracker
         //Удаление всех минусов с формы
         private void DeleteFromFormAllMinus()
         {
-            foreach(Control control in this.Controls)
+            foreach (Control control in this.Controls)
             {
-                if(control.Location.X == 230)
+                if (control.Location.X == 230)
                 {
                     this.Controls.Remove(control);
                     control.Dispose();

@@ -7,5 +7,14 @@
     "Finish_Task": true,
     "CurrentCount": 0,
     "TargetCount": 0
+  },
+  {
+    "Name": "Test1",
+    "Text": "Выпить воды",
+    "HaditCategory": true,
+    "ObjectiveCategory": false,
+    "Finish_Task": false,
+    "CurrentCount": 7,
+    "TargetCount": 8
   }
 ]
