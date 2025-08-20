@@ -348,12 +348,16 @@ namespace Personal_Habit_Tracker
             if (habit.CurrentCount < habit.TargetCount)
             {
                 habit.CurrentCount++;
-                counter.Text = "Сегодня:" + habit.CurrentCount + "/" + habit.TargetCount;
-            }
-            else
-            {
-                counter.Text = "Завершено";
-                counter.ForeColor = Color.LightGreen;
+
+                if(habit.CurrentCount == habit.TargetCount)
+                {
+                    counter.Text = "Завершено";
+                    counter.ForeColor = Color.LightGreen;
+                }
+                else
+                {
+                    counter.Text = "Сегодня:" + habit.CurrentCount + "/" + habit.TargetCount;
+                }
             }
 
             SaveCheckBoxesData(habits);
