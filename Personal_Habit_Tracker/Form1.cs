@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace Personal_Habit_Tracker
@@ -283,12 +284,21 @@ namespace Personal_Habit_Tracker
 
             Label counterForHabits = new Label();
             counterForHabits.Name = "counter_" + habitID;
-            counterForHabits.Text = "Сегодня:" + habit.CurrentCount + "/" + habit.TargetCount;
             counterForHabits.ForeColor = Color.White;
             counterForHabits.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular);
             counterForHabits.AutoSize = true;
             counterForHabits.Location = new Point(140, LocationY + 30);
             counterForHabits.Tag = "counter";
+
+            if (habit.CurrentCount == habit.TargetCount)
+            {
+                counterForHabits.Text = "Завершено";
+                counterForHabits.ForeColor = Color.LightGreen;
+            }
+            else
+            {
+                counterForHabits.Text = "Сегодня:" + habit.CurrentCount + "/" + habit.TargetCount;
+            }
 
             this.Controls.Add(counterForHabits);
         }
@@ -349,7 +359,7 @@ namespace Personal_Habit_Tracker
             {
                 habit.CurrentCount++;
 
-                if(habit.CurrentCount == habit.TargetCount)
+                if (habit.CurrentCount == habit.TargetCount)
                 {
                     counter.Text = "Завершено";
                     counter.ForeColor = Color.LightGreen;
