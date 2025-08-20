@@ -281,9 +281,44 @@ namespace Personal_Habit_Tracker
 
                     this.Controls.Add(chk);
 
-                    task_point += 40;
+                    if(saved.HaditCategory)
+                    {
+                        AddCounter(chk.Name, task_point);
+                        task_point += 60;
+                    }
+                    else
+                    {
+                        task_point += 40;
+                    }
                 }
             }
+        }
+
+        //добавление счетчика
+        private void AddCounter(string habitID, int LocationY)
+        {
+            List<CheckBoxData> habits = LoadCheckBoxesData();
+            var habit = habits.FirstOrDefault(x => x.Name == habitID);
+
+            Label counterForHabits = new Label();
+            counterForHabits.Name = "counter_" + habitID;
+            counterForHabits.ForeColor = Color.White;
+            counterForHabits.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular);
+            counterForHabits.AutoSize = true;
+            counterForHabits.Location = new Point(140, LocationY + 30);
+            counterForHabits.Tag = "counter";
+
+            if (habit.CurrentCount == habit.TargetCount)
+            {
+                counterForHabits.Text = "Завершено";
+                counterForHabits.ForeColor = Color.LightGreen;
+            }
+            else
+            {
+                counterForHabits.Text = "Сегодня:" + habit.CurrentCount + "/" + habit.TargetCount;
+            }
+
+            this.Controls.Add(counterForHabits);
         }
 
         private void Form4_FormClosed(object sender, FormClosedEventArgs e)
