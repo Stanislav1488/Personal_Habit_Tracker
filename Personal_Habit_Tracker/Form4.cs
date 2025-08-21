@@ -218,6 +218,19 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        //Удаление всех label с формы
+        private void DeleteFromFormAllLabel()
+        {
+            foreach (Control control in this.Controls.OfType<Control>().ToList())
+            {
+                if (control.Tag != null && control.Tag.ToString() == "counter")
+                {
+                    this.Controls.Remove(control);
+                    control.Dispose();
+                }
+            }
+        }
+
         // Загрузка данных из JSON
         private List<CheckBoxData> LoadCheckBoxesData()
         {
@@ -257,6 +270,7 @@ namespace Personal_Habit_Tracker
         private void LoadFilteredTasks(Func<CheckBoxData, bool> filterCondition)
         {
             DeleteFromFormAllObject();
+            DeleteFromFormAllLabel();
             task_point = 100;
 
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "checkboxes.json");
