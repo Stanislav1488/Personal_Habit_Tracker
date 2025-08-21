@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Forms;
 
 namespace Personal_Habit_Tracker
@@ -40,6 +39,7 @@ namespace Personal_Habit_Tracker
             public bool Finish_Task { get; set; }
             public int CurrentCount { get; set; }
             public int TargetCount { get; set; }
+            public DateTime LastUpdated { get; set; }
         }
 
         private void IconEventsAndTags()
@@ -488,6 +488,7 @@ namespace Personal_Habit_Tracker
                         HaditCategory = chk.Location.X == 140,
                         ObjectiveCategory = chk.Location.X == 530,
                         Finish_Task = chk.Checked == true,
+                        LastUpdated = DateTime.Now
                     };
 
                     if (existing != null && existing.HaditCategory)
@@ -566,6 +567,12 @@ namespace Personal_Habit_Tracker
                 {
                     if (!saved.Finish_Task)
                     {
+                        if (saved.LastUpdated < DateTime.Today)
+                        {
+                            saved.CurrentCount = 0;
+                            SaveCheckBoxesData(savedBoxes);
+                        }
+
                         CheckBox chk = new CheckBox
                         {
                             Name = saved.Name,

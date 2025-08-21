@@ -1,56 +1,12 @@
 [
   {
     "Name": "Test0",
-    "Text": "аааа",
-    "HaditCategory": false,
-    "ObjectiveCategory": true,
-    "Finish_Task": true,
-    "CurrentCount": 0,
-    "TargetCount": 0
-  },
-  {
-    "Name": "Test1",
     "Text": "Выпить воды",
     "HaditCategory": true,
     "ObjectiveCategory": false,
     "Finish_Task": false,
-    "CurrentCount": 7,
-    "TargetCount": 7
-  },
-  {
-    "Name": "Test2",
-    "Text": "Сделать зарядку",
-    "HaditCategory": true,
-    "ObjectiveCategory": false,
-    "Finish_Task": false,
-    "CurrentCount": 1,
-    "TargetCount": 3
-  },
-  {
-    "Name": "Test3",
-    "Text": "Пробежка",
-    "HaditCategory": true,
-    "ObjectiveCategory": false,
-    "Finish_Task": false,
-    "CurrentCount": 1,
-    "TargetCount": 1
-  },
-  {
-    "Name": "Test4",
-    "Text": "Пофиксить баг ",
-    "HaditCategory": false,
-    "ObjectiveCategory": true,
-    "Finish_Task": false,
     "CurrentCount": 0,
-    "TargetCount": 0
-  },
-  {
-    "Name": "Test5",
-    "Text": "сделать отчёт",
-    "HaditCategory": false,
-    "ObjectiveCategory": true,
-    "Finish_Task": false,
-    "CurrentCount": 0,
-    "TargetCount": 0
+    "TargetCount": 6,
+    "LastUpdated": "2025-08-21T15:38:30.2991799+07:00"
   }
 ]
