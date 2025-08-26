@@ -10,7 +10,7 @@ namespace Personal_Habit_Tracker
 {
     public partial class Form1 : Form
     {
-        int caseCount = 0, habit_pointY = 100, objectiveCategory_pointY = 100;
+        int caseCount = 0, habit_pointY = 100, objectiveCategory_pointY = 100, plannedActivitiesCategory_pointY = 100;
         int currentCount = 0;
         bool switchDeleteCases = true;
 
@@ -36,7 +36,7 @@ namespace Personal_Habit_Tracker
             public string Text { get; set; }
             public bool HaditCategory { get; set; }
             public bool ObjectiveCategory { get; set; }
-            public bool Planned_Activities {get; set; }
+            public bool Planned_Activities { get; set; }
             public bool Finish_Task { get; set; }
             public int CurrentCount { get; set; }
             public int TargetCount { get; set; }
@@ -245,6 +245,11 @@ namespace Personal_Habit_Tracker
                 {
                     newCase.Location = new Point(980, objectiveCategory_pointY);
                     objectiveCategory_pointY += 40;
+                }
+                else if (Form2.plannedActivitiesCategory == true)
+                {
+                    newCase.Location = new Point(530, plannedActivitiesCategory_pointY);
+                    plannedActivitiesCategory_pointY += 60;
                 }
 
                 this.Controls.Add(newCase);
@@ -488,6 +493,7 @@ namespace Personal_Habit_Tracker
                         Text = chk.Text,
                         HaditCategory = chk.Location.X == 140,
                         ObjectiveCategory = chk.Location.X == 980,
+                        Planned_Activities = chk.Location.X == 530,
                         Finish_Task = chk.Checked == true,
                         LastUpdated = DateTime.Now
                     };
@@ -503,7 +509,7 @@ namespace Personal_Habit_Tracker
                         data.TargetCount = Form2.counter_text;
                     }
 
-                        checkBoxes.Add(data);
+                    checkBoxes.Add(data);
                 }
             }
 
@@ -592,10 +598,15 @@ namespace Personal_Habit_Tracker
                             AddMinus(chk.Name, habit_pointY);
                             habit_pointY += 60;
                         }
-                        if (saved.ObjectiveCategory)
+                        else if (saved.ObjectiveCategory)
                         {
                             chk.Location = new Point(980, objectiveCategory_pointY);
                             objectiveCategory_pointY += 40;
+                        }
+                        else if (saved.Planned_Activities)
+                        {
+                            chk.Location = new Point(530, plannedActivitiesCategory_pointY);
+                            plannedActivitiesCategory_pointY += 60;
                         }
 
                         this.Controls.Add(chk);

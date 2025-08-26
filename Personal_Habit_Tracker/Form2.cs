@@ -9,7 +9,7 @@ namespace Personal_Habit_Tracker
     {
         static public string text_nameCase;
         static public int counter_text;
-        static public bool habitCategory, objectiveCategory, ClosedByAddCase = false;
+        static public bool habitCategory, objectiveCategory, plannedActivitiesCategory, ClosedByAddCase = false;
 
         Panel panel = new Panel();
         Label label3 = new Label();
@@ -411,6 +411,8 @@ namespace Personal_Habit_Tracker
             text_nameCase = Convert.ToString(text_name.Text);
             habitCategory = Convert.ToBoolean(habits.Checked);
             objectiveCategory = Convert.ToBoolean(objectives.Checked);
+            plannedActivitiesCategory = Convert.ToBoolean(planned_activities.Checked);
+
             ClosedByAddCase = true;
             if (habitCategory)
             {
