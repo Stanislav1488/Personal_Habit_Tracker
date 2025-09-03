@@ -1,57 +1,13 @@
 [
   {
-    "Name": "Test1",
-    "Text": "Создать приложение",
-    "HaditCategory": false,
-    "ObjectiveCategory": true,
-    "Planned_Activities": false,
-    "Finish_Task": true,
-    "CurrentCount": 0,
-    "TargetCount": 0,
-    "LastUpdated": "2025-08-26T17:25:46.7532308+07:00"
-  },
-  {
     "Name": "Test0",
     "Text": "Выпить воды",
-    "HaditCategory": true,
-    "ObjectiveCategory": false,
-    "Planned_Activities": false,
-    "Finish_Task": false,
-    "CurrentCount": 0,
-    "TargetCount": 6,
-    "LastUpdated": "2025-08-26T19:28:57.1283375+07:00"
-  },
-  {
-    "Name": "Test2",
-    "Text": "Сделать отчёт",
-    "HaditCategory": false,
-    "ObjectiveCategory": true,
-    "Planned_Activities": false,
-    "Finish_Task": false,
-    "CurrentCount": 0,
-    "TargetCount": 0,
-    "LastUpdated": "2025-08-26T19:28:57.1283375+07:00"
-  },
-  {
-    "Name": "Test3",
-    "Text": "Программирование",
     "HaditCategory": false,
     "ObjectiveCategory": false,
     "Planned_Activities": true,
     "Finish_Task": false,
     "CurrentCount": 0,
     "TargetCount": 0,
-    "LastUpdated": "2025-08-26T19:28:57.1283375+07:00"
-  },
-  {
-    "Name": "Test4",
-    "Text": "Английский язык",
-    "HaditCategory": false,
-    "ObjectiveCategory": false,
-    "Planned_Activities": true,
-    "Finish_Task": false,
-    "CurrentCount": 0,
-    "TargetCount": 0,
-    "LastUpdated": "2025-08-26T19:28:57.1283375+07:00"
+    "DateTimeForCheckBoxes": "2025-09-04T13:00:00"
   }
 ]

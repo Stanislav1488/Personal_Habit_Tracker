@@ -9,7 +9,9 @@ namespace Personal_Habit_Tracker
     {
         static public string text_nameCase;
         static public int counter_text;
+        static public int year, morth, day, hour, minutes;
         static public bool habitCategory, objectiveCategory, plannedActivitiesCategory, ClosedByAddCase = false;
+        static public DateTime dateTime = new DateTime();
 
         Panel panel = new Panel();
         Label label3 = new Label();
@@ -417,6 +419,16 @@ namespace Personal_Habit_Tracker
             if (habitCategory)
             {
                 counter_text = Convert.ToInt32(text_for_counter.Text);
+            }
+            else if (plannedActivitiesCategory)
+            {
+                year = Convert.ToInt32(textBox2.Text);
+                morth = Convert.ToInt32(textBox3.Text);
+                day = Convert.ToInt32(textBox4.Text);
+                hour = Convert.ToInt32(textBox5.Text);
+                minutes = Convert.ToInt32(textBox6.Text);
+
+                dateTime = new DateTime(year, morth, day, hour, minutes, 0);
             }
 
             this.Close();
