@@ -641,6 +641,7 @@ namespace Personal_Habit_Tracker
                         else if (saved.Planned_Activities)
                         {
                             chk.Location = new Point(530, plannedActivitiesCategory_pointY);
+                            AddNotificationDateLabel(chk.Name, plannedActivitiesCategory_pointY);
                             plannedActivitiesCategory_pointY += 60;
                         }
 

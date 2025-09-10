@@ -1,13 +1,1 @@
-[
-  {
-    "Name": "Test0",
-    "Text": "Выпить воды",
-    "HaditCategory": false,
-    "ObjectiveCategory": false,
-    "Planned_Activities": true,
-    "Finish_Task": false,
-    "CurrentCount": 0,
-    "TargetCount": 0,
-    "DateTimeForCheckBoxes": "2025-09-04T13:00:00"
-  }
-]
+[]
