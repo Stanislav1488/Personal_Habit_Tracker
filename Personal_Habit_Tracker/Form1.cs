@@ -500,6 +500,7 @@ namespace Personal_Habit_Tracker
             List<CheckBoxData> checkBoxes = new List<CheckBoxData>();
             var existingData = LoadCheckBoxesData();
             checkBoxes.AddRange(existingData.Where(x => x.Finish_Task));
+            caseCount = 0;
 
             foreach (Control control in this.Controls)
             {
@@ -509,7 +510,7 @@ namespace Personal_Habit_Tracker
 
                     var data = new CheckBoxData
                     {
-                        Name = chk.Name,
+                        Name = "Test" + Convert.ToString(caseCount),
                         Text = chk.Text,
                         HaditCategory = chk.Location.X == 140,
                         ObjectiveCategory = chk.Location.X == 980,
@@ -517,7 +518,7 @@ namespace Personal_Habit_Tracker
                         Finish_Task = chk.Checked == true
                     };
 
-                    if(data.HaditCategory)
+                    if (data.HaditCategory)
                     {
                         data.DateTimeForCheckBoxes = DateTime.Now;
                     }
@@ -529,7 +530,7 @@ namespace Personal_Habit_Tracker
                             data.CurrentCount = existing.CurrentCount;
                             data.TargetCount = existing.TargetCount;
                         }
-                        else if(existing.Planned_Activities)
+                        else if (existing.Planned_Activities)
                         {
                             data.DateTimeForCheckBoxes = existing.DateTimeForCheckBoxes;
                         }
@@ -539,12 +540,13 @@ namespace Personal_Habit_Tracker
                         data.CurrentCount = currentCount;
                         data.TargetCount = Form2.counter_text;
                     }
-                    else if(chk.Location.X == 530 && Form2.plannedActivitiesCategory)
+                    else if (chk.Location.X == 530 && Form2.plannedActivitiesCategory)
                     {
                         data.DateTimeForCheckBoxes = Form2.dateTime;
-                    }    
+                    }
 
-                        checkBoxes.Add(data);
+                    checkBoxes.Add(data);
+                    caseCount++;
                 }
             }
 
@@ -569,7 +571,7 @@ namespace Personal_Habit_Tracker
         {
             foreach (Control control in this.Controls.OfType<Control>().ToList())
             {
-                if (control.Tag != null && control.Tag.ToString() == "counter")
+                if (control.Tag != null && (control.Tag.ToString() == "counter" || control.Tag.ToString() == "notificationDate"))
                 {
                     this.Controls.Remove(control);
                     control.Dispose();
@@ -599,6 +601,7 @@ namespace Personal_Habit_Tracker
 
             objectiveCategory_pointY = 100;
             habit_pointY = 100;
+            plannedActivitiesCategory_pointY = 100;
 
             if (File.Exists("checkboxes.json"))
             {
