@@ -246,7 +246,7 @@ namespace Personal_Habit_Tracker
                     newCase.Location = new Point(980, objectiveCategory_pointY);
                     objectiveCategory_pointY += 40;
                 }
-                else if (Form2.plannedActivitiesCategory == true)
+                else if (Form2.plannedActivitiesCategory)
                 {
                     newCase.Location = new Point(530, plannedActivitiesCategory_pointY);
                 }
@@ -265,8 +265,15 @@ namespace Personal_Habit_Tracker
                 }
                 else if (Form2.plannedActivitiesCategory)
                 {
-                    AddNotificationDateLabel(newCase.Name, plannedActivitiesCategory_pointY);
-                    plannedActivitiesCategory_pointY += 60;
+                    if (Form2.dateTime.Date == DateTime.Today.Date)
+                    {
+                        AddNotificationDateLabel(newCase.Name, plannedActivitiesCategory_pointY);
+                        plannedActivitiesCategory_pointY += 60;
+                    }
+                    else
+                    {
+                        this.Controls.Remove(newCase);
+                    }
                 }
             }
         }
@@ -320,7 +327,7 @@ namespace Personal_Habit_Tracker
 
             Label notificationDateLabel = new Label();
             notificationDateLabel.Name = "notificationDate_" + taskID;
-            notificationDateLabel.Text = checkBox.DateTimeForCheckBoxes.ToString();
+            notificationDateLabel.Text = checkBox.DateTimeForCheckBoxes.ToShortTimeString();
             notificationDateLabel.ForeColor = Color.White;
             notificationDateLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular);
             notificationDateLabel.AutoSize = true;
@@ -500,6 +507,7 @@ namespace Personal_Habit_Tracker
             List<CheckBoxData> checkBoxes = new List<CheckBoxData>();
             var existingData = LoadCheckBoxesData();
             checkBoxes.AddRange(existingData.Where(x => x.Finish_Task));
+            checkBoxes.AddRange(existingData.Where(x => x.Planned_Activities && x.DateTimeForCheckBoxes.Date != DateTime.Today.Date));
             caseCount = 0;
 
             foreach (Control control in this.Controls)
@@ -643,15 +651,21 @@ namespace Personal_Habit_Tracker
                         }
                         else if (saved.Planned_Activities)
                         {
-                            chk.Location = new Point(530, plannedActivitiesCategory_pointY);
-                            AddNotificationDateLabel(chk.Name, plannedActivitiesCategory_pointY);
-                            plannedActivitiesCategory_pointY += 60;
+                            if (saved.DateTimeForCheckBoxes.Date == DateTime.Today.Date)
+                            {
+                                chk.Location = new Point(530, plannedActivitiesCategory_pointY);
+                                AddNotificationDateLabel(chk.Name, plannedActivitiesCategory_pointY);
+                                plannedActivitiesCategory_pointY += 60;
+                                this.Controls.Add(chk);
+                            }
                         }
 
-                        this.Controls.Add(chk);
+                        if (!saved.Planned_Activities)
+                        {
+                            this.Controls.Add(chk);
+                        }
                     }
                 }
-
                 caseCount = savedBoxes.Count;
             }
         }
