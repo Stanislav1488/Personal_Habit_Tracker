@@ -320,6 +320,7 @@ namespace Personal_Habit_Tracker
             this.Controls.Add(counterForHabits);
         }
 
+        //создание даты упоминания
         private void AddNotificationDateLabel(string taskID, int LocationY)
         {
             List<CheckBoxData> checkBoxes = LoadCheckBoxesData();

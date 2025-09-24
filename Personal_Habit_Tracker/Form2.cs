@@ -9,7 +9,7 @@ namespace Personal_Habit_Tracker
     {
         static public string text_nameCase;
         static public int counter_text;
-        static public int year, morth, day, hour, minutes;
+        static public int year = 0001, morth = 01, day = 01, hour = 0, minutes = 0;
         static public bool habitCategory, objectiveCategory, plannedActivitiesCategory, ClosedByAddCase = false;
         static public DateTime dateTime = new DateTime();
 
@@ -111,6 +111,7 @@ namespace Personal_Habit_Tracker
             textBox2.BorderStyle = BorderStyle.FixedSingle;
             textBox2.BackColor = Color.FromArgb(26, 28, 28);
             textBox2.ForeColor = Color.White;
+            textBox2.Tag = 1;
             //
             //textBox3
             textBox3.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -119,6 +120,7 @@ namespace Personal_Habit_Tracker
             textBox3.BorderStyle = BorderStyle.FixedSingle;
             textBox3.BackColor = Color.FromArgb(26, 28, 28);
             textBox3.ForeColor = Color.White;
+            textBox3.Tag = 2;
             //
             //textBox4
             textBox4.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -127,6 +129,7 @@ namespace Personal_Habit_Tracker
             textBox4.BorderStyle = BorderStyle.FixedSingle;
             textBox4.BackColor = Color.FromArgb(26, 28, 28);
             textBox4.ForeColor = Color.White;
+            textBox4.Tag = 3;
             //
             //textBox5
             textBox5.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -135,6 +138,7 @@ namespace Personal_Habit_Tracker
             textBox5.BorderStyle = BorderStyle.FixedSingle;
             textBox5.BackColor = Color.FromArgb(26, 28, 28);
             textBox5.ForeColor = Color.White;
+            textBox5.Tag = 4;
             //
             //textBox6
             textBox6.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -143,6 +147,7 @@ namespace Personal_Habit_Tracker
             textBox6.BorderStyle = BorderStyle.FixedSingle;
             textBox6.BackColor = Color.FromArgb(26, 28, 28);
             textBox6.ForeColor = Color.White;
+            textBox6.Tag = 5;
             //
             //radioButton3
             radioButton3.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -150,35 +155,35 @@ namespace Personal_Habit_Tracker
             radioButton3.Location = new Point(3, 3);
             radioButton3.Size = new Size(172, 31);
             radioButton3.Text = "Не повторять";
-
+            //
             //radioButton4
             radioButton4.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radioButton4.ForeColor = Color.White;
             radioButton4.Location = new Point(3, 40);
             radioButton4.Size = new Size(194, 31);
             radioButton4.Text = "Каждую минуту";
-
+            //
             //radioButton5
             radioButton5.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radioButton5.ForeColor = Color.White;
             radioButton5.Location = new Point(3, 77);
             radioButton5.Size = new Size(154, 31);
             radioButton5.Text = "Каждый час";
-
+            //
             //radioButton6
             radioButton6.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radioButton6.ForeColor = Color.White;
             radioButton6.Location = new Point(4, 114);
             radioButton6.Size = new Size(171, 31);
             radioButton6.Text = "Еженедельно";
-
+            //
             //radioButton7
             radioButton7.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radioButton7.ForeColor = Color.White;
             radioButton7.Location = new Point(3, 151);
             radioButton7.Size = new Size(163, 31);
             radioButton7.Text = "Ежемесячно";
-
+            //
             //radioButton8
             radioButton8.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radioButton8.ForeColor = Color.White;
@@ -322,6 +327,35 @@ namespace Personal_Habit_Tracker
                     {
                         return false;
                     }
+                    
+                    if(check_text(textBox))
+                    {
+                        switch (textBox.Tag)
+                        {
+                            case 1:
+                                day = Convert.ToInt32(textBox.Text);
+                                break;
+                            case 2:
+                                morth = Convert.ToInt32(textBox.Text);
+                                break;
+                            case 3:
+                                year = Convert.ToInt32(textBox.Text);
+                                break;
+                            case 4:
+                                hour = Convert.ToInt32(textBox.Text);
+                                break;
+                            case 5:
+                                minutes = Convert.ToInt32(textBox.Text);
+                                break;
+                        }    
+                    }
+                }
+
+                dateTime = new DateTime(year, morth, day, hour, minutes, 0);
+
+                if (dateTime < DateTime.Now)
+                {
+                    return false;
                 }
 
                 if (!check_text(text_name))
@@ -419,16 +453,6 @@ namespace Personal_Habit_Tracker
             if (habitCategory)
             {
                 counter_text = Convert.ToInt32(text_for_counter.Text);
-            }
-            else if (plannedActivitiesCategory)
-            {
-                year = Convert.ToInt32(textBox2.Text);
-                morth = Convert.ToInt32(textBox3.Text);
-                day = Convert.ToInt32(textBox4.Text);
-                hour = Convert.ToInt32(textBox5.Text);
-                minutes = Convert.ToInt32(textBox6.Text);
-
-                dateTime = new DateTime(year, morth, day, hour, minutes, 0);
             }
 
             this.Close();
