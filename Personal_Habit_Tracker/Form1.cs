@@ -256,25 +256,7 @@ namespace Personal_Habit_Tracker
                 caseCount++;
 
                 SaveCheckBoxes();
-
-                if (Form2.habitCategory == true)
-                {
-                    AddCounter(newCase.Name, habit_pointY);
-                    AddMinus(newCase.Name, habit_pointY);
-                    habit_pointY += 60;
-                }
-                else if (Form2.plannedActivitiesCategory)
-                {
-                    if (Form2.dateTime.Date == DateTime.Today.Date)
-                    {
-                        AddNotificationDateLabel(newCase.Name, plannedActivitiesCategory_pointY);
-                        plannedActivitiesCategory_pointY += 60;
-                    }
-                    else
-                    {
-                        this.Controls.Remove(newCase);
-                    }
-                }
+                LoadCheckBoxes();
             }
         }
 
@@ -601,6 +583,22 @@ namespace Personal_Habit_Tracker
             }
         }
 
+        private List<CheckBoxData> softPlannedActivitiesByTime(List<CheckBoxData> savedCheckBoxes)
+        {
+            List<CheckBoxData> plannedActivities = savedCheckBoxes
+            .Where(x => x.Planned_Activities && x.DateTimeForCheckBoxes.Date == DateTime.Today)
+            .OrderBy(x => x.DateTimeForCheckBoxes.TimeOfDay)
+            .ToList();
+
+            List<CheckBoxData> otherItems = savedCheckBoxes
+            .Where(x => !x.Planned_Activities || x.DateTimeForCheckBoxes.Date != DateTime.Today.Date)
+            .ToList();
+
+            otherItems.AddRange(plannedActivities);
+
+            return otherItems;
+        }
+
         //Загрузка
         private void LoadCheckBoxes()
         {
@@ -616,6 +614,8 @@ namespace Personal_Habit_Tracker
             {
                 string json = File.ReadAllText("checkboxes.json");
                 List<CheckBoxData> savedBoxes = JsonConvert.DeserializeObject<List<CheckBoxData>>(json);
+
+                savedBoxes = softPlannedActivitiesByTime(savedBoxes);
 
                 foreach (var saved in savedBoxes)
                 {
