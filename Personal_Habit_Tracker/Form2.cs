@@ -111,6 +111,7 @@ namespace Personal_Habit_Tracker
             textBox2.BorderStyle = BorderStyle.FixedSingle;
             textBox2.BackColor = Color.FromArgb(26, 28, 28);
             textBox2.ForeColor = Color.White;
+            textBox2.KeyPress += new KeyPressEventHandler(notificationTextBoxes_KeyPress);
             textBox2.Tag = 1;
             //
             //textBox3
@@ -120,6 +121,7 @@ namespace Personal_Habit_Tracker
             textBox3.BorderStyle = BorderStyle.FixedSingle;
             textBox3.BackColor = Color.FromArgb(26, 28, 28);
             textBox3.ForeColor = Color.White;
+            textBox3.KeyPress += notificationTextBoxes_KeyPress;
             textBox3.Tag = 2;
             //
             //textBox4
@@ -129,6 +131,7 @@ namespace Personal_Habit_Tracker
             textBox4.BorderStyle = BorderStyle.FixedSingle;
             textBox4.BackColor = Color.FromArgb(26, 28, 28);
             textBox4.ForeColor = Color.White;
+            textBox4.KeyPress += notificationTextBoxes_KeyPress;
             textBox4.Tag = 3;
             //
             //textBox5
@@ -138,6 +141,7 @@ namespace Personal_Habit_Tracker
             textBox5.BorderStyle = BorderStyle.FixedSingle;
             textBox5.BackColor = Color.FromArgb(26, 28, 28);
             textBox5.ForeColor = Color.White;
+            textBox5.KeyPress += notificationTextBoxes_KeyPress;
             textBox5.Tag = 4;
             //
             //textBox6
@@ -147,6 +151,7 @@ namespace Personal_Habit_Tracker
             textBox6.BorderStyle = BorderStyle.FixedSingle;
             textBox6.BackColor = Color.FromArgb(26, 28, 28);
             textBox6.ForeColor = Color.White;
+            textBox6.KeyPress += notificationTextBoxes_KeyPress;
             textBox6.Tag = 5;
             //
             //radioButton3
@@ -410,6 +415,16 @@ namespace Personal_Habit_Tracker
             }
 
             return true;
+        }
+
+        private void notificationTextBoxes_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back)
+            {
+                return;
+            }
+            e.KeyChar = (char)Keys.None;
+
         }
 
         //Обновление изображения add_case
