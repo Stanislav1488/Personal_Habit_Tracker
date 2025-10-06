@@ -1,13 +1,12 @@
-﻿using Newtonsoft.Json;
-using Microsoft.Toolkit.Uwp.Notifications;
-using System.Timers;
+﻿using Microsoft.Toolkit.Uwp.Notifications;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Timers;
 using System.Windows.Forms;
-using System.Threading.Tasks;
 
 namespace Personal_Habit_Tracker
 {
@@ -197,7 +196,7 @@ namespace Personal_Habit_Tracker
             var tasks = LoadCheckBoxesData();
             var taskForNotification = tasks.Where(x => x.Planned_Activities && !x.Finish_Task && (x.DateTimeForCheckBoxes.Date == DateTime.Today.Date) && IsTimeForNotification(x.DateTimeForCheckBoxes)).ToList();
 
-            foreach(var task in taskForNotification)
+            foreach (var task in taskForNotification)
             {
                 ShowNotification(task.Text, task.DateTimeForCheckBoxes);
             }
@@ -207,7 +206,7 @@ namespace Personal_Habit_Tracker
         {
             DateTime currentTime = DateTime.Now;
 
-            if(taksTime.ToString("HH:mm") == currentTime.ToString("HH:mm"))
+            if (taksTime.ToString("HH:mm") == currentTime.ToString("HH:mm"))
             {
                 return true;
             }
@@ -285,7 +284,7 @@ namespace Personal_Habit_Tracker
 
                 if (Form2.habitCategory == true)
                 {
-                    newCase.CheckedChanged += new EventHandler(habits_CheckedChanged);
+                    newCase.CheckedChanged += new EventHandler(task_CheckedChanged);
                     newCase.Location = new Point(140, habit_pointY);
                 }
                 else if (Form2.objectiveCategory == true)
@@ -295,6 +294,7 @@ namespace Personal_Habit_Tracker
                 }
                 else if (Form2.plannedActivitiesCategory)
                 {
+                    newCase.CheckedChanged += new EventHandler(task_CheckedChanged);
                     newCase.Location = new Point(530, plannedActivitiesCategory_pointY);
                 }
 
@@ -366,19 +366,27 @@ namespace Personal_Habit_Tracker
             this.Controls.Add(notificationDateLabel);
         }
 
-        private void habits_CheckedChanged(object sender, EventArgs e)
+        private void task_CheckedChanged(object sender, EventArgs e)
         {
             CheckBox checkBox = (CheckBox)sender;
 
+            List<CheckBoxData> tasks = LoadCheckBoxesData();
+            var task = tasks.FirstOrDefault(x => x.Name == checkBox.Name);
+
             if (switchDeleteCases == true)
             {
-                if (checkBox.Checked)
+                if (task.HaditCategory)
                 {
                     UpdateHabitCounter(checkBox.Name);
                     checkBox.Checked = false;
                 }
+                else if (task.Planned_Activities)
+                {
+                    UpdatePlanned_ActivitiesLabel(checkBox.Name, checkBox.Checked);
+                }
             }
         }
+
 
         //клик по минусу
         private void DecrementHabitCounter_Click(object sender, EventArgs e)
@@ -434,6 +442,28 @@ namespace Personal_Habit_Tracker
             }
 
             SaveCheckBoxesData(habits);
+        }
+
+        private void UpdatePlanned_ActivitiesLabel(string planned_activityName,bool checkedPlanned_Activity)
+        {
+            List<CheckBoxData> planned_activities = LoadCheckBoxesData();
+            var planned_activity = planned_activities.FirstOrDefault(x => x.Name == planned_activityName);
+            var labelForPlanned_Activity = this.Controls.OfType<Label>().FirstOrDefault(x => x.Name == "notificationDate_" + planned_activityName);
+
+            if(checkedPlanned_Activity)
+            {
+                labelForPlanned_Activity.Text = "Завершено";
+                labelForPlanned_Activity.ForeColor = Color.LightGreen;
+                planned_activity.Finish_Task = true;
+            }
+            else
+            {
+                labelForPlanned_Activity.Text = planned_activity.DateTimeForCheckBoxes.ToShortTimeString();
+                labelForPlanned_Activity.ForeColor= Color.White;
+                planned_activity.Finish_Task = false;
+            }
+
+            SaveCheckBoxesData(planned_activities);
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -686,7 +716,7 @@ namespace Personal_Habit_Tracker
 
                         if (saved.HaditCategory)
                         {
-                            chk.CheckedChanged += new EventHandler(habits_CheckedChanged);
+                            chk.CheckedChanged += new EventHandler(task_CheckedChanged);
                             chk.Location = new Point(140, habit_pointY);
                             AddCounter(chk.Name, habit_pointY);
                             AddMinus(chk.Name, habit_pointY);
@@ -701,6 +731,7 @@ namespace Personal_Habit_Tracker
                         {
                             if (saved.DateTimeForCheckBoxes.Date == DateTime.Today.Date)
                             {
+                                chk.CheckedChanged += new EventHandler(task_CheckedChanged);
                                 chk.Location = new Point(530, plannedActivitiesCategory_pointY);
                                 AddNotificationDateLabel(chk.Name, plannedActivitiesCategory_pointY);
                                 plannedActivitiesCategory_pointY += 60;
