@@ -1,10 +1,13 @@
 ﻿using Newtonsoft.Json;
+using Microsoft.Toolkit.Uwp.Notifications;
+using System.Timers;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Threading.Tasks;
 
 namespace Personal_Habit_Tracker
 {
@@ -14,6 +17,7 @@ namespace Personal_Habit_Tracker
         int currentCount = 0;
         bool switchDeleteCases = true;
 
+        private System.Timers.Timer notificationTimer;
         PictureBox windowForDelete = new PictureBox();
         PictureBox icon_okey = new PictureBox();
         CheckBox deleteAllCases = new CheckBox();
@@ -25,6 +29,7 @@ namespace Personal_Habit_Tracker
             LoadCheckBoxes();
             IconEventsAndTags();
             ObjectsForDeleteCases();
+            InitializeNotificationTimer();
 
             icon_okey.Click += new EventHandler(DeleteCheckBoxes_Click);
             deleteAllCases.CheckedChanged += new EventHandler(DeleteAllCases_CheckedChanged);
@@ -178,6 +183,48 @@ namespace Personal_Habit_Tracker
                     break;
             }
         }
+
+        private void InitializeNotificationTimer()
+        {
+            notificationTimer = new System.Timers.Timer();
+            notificationTimer.Interval = 60000;
+            notificationTimer.Elapsed += CheckNotifications;
+            notificationTimer.Start();
+        }
+
+        private void CheckNotifications(object sender, ElapsedEventArgs e)
+        {
+            var tasks = LoadCheckBoxesData();
+            var taskForNotification = tasks.Where(x => x.Planned_Activities && !x.Finish_Task && (x.DateTimeForCheckBoxes.Date == DateTime.Today.Date) && IsTimeForNotification(x.DateTimeForCheckBoxes)).ToList();
+
+            foreach(var task in taskForNotification)
+            {
+                ShowNotification(task.Text, task.DateTimeForCheckBoxes);
+            }
+        }
+
+        private bool IsTimeForNotification(DateTime taksTime)
+        {
+            DateTime currentTime = DateTime.Now;
+
+            if(taksTime.ToString("HH:mm") == currentTime.ToString("HH:mm"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void ShowNotification(string taskName, DateTime taskDateTime)
+        {
+            var notification = new ToastContentBuilder();
+            notification.AddText("Задача: " + taskName);
+            notification.AddText("Запланировано на: " + taskDateTime.ToShortTimeString());
+            notification.Show();
+        }
+
 
         private void ToggleControlPanelState()
         {

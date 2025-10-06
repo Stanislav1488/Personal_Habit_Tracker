@@ -24,7 +24,6 @@ C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\bin\Debug\Personal_Habit_Tracker.pdb
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\bin\Debug\lkt-US\Personal_Habit_Tracker.resources.dll
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\bin\Debug\Newtonsoft.Json.dll
-C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\bin\Debug\Newtonsoft.Json.xml
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.csproj.AssemblyReference.cache
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.exe.config
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.Form1.resources
@@ -40,3 +39,6 @@ C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal.73E13100.Up2Date
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.exe
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.pdb
+C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.dll
+C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\bin\Debug\Microsoft.Toolkit.Uwp.Notifications.pdb
+C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.csproj.SuggestedBindingRedirects.cache

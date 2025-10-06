@@ -1,1 +1,24 @@
-[]
+[
+  {
+    "Name": "Test0",
+    "Text": "Английский язык",
+    "HaditCategory": false,
+    "ObjectiveCategory": false,
+    "Planned_Activities": true,
+    "Finish_Task": false,
+    "CurrentCount": 0,
+    "TargetCount": 0,
+    "DateTimeForCheckBoxes": "2025-10-06T18:55:00"
+  },
+  {
+    "Name": "Test1",
+    "Text": "уе,аться",
+    "HaditCategory": false,
+    "ObjectiveCategory": false,
+    "Planned_Activities": true,
+    "Finish_Task": false,
+    "CurrentCount": 0,
+    "TargetCount": 0,
+    "DateTimeForCheckBoxes": "2025-10-06T18:55:00"
+  }
+]
