@@ -444,13 +444,13 @@ namespace Personal_Habit_Tracker
             SaveCheckBoxesData(habits);
         }
 
-        private void UpdatePlanned_ActivitiesLabel(string planned_activityName,bool checkedPlanned_Activity)
+        private void UpdatePlanned_ActivitiesLabel(string planned_activityName, bool checkedPlanned_Activity)
         {
             List<CheckBoxData> planned_activities = LoadCheckBoxesData();
             var planned_activity = planned_activities.FirstOrDefault(x => x.Name == planned_activityName);
             var labelForPlanned_Activity = this.Controls.OfType<Label>().FirstOrDefault(x => x.Name == "notificationDate_" + planned_activityName);
 
-            if(checkedPlanned_Activity)
+            if (checkedPlanned_Activity)
             {
                 labelForPlanned_Activity.Text = "Завершено";
                 labelForPlanned_Activity.ForeColor = Color.LightGreen;
@@ -459,7 +459,7 @@ namespace Personal_Habit_Tracker
             else
             {
                 labelForPlanned_Activity.Text = planned_activity.DateTimeForCheckBoxes.ToShortTimeString();
-                labelForPlanned_Activity.ForeColor= Color.White;
+                labelForPlanned_Activity.ForeColor = Color.White;
                 planned_activity.Finish_Task = false;
             }
 
@@ -662,8 +662,13 @@ namespace Personal_Habit_Tracker
 
         private List<CheckBoxData> softPlannedActivitiesByTime(List<CheckBoxData> savedCheckBoxes)
         {
+            if (savedCheckBoxes == null)
+            {
+                return new List<CheckBoxData>();
+            }
+
             List<CheckBoxData> plannedActivities = savedCheckBoxes
-            .Where(x => x.Planned_Activities && x.DateTimeForCheckBoxes.Date == DateTime.Today)
+            .Where(x => x.Planned_Activities && x.DateTimeForCheckBoxes.Date == DateTime.Today.Date)
             .OrderBy(x => x.DateTimeForCheckBoxes.TimeOfDay)
             .ToList();
 
