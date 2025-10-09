@@ -150,7 +150,7 @@ namespace Personal_Habit_Tracker
                     LoadFilteredTasks(x => x.Finish_Task == true);
                     break;
                 case 2:
-                    //НУжно будет разобраться с такими задачими
+                    LoadFilteredTasks(x => x.Finish_Task == false && x.Planned_Activities == true);
                     break;
                 case 3:
                     LoadFilteredTasks(x => x.Finish_Task == false && x.HaditCategory == true);
@@ -295,14 +295,19 @@ namespace Personal_Habit_Tracker
 
                     this.Controls.Add(chk);
 
-                    if(saved.HaditCategory)
+                    if (saved.HaditCategory)
                     {
                         AddCounter(chk.Name, task_point);
                         task_point += 60;
                     }
-                    else
+                    else if (saved.ObjectiveCategory)
                     {
                         task_point += 40;
+                    }
+                    else if (saved.Planned_Activities)
+                    {
+                        AddNotificationDateLabel(chk.Name, task_point);
+                        task_point += 60;
                     }
                 }
             }
@@ -333,6 +338,34 @@ namespace Personal_Habit_Tracker
             }
 
             this.Controls.Add(counterForHabits);
+        }
+
+        //создание даты упоминания
+        private void AddNotificationDateLabel(string taskID, int LocationY)
+        {
+            List<CheckBoxData> checkBoxes = LoadCheckBoxesData();
+            var checkBox = checkBoxes.FirstOrDefault(x => x.Name == taskID);
+
+            Label notificationDateLabel = new Label();
+            notificationDateLabel.Name = "notificationDate_" + taskID;
+            notificationDateLabel.Text = checkBox.DateTimeForCheckBoxes.ToShortTimeString();
+            notificationDateLabel.ForeColor = Color.White;
+            notificationDateLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular);
+            notificationDateLabel.AutoSize = true;
+            notificationDateLabel.Location = new Point(140, LocationY + 30);
+            notificationDateLabel.Tag = "notificationDate";
+
+            if (!checkBox.Finish_Task)
+            {
+                notificationDateLabel.Text = checkBox.DateTimeForCheckBoxes.ToShortTimeString();
+            }
+            else
+            {
+                notificationDateLabel.Text = "Завершено";
+                notificationDateLabel.ForeColor = Color.LightGreen;
+            }
+
+            this.Controls.Add(notificationDateLabel);
         }
 
         private void Form4_FormClosed(object sender, FormClosedEventArgs e)
