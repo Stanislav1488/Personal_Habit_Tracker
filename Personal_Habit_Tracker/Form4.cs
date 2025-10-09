@@ -223,7 +223,7 @@ namespace Personal_Habit_Tracker
         {
             foreach (Control control in this.Controls.OfType<Control>().ToList())
             {
-                if (control.Tag != null && control.Tag.ToString() == "counter")
+                if (control.Tag != null && (control.Tag.ToString() == "counter" || control.Tag.ToString() == "notificationDate"))
                 {
                     this.Controls.Remove(control);
                     control.Dispose();
