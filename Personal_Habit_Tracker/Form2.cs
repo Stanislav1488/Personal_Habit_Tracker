@@ -279,27 +279,19 @@ namespace Personal_Habit_Tracker
             {
                 this.Size = new Size(520, 723);
                 ToggleNotificationSettingsUI(true);
+                Delete_TheCounter_From_theForm();
             }
             else if (habits.Checked)
             {
                 this.Size = new Size(520, 431);
                 Add_TheCounter_On_TheForm();
+                ToggleNotificationSettingsUI(false);
             }
             else if (objectives.Checked)
             {
                 this.Size = new Size(520, 332);
-            }
-        }
-
-        private void Categories_CheckedFalse()
-        {
-            if (!planned_activities.Checked)
-            {
-                ToggleNotificationSettingsUI(false);
-            }
-            else if (!habits.Checked)
-            {
                 Delete_TheCounter_From_theForm();
+                ToggleNotificationSettingsUI(false);
             }
         }
 
@@ -446,7 +438,6 @@ namespace Personal_Habit_Tracker
         private void categories_and_repeats_CheckedChanged(object sender, EventArgs e)
         {
             Categories_CheckedTrue();
-            Categories_CheckedFalse();
             Update_status_add_case();
         }
 
