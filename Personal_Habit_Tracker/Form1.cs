@@ -284,7 +284,7 @@ namespace Personal_Habit_Tracker
 
                 if (Form2.habitCategory == true)
                 {
-                    newCase.CheckedChanged += new EventHandler(task_CheckedChanged);
+                    newCase.Click += new EventHandler(task_Click);
                     newCase.Location = new Point(140, habit_pointY);
                 }
                 else if (Form2.objectiveCategory == true)
@@ -294,7 +294,7 @@ namespace Personal_Habit_Tracker
                 }
                 else if (Form2.plannedActivitiesCategory)
                 {
-                    newCase.CheckedChanged += new EventHandler(task_CheckedChanged);
+                    newCase.Click += new EventHandler(task_Click);
                     newCase.Location = new Point(530, plannedActivitiesCategory_pointY);
                 }
 
@@ -366,7 +366,7 @@ namespace Personal_Habit_Tracker
             this.Controls.Add(notificationDateLabel);
         }
 
-        private void task_CheckedChanged(object sender, EventArgs e)
+        private void task_Click(object sender, EventArgs e)
         {
             CheckBox checkBox = (CheckBox)sender;
 
@@ -428,7 +428,7 @@ namespace Personal_Habit_Tracker
 
             if (habit.CurrentCount < habit.TargetCount)
             {
-                habit.CurrentCount++;
+                habit.CurrentCount ++;
 
                 if (habit.CurrentCount == habit.TargetCount)
                 {
@@ -721,7 +721,7 @@ namespace Personal_Habit_Tracker
 
                         if (saved.HaditCategory)
                         {
-                            chk.CheckedChanged += new EventHandler(task_CheckedChanged);
+                            chk.Click += new EventHandler(task_Click);
                             chk.Location = new Point(140, habit_pointY);
                             AddCounter(chk.Name, habit_pointY);
                             AddMinus(chk.Name, habit_pointY);
@@ -736,7 +736,7 @@ namespace Personal_Habit_Tracker
                         {
                             if (saved.DateTimeForCheckBoxes.Date == DateTime.Today.Date)
                             {
-                                chk.CheckedChanged += new EventHandler(task_CheckedChanged);
+                                chk.Click += new EventHandler(task_Click);
                                 chk.Location = new Point(530, plannedActivitiesCategory_pointY);
                                 AddNotificationDateLabel(chk.Name, plannedActivitiesCategory_pointY);
                                 plannedActivitiesCategory_pointY += 60;
