@@ -273,22 +273,31 @@ namespace Personal_Habit_Tracker
             this.Controls.Remove(text_for_counter);
         }
 
+        private void MaxMinSizeForm(int width, int height)
+        {
+            this.MaximumSize = new Size(width, height);
+            this.MinimumSize = new Size(width, height);
+        }
+
         private void Categories_CheckedTrue()
         {
             if (planned_activities.Checked)
             {
+                MaxMinSizeForm(520, 723);
                 this.Size = new Size(520, 723);
                 ToggleNotificationSettingsUI(true);
                 Delete_TheCounter_From_theForm();
             }
             else if (habits.Checked)
             {
+                MaxMinSizeForm(520, 431);
                 this.Size = new Size(520, 431);
                 Add_TheCounter_On_TheForm();
                 ToggleNotificationSettingsUI(false);
             }
             else if (objectives.Checked)
             {
+                MaxMinSizeForm(520, 332);
                 this.Size = new Size(520, 332);
                 Delete_TheCounter_From_theForm();
                 ToggleNotificationSettingsUI(false);

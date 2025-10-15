@@ -125,6 +125,8 @@
             this.Controls.Add(this.task_with_notice_icon);
             this.Controls.Add(this.finished_icon);
             this.Controls.Add(this.pictureBox1);
+            this.MaximumSize = new System.Drawing.Size(550, 700);
+            this.MinimumSize = new System.Drawing.Size(550, 700);
             this.Name = "Form4";
             this.ShowIcon = false;
             this.Text = "Просмотр дел";

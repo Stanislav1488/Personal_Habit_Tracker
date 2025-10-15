@@ -99,7 +99,7 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "Категория";
             // 
-            // radioButton1
+            // habits
             // 
             this.habits.AutoSize = true;
             this.habits.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
@@ -113,7 +113,7 @@
             this.habits.UseVisualStyleBackColor = true;
             this.habits.CheckedChanged += new System.EventHandler(this.categories_and_repeats_CheckedChanged);
             // 
-            // radioButton2
+            // objectives
             // 
             this.objectives.AutoSize = true;
             this.objectives.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold);
@@ -176,6 +176,8 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.text_name);
+            this.MaximumSize = new System.Drawing.Size(520, 332);
+            this.MinimumSize = new System.Drawing.Size(520, 332);
             this.Name = "Form2";
             this.ShowIcon = false;
             this.Text = "Добавление";
