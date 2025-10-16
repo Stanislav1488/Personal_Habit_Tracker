@@ -93,7 +93,7 @@ namespace Personal_Habit_Tracker
             //label6
             label6.Text = ":";
             label6.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(292, 333);
+            label6.Location = new Point(320, 333);
             label6.Size = new Size(19, 27);
             label6.ForeColor = Color.White;
 
@@ -127,7 +127,7 @@ namespace Personal_Habit_Tracker
             //textBox4
             textBox4.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             textBox4.Location = new Point(171, 333);
-            textBox4.Size = new Size(38, 34);
+            textBox4.Size = new Size(66, 34);
             textBox4.BorderStyle = BorderStyle.FixedSingle;
             textBox4.BackColor = Color.FromArgb(26, 28, 28);
             textBox4.ForeColor = Color.White;
@@ -136,7 +136,7 @@ namespace Personal_Habit_Tracker
             //
             //textBox5
             textBox5.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox5.Location = new Point(254, 333);
+            textBox5.Location = new Point(282, 333);
             textBox5.Size = new Size(38, 34);
             textBox5.BorderStyle = BorderStyle.FixedSingle;
             textBox5.BackColor = Color.FromArgb(26, 28, 28);
@@ -146,7 +146,7 @@ namespace Personal_Habit_Tracker
             //
             //textBox6
             textBox6.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            textBox6.Location = new Point(311, 333);
+            textBox6.Location = new Point(339, 333);
             textBox6.Size = new Size(38, 34);
             textBox6.BorderStyle = BorderStyle.FixedSingle;
             textBox6.BackColor = Color.FromArgb(26, 28, 28);
