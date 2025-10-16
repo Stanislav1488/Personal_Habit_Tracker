@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Windows.ApplicationModel.Appointments.DataProvider;
 using static Personal_Habit_Tracker.Form1;
 
 namespace Personal_Habit_Tracker
@@ -17,11 +18,13 @@ namespace Personal_Habit_Tracker
         PictureBox windowForDelete = new PictureBox();
         PictureBox icon_okey = new PictureBox();
         CheckBox deleteAllCases = new CheckBox();
+        Label nameCategory = new Label();
 
         public Form4()
         {
             InitializeComponent();
             IconEventsAndTags();
+            SettingNameCategory();
             ObjectsForDeleteCases();
 
             icon_okey.Click += new EventHandler(DeleteCheckBoxes_Click);
@@ -50,6 +53,17 @@ namespace Personal_Habit_Tracker
             habit_icon.Tag = 3;
             task_icon.Tag = 4;
             delete_icon.Tag = 5;
+        }
+
+        private void SettingNameCategory()
+        {
+            nameCategory.BackColor = Color.FromArgb(23, 24, 26);
+            nameCategory.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold);
+            nameCategory.ForeColor = Color.White;
+            nameCategory.Location = new Point(140, 50);
+            nameCategory.AutoSize = true;
+
+            this.Controls.Add(nameCategory);
         }
 
         private void ObjectsForDeleteCases()
@@ -148,15 +162,19 @@ namespace Personal_Habit_Tracker
             {
                 case 1:
                     LoadFilteredTasks(x => x.Finish_Task == true);
+                    nameCategory.Text = "Завершённые задачи:";
                     break;
                 case 2:
                     LoadFilteredTasks(x => x.Finish_Task == false && x.Planned_Activities == true);
+                    nameCategory.Text = "Запланированные дела:";
                     break;
                 case 3:
                     LoadFilteredTasks(x => x.Finish_Task == false && x.HaditCategory == true);
+                    nameCategory.Text = "Привычки:";
                     break;
                 case 4:
                     LoadFilteredTasks(x => x.Finish_Task == false && x.ObjectiveCategory == true);
+                    nameCategory.Text = "Задачи:";
                     break;
             }
         }
@@ -172,7 +190,7 @@ namespace Personal_Habit_Tracker
         {
             DeleteCheckBoxes();
             DeleleWindowForDeleteCases();
-
+            
         }
 
         //Выбор всех CheckBoxes для удаления
