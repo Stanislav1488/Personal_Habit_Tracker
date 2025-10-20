@@ -574,6 +574,11 @@ namespace Personal_Habit_Tracker
             {
                 if (control is CheckBox chk && control != deleteAllCases)
                 {
+                    if (checkBoxes.Any(x => x.Name == chk.Name))
+                    {
+                        continue;
+                    }
+
                     var existing = existingData.FirstOrDefault(x => x.Name == chk.Name);
 
                     var data = new CheckBoxData
