@@ -657,7 +657,7 @@ namespace Personal_Habit_Tracker
         {
             foreach (Control control in this.Controls)
             {
-                if (control.Location.X == 230)
+                if (control.Name.StartsWith("minus_"))
                 {
                     this.Controls.Remove(control);
                     control.Dispose();
@@ -689,9 +689,9 @@ namespace Personal_Habit_Tracker
         //Загрузка
         private void LoadCheckBoxes()
         {
-            DeleteFromFormAllCheckBoxes();
-            DeleteFromFormAllLabel();
             DeleteFromFormAllMinus();
+            DeleteFromFormAllLabel();
+            DeleteFromFormAllCheckBoxes();
 
             objectiveCategory_pointY = 100;
             habit_pointY = 100;

@@ -1,1 +1,35 @@
-[]
+[
+  {
+    "Name": "Test2",
+    "Text": "Прогулка",
+    "HaditCategory": false,
+    "ObjectiveCategory": false,
+    "Planned_Activities": true,
+    "Finish_Task": false,
+    "CurrentCount": 0,
+    "TargetCount": 0,
+    "DateTimeForCheckBoxes": "2025-10-27T18:00:00"
+  },
+  {
+    "Name": "Test3",
+    "Text": "Вернуться домой",
+    "HaditCategory": false,
+    "ObjectiveCategory": false,
+    "Planned_Activities": true,
+    "Finish_Task": false,
+    "CurrentCount": 0,
+    "TargetCount": 0,
+    "DateTimeForCheckBoxes": "2025-10-27T19:40:00"
+  },
+  {
+    "Name": "Test4",
+    "Text": "Поужинать",
+    "HaditCategory": false,
+    "ObjectiveCategory": false,
+    "Planned_Activities": true,
+    "Finish_Task": false,
+    "CurrentCount": 0,
+    "TargetCount": 0,
+    "DateTimeForCheckBoxes": "2025-10-27T22:00:00"
+  }
+]
