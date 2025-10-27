@@ -5,7 +5,6 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
-using Windows.ApplicationModel.Appointments.DataProvider;
 using static Personal_Habit_Tracker.Form1;
 
 namespace Personal_Habit_Tracker
@@ -13,7 +12,8 @@ namespace Personal_Habit_Tracker
     public partial class Form4 : Form
     {
         public event Action FormClosedWithUpdate;
-        public static int task_point = 100;
+        int tagGategoty;
+        public static int task_point = 100; 
 
         PictureBox windowForDelete = new PictureBox();
         PictureBox icon_okey = new PictureBox();
@@ -157,8 +157,13 @@ namespace Personal_Habit_Tracker
         private void icons_Click(object sender, EventArgs e)
         {
             PictureBox icon = (PictureBox)sender;
+            tagGategoty = (int)icon.Tag;
+            LoadTask();
+        }
 
-            switch (icon.Tag)
+        private void LoadTask()
+        {
+            switch (tagGategoty)
             {
                 case 1:
                     LoadFilteredTasks(x => x.Finish_Task == true);
@@ -189,8 +194,9 @@ namespace Personal_Habit_Tracker
         private void DeleteCheckBoxes_Click(object sender, EventArgs e)
         {
             DeleteCheckBoxes();
+            DeleteFromFormAllObject();
+            DeleteFromFormAllLabel();
             DeleleWindowForDeleteCases();
-            
         }
 
         //Выбор всех CheckBoxes для удаления
@@ -219,7 +225,7 @@ namespace Personal_Habit_Tracker
                     }
                 }
                 SaveCheckBoxesData(checkBoxData);
-                DeleteFromFormAllObject();
+                
             }
         }
 
@@ -239,7 +245,7 @@ namespace Personal_Habit_Tracker
         //Удаление всех label с формы
         private void DeleteFromFormAllLabel()
         {
-            foreach (Control control in this.Controls.OfType<Control>().ToList())
+            foreach (Label control in this.Controls.OfType<Label>().ToList())
             {
                 if (control.Tag != null && (control.Tag.ToString() == "counter" || control.Tag.ToString() == "notificationDate"))
                 {
