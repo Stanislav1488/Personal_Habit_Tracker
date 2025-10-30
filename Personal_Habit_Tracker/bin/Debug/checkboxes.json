@@ -31,5 +31,27 @@
     "CurrentCount": 0,
     "TargetCount": 0,
     "DateTimeForCheckBoxes": "2025-10-27T22:00:00"
+  },
+  {
+    "Name": "Test0",
+    "Text": "Выпить воды",
+    "HaditCategory": true,
+    "ObjectiveCategory": false,
+    "Planned_Activities": false,
+    "Finish_Task": false,
+    "CurrentCount": 0,
+    "TargetCount": 7,
+    "DateTimeForCheckBoxes": "2025-10-30T13:09:56.9095411+07:00"
+  },
+  {
+    "Name": "Test1",
+    "Text": "Зарядка",
+    "HaditCategory": true,
+    "ObjectiveCategory": false,
+    "Planned_Activities": false,
+    "Finish_Task": false,
+    "CurrentCount": 0,
+    "TargetCount": 2,
+    "DateTimeForCheckBoxes": "2025-10-30T13:09:56.9095411+07:00"
   }
 ]

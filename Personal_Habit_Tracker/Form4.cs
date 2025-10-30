@@ -13,7 +13,7 @@ namespace Personal_Habit_Tracker
     {
         public event Action FormClosedWithUpdate;
         int tagGategoty;
-        public static int task_point = 100; 
+        public static int task_point = 100;
 
         PictureBox windowForDelete = new PictureBox();
         PictureBox icon_okey = new PictureBox();
@@ -225,7 +225,7 @@ namespace Personal_Habit_Tracker
                     }
                 }
                 SaveCheckBoxesData(checkBoxData);
-                
+
             }
         }
 
@@ -381,7 +381,16 @@ namespace Personal_Habit_Tracker
 
             if (!checkBox.Finish_Task)
             {
-                notificationDateLabel.Text = checkBox.DateTimeForCheckBoxes.ToShortTimeString();
+                if (checkBox.DateTimeForCheckBoxes.Date < DateTime.Today.Date)
+                {
+                    notificationDateLabel.Text = "Незавершенно";
+                    notificationDateLabel.ForeColor = Color.FromArgb(220, 53, 69);
+                }
+                else
+                {
+                    notificationDateLabel.Text = checkBox.DateTimeForCheckBoxes.ToShortTimeString();
+
+                }
             }
             else
             {
