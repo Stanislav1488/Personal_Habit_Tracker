@@ -357,8 +357,18 @@ namespace Personal_Habit_Tracker
 
             Label notificationDateLabel = new Label();
             notificationDateLabel.Name = "notificationDate_" + taskID;
-            notificationDateLabel.Text = checkBox.DateTimeForCheckBoxes.ToShortTimeString();
-            notificationDateLabel.ForeColor = Color.White;
+
+            if (checkBox.DateTimeForCheckBoxes.Date == DateTime.Today.Date)
+            {
+                notificationDateLabel.Text = checkBox.DateTimeForCheckBoxes.ToShortTimeString();
+                notificationDateLabel.ForeColor = Color.White;
+            }
+            else
+            {
+                notificationDateLabel.Text = "Незавершенно";
+                notificationDateLabel.ForeColor = Color.FromArgb(220, 53, 69);
+            }
+
             notificationDateLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular);
             notificationDateLabel.AutoSize = true;
             notificationDateLabel.Location = new Point(530, LocationY + 30);
@@ -428,7 +438,7 @@ namespace Personal_Habit_Tracker
 
             if (habit.CurrentCount < habit.TargetCount)
             {
-                habit.CurrentCount ++;
+                habit.CurrentCount++;
 
                 if (habit.CurrentCount == habit.TargetCount)
                 {
@@ -458,8 +468,17 @@ namespace Personal_Habit_Tracker
             }
             else
             {
-                labelForPlanned_Activity.Text = planned_activity.DateTimeForCheckBoxes.ToShortTimeString();
-                labelForPlanned_Activity.ForeColor = Color.White;
+                if (planned_activity.DateTimeForCheckBoxes.Date == DateTime.Today.Date)
+                {
+                    labelForPlanned_Activity.Text = planned_activity.DateTimeForCheckBoxes.ToShortTimeString();
+                    labelForPlanned_Activity.ForeColor = Color.White;
+                }
+                else
+                {
+                    labelForPlanned_Activity.Text = "Незавершенно";
+                    labelForPlanned_Activity.ForeColor = Color.FromArgb(220, 53, 69);
+                }
+
                 planned_activity.Finish_Task = false;
             }
 
@@ -566,8 +585,7 @@ namespace Personal_Habit_Tracker
         {
             List<CheckBoxData> checkBoxes = new List<CheckBoxData>();
             var existingData = LoadCheckBoxesData();
-            checkBoxes.AddRange(existingData.Where(x => x.Finish_Task));
-            checkBoxes.AddRange(existingData.Where(x => x.Planned_Activities && x.DateTimeForCheckBoxes.Date != DateTime.Today.Date));
+            checkBoxes.AddRange(existingData.Where(x => x.Planned_Activities));
             caseCount = 0;
 
             foreach (Control control in this.Controls)
@@ -739,7 +757,7 @@ namespace Personal_Habit_Tracker
                         }
                         else if (saved.Planned_Activities)
                         {
-                            if (saved.DateTimeForCheckBoxes.Date == DateTime.Today.Date)
+                            if (saved.DateTimeForCheckBoxes.Date <= DateTime.Today.Date)
                             {
                                 chk.Click += new EventHandler(task_Click);
                                 chk.Location = new Point(530, plannedActivitiesCategory_pointY);

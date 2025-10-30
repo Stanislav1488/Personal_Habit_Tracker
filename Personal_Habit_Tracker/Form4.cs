@@ -389,7 +389,6 @@ namespace Personal_Habit_Tracker
                 else
                 {
                     notificationDateLabel.Text = checkBox.DateTimeForCheckBoxes.ToShortTimeString();
-
                 }
             }
             else
