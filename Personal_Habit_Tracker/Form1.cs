@@ -373,7 +373,7 @@ namespace Personal_Habit_Tracker
             }
             else
             {
-                notificationDateLabel.Text = "Незавершенно";
+                notificationDateLabel.Text = "Незавершенно " + checkBox.DateTimeForCheckBoxes.ToString("g");
                 notificationDateLabel.ForeColor = Color.FromArgb(220, 53, 69);
                 NotifyIncompleteTasks(checkBox.Text, checkBox.DateTimeForCheckBoxes);
             }

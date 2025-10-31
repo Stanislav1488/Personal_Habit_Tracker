@@ -383,7 +383,7 @@ namespace Personal_Habit_Tracker
             {
                 if (checkBox.DateTimeForCheckBoxes.Date < DateTime.Today.Date)
                 {
-                    notificationDateLabel.Text = "Незавершенно";
+                    notificationDateLabel.Text = "Незавершенно " + checkBox.DateTimeForCheckBoxes.ToString("g");
                     notificationDateLabel.ForeColor = Color.FromArgb(220, 53, 69);
                 }
                 else
