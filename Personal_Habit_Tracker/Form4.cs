@@ -381,14 +381,19 @@ namespace Personal_Habit_Tracker
 
             if (!checkBox.Finish_Task)
             {
-                if (checkBox.DateTimeForCheckBoxes.Date < DateTime.Today.Date)
+                if (checkBox.DateTimeForCheckBoxes.Date == DateTime.Today.Date)
+                {
+                    notificationDateLabel.Text = checkBox.DateTimeForCheckBoxes.ToShortTimeString();
+                }
+                else if(checkBox.DateTimeForCheckBoxes.Date < DateTime.Today.Date)
                 {
                     notificationDateLabel.Text = "Незавершенно " + checkBox.DateTimeForCheckBoxes.ToString("g");
                     notificationDateLabel.ForeColor = Color.FromArgb(220, 53, 69);
                 }
-                else
+                else if(checkBox.DateTimeForCheckBoxes.Date > DateTime.Today.Date)
                 {
-                    notificationDateLabel.Text = checkBox.DateTimeForCheckBoxes.ToShortTimeString();
+                    notificationDateLabel.Text = "Запланировано на" + checkBox.DateTimeForCheckBoxes.ToString("g");
+                    notificationDateLabel.ForeColor = Color.FromArgb(100, 149, 237);
                 }
             }
             else

@@ -1,1 +1,57 @@
-[]
+[
+  {
+    "Name": "Test2",
+    "Text": "Прогулка",
+    "HaditCategory": false,
+    "ObjectiveCategory": false,
+    "Planned_Activities": true,
+    "Finish_Task": false,
+    "CurrentCount": 0,
+    "TargetCount": 0,
+    "DateTimeForCheckBoxes": "2025-10-27T18:00:00"
+  },
+  {
+    "Name": "Test4",
+    "Text": "Поужинать",
+    "HaditCategory": false,
+    "ObjectiveCategory": false,
+    "Planned_Activities": true,
+    "Finish_Task": false,
+    "CurrentCount": 0,
+    "TargetCount": 0,
+    "DateTimeForCheckBoxes": "2025-11-02T22:00:00"
+  },
+  {
+    "Name": "Test3",
+    "Text": "Вернуться домой",
+    "HaditCategory": false,
+    "ObjectiveCategory": false,
+    "Planned_Activities": true,
+    "Finish_Task": false,
+    "CurrentCount": 0,
+    "TargetCount": 0,
+    "DateTimeForCheckBoxes": "2025-11-01T19:40:00"
+  },
+  {
+    "Name": "Test0",
+    "Text": "Выпить воды",
+    "HaditCategory": true,
+    "ObjectiveCategory": false,
+    "Planned_Activities": false,
+    "Finish_Task": false,
+    "CurrentCount": 0,
+    "TargetCount": 7,
+    "DateTimeForCheckBoxes": "2025-11-01T02:25:32.2451618+07:00"
+  },
+  {
+    "Name": "Test1",
+    "Text": "Зарядка",
+    "HaditCategory": true,
+    "ObjectiveCategory": false,
+    "Planned_Activities": false,
+    "Finish_Task": false,
+    "CurrentCount": 0,
+    "TargetCount": 2,
+    "DateTimeForCheckBoxes": "2025-11-01T02:25:32.2451618+07:00"
+  }
+]
