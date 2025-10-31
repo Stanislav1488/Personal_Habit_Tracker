@@ -224,6 +224,14 @@ namespace Personal_Habit_Tracker
             notification.Show();
         }
 
+        private void NotifyIncompleteTasks(string taskName, DateTime taskDateTime)
+        {
+            var notification = new ToastContentBuilder();
+            notification.AddText("Незавершенна задача: " + taskName);
+            notification.AddText("Запланировано на: " + taskDateTime.ToString("g"));
+            notification.Show();
+        }
+
 
         private void ToggleControlPanelState()
         {
@@ -367,6 +375,7 @@ namespace Personal_Habit_Tracker
             {
                 notificationDateLabel.Text = "Незавершенно";
                 notificationDateLabel.ForeColor = Color.FromArgb(220, 53, 69);
+                NotifyIncompleteTasks(checkBox.Text, checkBox.DateTimeForCheckBoxes);
             }
 
             notificationDateLabel.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular);
