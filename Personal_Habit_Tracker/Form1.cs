@@ -45,6 +45,7 @@ namespace Personal_Habit_Tracker
             public int CurrentCount { get; set; }
             public int TargetCount { get; set; }
             public DateTime DateTimeForCheckBoxes { get; set; }
+            public string RepeatFrequency { get; set; }
         }
 
         private void IconEventsAndTags()
@@ -633,6 +634,7 @@ namespace Personal_Habit_Tracker
                         else if (existing.Planned_Activities)
                         {
                             data.DateTimeForCheckBoxes = existing.DateTimeForCheckBoxes;
+                            data.RepeatFrequency = existing.RepeatFrequency;
                         }
                     }
                     else if (chk.Location.X == 140 && Form2.habitCategory)
@@ -643,6 +645,7 @@ namespace Personal_Habit_Tracker
                     else if (chk.Location.X == 530 && Form2.plannedActivitiesCategory)
                     {
                         data.DateTimeForCheckBoxes = Form2.dateTime;
+                        data.RepeatFrequency = Form2.repeatFrequency;
                     }
 
                     checkBoxes.Add(data);

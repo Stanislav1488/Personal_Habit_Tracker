@@ -7,7 +7,7 @@ namespace Personal_Habit_Tracker
 {
     public partial class Form2 : Form
     {
-        static public string text_nameCase;
+        static public string text_nameCase, repeatFrequency;
         static public int counter_text;
         static public int year = 0001, morth = 01, day = 01, hour = 0, minutes = 0;
         static public bool habitCategory, objectiveCategory, plannedActivitiesCategory, ClosedByAddCase = false;
@@ -158,6 +158,7 @@ namespace Personal_Habit_Tracker
             radioButton4.Location = new Point(3, 3);
             radioButton4.Size = new Size(172, 31);
             radioButton4.Text = "Не повторять";
+            radioButton4.Tag = "none";
             //
             //radioButton5
             radioButton5.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -165,6 +166,7 @@ namespace Personal_Habit_Tracker
             radioButton5.Location = new Point(3, 40);
             radioButton5.Size = new Size(194, 31);
             radioButton5.Text = "Ежедневно";
+            radioButton5.Tag = "daily";
             //
             //radioButton6
             radioButton6.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -172,13 +174,15 @@ namespace Personal_Habit_Tracker
             radioButton6.Location = new Point(3, 77);
             radioButton6.Size = new Size(154, 31);
             radioButton6.Text = "Еженедельно";
+            radioButton6.Tag = "weekly";
             //
             //radioButton7
             radioButton7.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radioButton7.ForeColor = Color.White;
-            radioButton7.Location = new Point(4, 114);
+            radioButton7.Location = new Point(3, 114);
             radioButton7.Size = new Size(171, 31);
             radioButton7.Text = "Ежемесячно";
+            radioButton7.Tag = "monthly";
             //
             //radioButton8
             radioButton8.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
@@ -186,6 +190,7 @@ namespace Personal_Habit_Tracker
             radioButton8.Location = new Point(3, 151);
             radioButton8.Size = new Size(163, 31);
             radioButton8.Text = "Ежегодно";
+            radioButton8.Tag = "yearly";
         }
 
         private void Setting_Add_TheCounter_For_Habits()
@@ -321,8 +326,8 @@ namespace Personal_Habit_Tracker
                     {
                         return false;
                     }
-                    
-                    if(check_text(textBox))
+
+                    if (check_text(textBox))
                     {
                         switch (textBox.Tag)
                         {
@@ -341,7 +346,7 @@ namespace Personal_Habit_Tracker
                             case 5:
                                 minutes = Convert.ToInt32(textBox.Text);
                                 break;
-                        }    
+                        }
                     }
                 }
 
@@ -375,7 +380,7 @@ namespace Personal_Habit_Tracker
 
         private bool Validate_Repeat_And_Category()
         {
-            RadioButton[] repeatRadioButtons = { radioButton4, radioButton5, radioButton6, radioButton7, radioButton8};
+            RadioButton[] repeatRadioButtons = { radioButton4, radioButton5, radioButton6, radioButton7, radioButton8 };
 
 
             if (!planned_activities.Checked)
@@ -408,7 +413,7 @@ namespace Personal_Habit_Tracker
 
         private void notificationTextBoxes_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back)
+            if ((e.KeyChar >= '0' && e.KeyChar <= '9') || e.KeyChar == (char)Keys.Back)
             {
                 return;
             }
@@ -457,10 +462,25 @@ namespace Personal_Habit_Tracker
             {
                 counter_text = Convert.ToInt32(text_for_counter.Text);
             }
+            else if (plannedActivitiesCategory)
+            {
+                AddRepeatFrequency();
+            }
 
             this.Close();
         }
 
+        private void AddRepeatFrequency()
+        {
+            RadioButton[] repeatRadioButtons = { radioButton4, radioButton5, radioButton6, radioButton7, radioButton8 };
 
+            foreach(RadioButton radioButton in repeatRadioButtons)
+            {
+                if (radioButton.Checked)
+                {
+                    repeatFrequency = (string)radioButton.Tag;
+                }
+            }
+        }
     }
 }
