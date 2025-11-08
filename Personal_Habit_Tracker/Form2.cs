@@ -26,7 +26,6 @@ namespace Personal_Habit_Tracker
         TextBox textBox5 = new TextBox();
         TextBox textBox6 = new TextBox();
         TextBox text_for_counter = new TextBox();
-        RadioButton radioButton3 = new RadioButton();
         RadioButton radioButton4 = new RadioButton();
         RadioButton radioButton5 = new RadioButton();
         RadioButton radioButton6 = new RadioButton();
@@ -47,7 +46,6 @@ namespace Personal_Habit_Tracker
         {
             objectives.CheckedChanged += categories_and_repeats_CheckedChanged;
             planned_activities.CheckedChanged += categories_and_repeats_CheckedChanged;
-            radioButton3.CheckedChanged += categories_and_repeats_CheckedChanged;
             radioButton4.CheckedChanged += categories_and_repeats_CheckedChanged;
             radioButton5.CheckedChanged += categories_and_repeats_CheckedChanged;
             radioButton6.CheckedChanged += categories_and_repeats_CheckedChanged;
@@ -100,7 +98,7 @@ namespace Personal_Habit_Tracker
             //label7
             label7.Text = "Повторение";
             label7.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(12, 400);
+            label7.Location = new Point(12, 390);
             label7.Size = new Size(135, 27);
             label7.ForeColor = Color.White;
 
@@ -154,48 +152,40 @@ namespace Personal_Habit_Tracker
             textBox6.KeyPress += notificationTextBoxes_KeyPress;
             textBox6.Tag = 5;
             //
-            //radioButton3
-            radioButton3.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            radioButton3.ForeColor = Color.White;
-            radioButton3.Location = new Point(3, 3);
-            radioButton3.Size = new Size(172, 31);
-            radioButton3.Text = "Не повторять";
-            //
             //radioButton4
             radioButton4.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radioButton4.ForeColor = Color.White;
-            radioButton4.Location = new Point(3, 40);
-            radioButton4.Size = new Size(194, 31);
-            radioButton4.Text = "Каждую минуту";
+            radioButton4.Location = new Point(3, 3);
+            radioButton4.Size = new Size(172, 31);
+            radioButton4.Text = "Не повторять";
             //
             //radioButton5
             radioButton5.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radioButton5.ForeColor = Color.White;
-            radioButton5.Location = new Point(3, 77);
-            radioButton5.Size = new Size(154, 31);
-            radioButton5.Text = "Каждый час";
+            radioButton5.Location = new Point(3, 40);
+            radioButton5.Size = new Size(194, 31);
+            radioButton5.Text = "Ежедневно";
             //
             //radioButton6
             radioButton6.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radioButton6.ForeColor = Color.White;
-            radioButton6.Location = new Point(4, 114);
-            radioButton6.Size = new Size(171, 31);
+            radioButton6.Location = new Point(3, 77);
+            radioButton6.Size = new Size(154, 31);
             radioButton6.Text = "Еженедельно";
             //
             //radioButton7
             radioButton7.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radioButton7.ForeColor = Color.White;
-            radioButton7.Location = new Point(3, 151);
-            radioButton7.Size = new Size(163, 31);
+            radioButton7.Location = new Point(4, 114);
+            radioButton7.Size = new Size(171, 31);
             radioButton7.Text = "Ежемесячно";
             //
             //radioButton8
             radioButton8.Font = new Font("Segoe MDL2 Assets", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
             radioButton8.ForeColor = Color.White;
-            radioButton8.Location = new Point(4, 188);
-            radioButton8.Size = new Size(132, 31);
+            radioButton8.Location = new Point(3, 151);
+            radioButton8.Size = new Size(163, 31);
             radioButton8.Text = "Ежегодно";
-
         }
 
         private void Setting_Add_TheCounter_For_Habits()
@@ -232,7 +222,6 @@ namespace Personal_Habit_Tracker
                 this.Controls.Add(textBox4);
                 this.Controls.Add(textBox5);
                 this.Controls.Add(textBox6);
-                this.panel.Controls.Add(this.radioButton3);
                 this.panel.Controls.Add(this.radioButton4);
                 this.panel.Controls.Add(this.radioButton5);
                 this.panel.Controls.Add(this.radioButton6);
@@ -252,7 +241,6 @@ namespace Personal_Habit_Tracker
                 this.Controls.Remove(textBox4);
                 this.Controls.Remove(textBox5);
                 this.Controls.Remove(textBox6);
-                this.panel.Controls.Remove(this.radioButton3);
                 this.panel.Controls.Remove(this.radioButton4);
                 this.panel.Controls.Remove(this.radioButton5);
                 this.panel.Controls.Remove(this.radioButton6);
@@ -387,7 +375,7 @@ namespace Personal_Habit_Tracker
 
         private bool Validate_Repeat_And_Category()
         {
-            RadioButton[] repeatRadioButtons = { radioButton3, radioButton4, radioButton5, radioButton6, radioButton7, radioButton8 };
+            RadioButton[] repeatRadioButtons = { radioButton4, radioButton5, radioButton6, radioButton7, radioButton8};
 
 
             if (!planned_activities.Checked)
