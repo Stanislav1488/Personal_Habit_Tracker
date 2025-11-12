@@ -595,7 +595,7 @@ namespace Personal_Habit_Tracker
         {
             List<CheckBoxData> checkBoxes = new List<CheckBoxData>();
             var existingData = LoadCheckBoxesData();
-            checkBoxes.AddRange(existingData.Where(x => x.Planned_Activities));
+            checkBoxes.AddRange(existingData.Where(x => x.Planned_Activities || !(x.Planned_Activities && x.Finish_Task && x.RepeatFrequency != "none")));
             caseCount = 0;
 
             foreach (Control control in this.Controls)
@@ -653,7 +653,48 @@ namespace Personal_Habit_Tracker
                 }
             }
 
+            foreach (var task in checkBoxes.Where(x => x.Planned_Activities && x.Finish_Task && x.RepeatFrequency != "none").ToList())
+            {
+                RescheduleTask(task, checkBoxes);
+            }
+
             SaveCheckBoxesData(checkBoxes);
+        }
+
+        private void RescheduleTask(CheckBoxData task, List<CheckBoxData> checkBoxes)
+        {
+            
+
+            var newPlannedTask = new CheckBoxData
+            {
+                Name = "Test" + Convert.ToString(caseCount),
+                Text = task.Text,
+                Finish_Task = false,
+                Planned_Activities = true,
+                RepeatFrequency = task.RepeatFrequency,
+                DateTimeForCheckBoxes = CalculateNextTask(task.DateTimeForCheckBoxes, task.RepeatFrequency)
+            };
+
+            checkBoxes.Add(newPlannedTask);
+            caseCount++;
+            task.RepeatFrequency = "none";
+        }
+
+        private DateTime CalculateNextTask(DateTime currentDateTime, string frequency)
+        {
+            switch (frequency)
+            {
+                case "daily":
+                    return currentDateTime.AddDays(1);
+                case "weekly":
+                    return currentDateTime.AddDays(7);
+                case "monthly":
+                    return currentDateTime.AddDays(30);
+                case "yearly":
+                    return currentDateTime.AddYears(1);
+            }
+
+            return currentDateTime;
         }
 
         //Удаление всех checkBoxes с формы
