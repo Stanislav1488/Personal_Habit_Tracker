@@ -34,15 +34,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.icon_add = new System.Windows.Forms.PictureBox();
-            this.icon_statistics = new System.Windows.Forms.PictureBox();
             this.icon_history = new System.Windows.Forms.PictureBox();
-            this.icon_setting = new System.Windows.Forms.PictureBox();
             this.icon_delete = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_add)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_statistics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_history)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_setting)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_delete)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,26 +80,12 @@
             this.icon_add.MouseLeave += new System.EventHandler(this.icons_MouseLeave);
             this.icon_add.MouseMove += new System.Windows.Forms.MouseEventHandler(this.icons_MouseMove);
             // 
-            // icon_statistics
-            // 
-            this.icon_statistics.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            resources.ApplyResources(this.icon_statistics, "icon_statistics");
-            this.icon_statistics.Name = "icon_statistics";
-            this.icon_statistics.TabStop = false;
-            // 
             // icon_history
             // 
             this.icon_history.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             resources.ApplyResources(this.icon_history, "icon_history");
             this.icon_history.Name = "icon_history";
             this.icon_history.TabStop = false;
-            // 
-            // icon_setting
-            // 
-            this.icon_setting.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
-            resources.ApplyResources(this.icon_setting, "icon_setting");
-            this.icon_setting.Name = "icon_setting";
-            this.icon_setting.TabStop = false;
             // 
             // icon_delete
             // 
@@ -119,9 +101,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(24)))), ((int)(((byte)(26)))));
             this.Controls.Add(this.icon_delete);
-            this.Controls.Add(this.icon_setting);
             this.Controls.Add(this.icon_history);
-            this.Controls.Add(this.icon_statistics);
             this.Controls.Add(this.icon_add);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label4);
@@ -133,9 +113,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_add)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_statistics)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_history)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.icon_setting)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.icon_delete)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -147,9 +125,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox icon_add;
-        private System.Windows.Forms.PictureBox icon_statistics;
         private System.Windows.Forms.PictureBox icon_history;
-        private System.Windows.Forms.PictureBox icon_setting;
         private System.Windows.Forms.PictureBox icon_delete;
         private System.Windows.Forms.Label label2;
     }

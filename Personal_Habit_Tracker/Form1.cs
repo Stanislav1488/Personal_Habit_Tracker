@@ -50,25 +50,17 @@ namespace Personal_Habit_Tracker
 
         private void IconEventsAndTags()
         {
-            icon_statistics.MouseMove += icons_MouseMove;
             icon_history.MouseMove += icons_MouseMove;
-            icon_setting.MouseMove += icons_MouseMove;
             icon_delete.MouseMove += icons_MouseMove;
 
-            icon_statistics.MouseLeave += icons_MouseLeave;
             icon_history.MouseLeave += icons_MouseLeave;
-            icon_setting.MouseLeave += icons_MouseLeave;
             icon_delete.MouseLeave += icons_MouseLeave;
 
-            icon_statistics.Click += icons_Click;
             icon_history.Click += icons_Click;
-            icon_setting.Click += icons_Click;
 
             icon_add.Tag = 1;
-            icon_statistics.Tag = 2;
-            icon_history.Tag = 3;
-            icon_setting.Tag = 4;
-            icon_delete.Tag = 5;
+            icon_history.Tag = 2;
+            icon_delete.Tag = 3;
         }
 
         private void ObjectsForDeleteCases()
@@ -119,15 +111,9 @@ namespace Personal_Habit_Tracker
                     icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\add_white.png");
                     break;
                 case 2:
-                    icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\statistics_white.png");
-                    break;
-                case 3:
                     icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\history_white.png");
                     break;
-                case 4:
-                    icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\setting_white.png");
-                    break;
-                case 5:
+                case 3:
                     icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_white.png");
                     break;
             }
@@ -143,15 +129,9 @@ namespace Personal_Habit_Tracker
                     icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\add_blue.png");
                     break;
                 case 2:
-                    icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\statistics_blue.png");
-                    break;
-                case 3:
                     icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\history_blue.png");
                     break;
-                case 4:
-                    icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\setting_blue.png");
-                    break;
-                case 5:
+                case 3:
                     icon.Image = Image.FromFile(Directory.GetCurrentDirectory() + "\\icons\\delete_blue.png");
                     break;
             }
@@ -169,17 +149,9 @@ namespace Personal_Habit_Tracker
                     AddNewCase();
                     break;
                 case 2:
-                    Form form_for_statistics = new Form3();
-                    form_for_statistics.ShowDialog();
-                    break;
-                case 3:
                     Form4 form_for_history = new Form4();
                     form_for_history.FormClosedWithUpdate += () => LoadCheckBoxes();
                     form_for_history.ShowDialog();
-                    break;
-                case 4:
-                    Form form_for_setting = new Form5();
-                    form_for_setting.ShowDialog();
                     break;
             }
         }
