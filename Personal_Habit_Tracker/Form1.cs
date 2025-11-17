@@ -304,11 +304,8 @@ namespace Personal_Habit_Tracker
         }
 
         //добавление счетчика
-        private void AddCounter(string habitID, int LocationY)
+        private void AddCounter(string habitID, int LocationY, CheckBoxData habit)
         {
-            List<CheckBoxData> habits = LoadCheckBoxesData();
-            var habit = habits.FirstOrDefault(x => x.Name == habitID);
-
             Label counterForHabits = new Label();
             counterForHabits.Name = "counter_" + habitID;
             counterForHabits.ForeColor = Color.White;
@@ -757,7 +754,6 @@ namespace Personal_Habit_Tracker
                 string json = File.ReadAllText("checkboxes.json");
                 List<CheckBoxData> savedBoxes = JsonConvert.DeserializeObject<List<CheckBoxData>>(json);
 
-                UpdateJsonNames();
 
                 savedBoxes = softPlannedActivitiesByTime(savedBoxes);
 
@@ -785,7 +781,7 @@ namespace Personal_Habit_Tracker
                         {
                             chk.Click += new EventHandler(task_Click);
                             chk.Location = new Point(140, habit_pointY);
-                            AddCounter(chk.Name, habit_pointY);
+                            AddCounter(chk.Name, habit_pointY, saved);
                             AddMinus(chk.Name, habit_pointY);
                             habit_pointY += 60;
                         }
@@ -813,6 +809,8 @@ namespace Personal_Habit_Tracker
                     }
                     caseCount = savedBoxes.Count;
                 }
+
+                UpdateJsonNames();
             }
         }
     }
