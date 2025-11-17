@@ -1,1 +1,14 @@
-[]
+[
+  {
+    "Name": "Test1",
+    "Text": "акаака",
+    "HaditCategory": true,
+    "ObjectiveCategory": false,
+    "Planned_Activities": false,
+    "Finish_Task": false,
+    "CurrentCount": 0,
+    "TargetCount": 5,
+    "DateTimeForCheckBoxes": "2025-11-17T22:30:16.0315564+07:00",
+    "RepeatFrequency": null
+  }
+]

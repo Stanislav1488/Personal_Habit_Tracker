@@ -729,6 +729,18 @@ namespace Personal_Habit_Tracker
             return otherItems;
         }
 
+        private void UpdateJsonNames()
+        {
+            var savedBoxes = LoadCheckBoxesData();
+
+            foreach (CheckBoxData checkbox in savedBoxes)
+            {
+                checkbox.Name = "Test" + caseCount++;
+            }
+
+            SaveCheckBoxesData(savedBoxes);
+        }
+
         //Загрузка
         private void LoadCheckBoxes()
         {
@@ -744,6 +756,8 @@ namespace Personal_Habit_Tracker
             {
                 string json = File.ReadAllText("checkboxes.json");
                 List<CheckBoxData> savedBoxes = JsonConvert.DeserializeObject<List<CheckBoxData>>(json);
+
+                UpdateJsonNames();
 
                 savedBoxes = softPlannedActivitiesByTime(savedBoxes);
 
@@ -797,8 +811,8 @@ namespace Personal_Habit_Tracker
                             this.Controls.Add(chk);
                         }
                     }
+                    caseCount = savedBoxes.Count;
                 }
-                caseCount = savedBoxes.Count;
             }
         }
     }
