@@ -304,8 +304,11 @@ namespace Personal_Habit_Tracker
         }
 
         //добавление счетчика
-        private void AddCounter(string habitID, int LocationY, CheckBoxData habit)
+        private void AddCounter(string habitID, int LocationY)
         {
+            List<CheckBoxData> habits = LoadCheckBoxesData();
+            var habit = habits.FirstOrDefault(x => x.Name == habitID);
+
             Label counterForHabits = new Label();
             counterForHabits.Name = "counter_" + habitID;
             counterForHabits.ForeColor = Color.White;
@@ -565,7 +568,7 @@ namespace Personal_Habit_Tracker
             List<CheckBoxData> checkBoxes = new List<CheckBoxData>();
             var existingData = LoadCheckBoxesData();
             checkBoxes.AddRange(existingData.Where(x => x.Planned_Activities || !(x.Planned_Activities && x.Finish_Task && x.RepeatFrequency != "none")));
-            caseCount = 0;
+            caseCount = existingData.Count;
 
             foreach (Control control in this.Controls)
             {
@@ -726,18 +729,6 @@ namespace Personal_Habit_Tracker
             return otherItems;
         }
 
-        private void UpdateJsonNames()
-        {
-            var savedBoxes = LoadCheckBoxesData();
-
-            foreach (CheckBoxData checkbox in savedBoxes)
-            {
-                checkbox.Name = "Test" + caseCount++;
-            }
-
-            SaveCheckBoxesData(savedBoxes);
-        }
-
         //Загрузка
         private void LoadCheckBoxes()
         {
@@ -781,7 +772,7 @@ namespace Personal_Habit_Tracker
                         {
                             chk.Click += new EventHandler(task_Click);
                             chk.Location = new Point(140, habit_pointY);
-                            AddCounter(chk.Name, habit_pointY, saved);
+                            AddCounter(chk.Name, habit_pointY);
                             AddMinus(chk.Name, habit_pointY);
                             habit_pointY += 60;
                         }
@@ -809,8 +800,6 @@ namespace Personal_Habit_Tracker
                     }
                     caseCount = savedBoxes.Count;
                 }
-
-                UpdateJsonNames();
             }
         }
     }

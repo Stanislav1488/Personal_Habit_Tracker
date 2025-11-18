@@ -1,26 +1,2 @@
 [
-  {
-    "Name": "Test1",
-    "Text": "пкпкп",
-    "HaditCategory": false,
-    "ObjectiveCategory": false,
-    "Planned_Activities": true,
-    "Finish_Task": false,
-    "CurrentCount": 0,
-    "TargetCount": 0,
-    "DateTimeForCheckBoxes": "2025-11-17T23:00:00",
-    "RepeatFrequency": "weekly"
-  },
-  {
-    "Name": "Test0",
-    "Text": "пкпкп",
-    "HaditCategory": false,
-    "ObjectiveCategory": false,
-    "Planned_Activities": true,
-    "Finish_Task": false,
-    "CurrentCount": 0,
-    "TargetCount": 0,
-    "DateTimeForCheckBoxes": "2025-11-17T23:00:00",
-    "RepeatFrequency": "weekly"
-  }
 ]
