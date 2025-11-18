@@ -1,1 +1,38 @@
-[]
+[
+  {
+    "Name": "Test0",
+    "Text": "gfhh",
+    "HaditCategory": true,
+    "ObjectiveCategory": false,
+    "Planned_Activities": false,
+    "Finish_Task": false,
+    "CurrentCount": 1,
+    "TargetCount": 5,
+    "DateTimeForCheckBoxes": "2025-11-18T20:37:11.5673858+07:00",
+    "RepeatFrequency": null
+  },
+  {
+    "Name": "Test1",
+    "Text": "fdggdgg",
+    "HaditCategory": false,
+    "ObjectiveCategory": false,
+    "Planned_Activities": true,
+    "Finish_Task": true,
+    "CurrentCount": 0,
+    "TargetCount": 0,
+    "DateTimeForCheckBoxes": "2025-11-18T21:21:00",
+    "RepeatFrequency": "none"
+  },
+  {
+    "Name": "Test2",
+    "Text": "fdggdgg",
+    "HaditCategory": false,
+    "ObjectiveCategory": false,
+    "Planned_Activities": true,
+    "Finish_Task": false,
+    "CurrentCount": 0,
+    "TargetCount": 0,
+    "DateTimeForCheckBoxes": "2025-11-25T21:21:00",
+    "RepeatFrequency": "weekly"
+  }
+]

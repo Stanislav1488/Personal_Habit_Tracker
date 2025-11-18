@@ -568,7 +568,7 @@ namespace Personal_Habit_Tracker
             List<CheckBoxData> checkBoxes = new List<CheckBoxData>();
             var existingData = LoadCheckBoxesData();
             checkBoxes.AddRange(existingData.Where(x => x.Planned_Activities || !(x.Planned_Activities && x.Finish_Task && x.RepeatFrequency != "none")));
-            caseCount = 0;
+            caseCount = existingData.Count;
 
             foreach (Control control in this.Controls)
             {

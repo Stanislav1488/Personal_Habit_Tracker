@@ -28,9 +28,7 @@ C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.exe.config
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.Form1.resources
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.Form2.resources
-C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.Form3.resources
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.Form4.resources
-C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.Form5.resources
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.Properties.Resources.resources
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.Form1.lkt-US.resources
 C:\Users\stani\source\repos\Stanislav1488\Personal_Habit_Tracker\Personal_Habit_Tracker\obj\Debug\Personal_Habit_Tracker.csproj.GenerateResource.cache
